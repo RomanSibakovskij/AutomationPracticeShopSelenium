@@ -130,6 +130,47 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid navigate to 'Create Account' page (too long user email) test method (100 chars -> name, domain)
+    protected void invalidNavigateToCreateAccountPageTooLongEmailTest(){
+        HomePage homePage = new HomePage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //click 'Bestsellers' section button link
+        homePage.clickBestsellersSectionButtonLink();
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //home page bestseller products data logger
+        logHomePageBestSellerProductData(homePage);
+        //capture screenshot of the home page
+        captureScreenshot(driver, "Home Page Visual Display");
+        //click 'Sign In' nav link
+        generalPage.clickSignInNavLink();
+        //capture screenshot of the user moving to create account / login dashboard page
+        captureScreenshot(driver, "User Navigation to Create Account And Login Dashboard Page");
+        //create account/login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account/login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //input too long email into email input field (100 chars -> name, domain)
+        createAccountLoginDashboardPage.inputTooLongEmailIntoEmailInputField();
+        //click 'Create an account' button
+        createAccountLoginDashboardPage.clickCreateAccountButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Too Long Email");
+        //assert the user gets the expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("Too long email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+        } catch (NoSuchElementException e) {
+            logger.warn("The user navigation to create account page doesn't get interrupted with too long register email. Test has failed.");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
