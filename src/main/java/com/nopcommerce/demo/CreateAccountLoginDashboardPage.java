@@ -1,6 +1,6 @@
 package com.nopcommerce.demo;
 
-import com.nopcommerce.demo.utilities.BasePage;
+import com.nopcommerce.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
@@ -45,11 +45,32 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     @FindBy(xpath = "//div[@id='create_account_error']")
     private WebElement invalidEmailAddressErrorMessage;
 
-
+    //valid variable (account creation)
+    private String validEmail = TestDataGenerator.generateRandomEmailAddress(8);
+    //missing singular variable (account creation)
+    private String noEmail = "";
+    //too short email address input (1 char -> name, domain) (account creation)
+    private String tooShortEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+    //too long email address input (100 chars -> name, domain) (account creation)
+    private String tooLongEmail = TestDataGenerator.generateRandomTooShortEmailAddress(100);
+    //invalid singular variable format (missing '@') (account creation)
+    private String invalidEmailFormat = "frerdr343fakemail.com";
+    //existing singular variable format (used beforehand in manual testing) (account creation)
+    private String existingEmail = "cortez3434@fakemail.com";
 
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
 
+    //valid login email input method
+    public void inputValidEmailIntoEmailInputField(){
+        createAccountSectionEmailInputField.sendKeys(validEmail);
+        logger.info("Valid user register email: " + validEmail);
+    }
 
+    //click 'Create an account' button method
+    public void clickCreateAccountButton() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(createAccountButton).click().perform();
+    }
 
     //create account login dashboard page text element getters
     public String getCreateAccountLoginDashboardTitle() {return createAccountLoginDashboardTitle.getText();}
@@ -62,6 +83,9 @@ public class CreateAccountLoginDashboardPage extends BasePage {
 
     //invalid error message getter
     public String getInvalidEmailErrorMessageText(){return invalidEmailAddressErrorMessage.getText();}
+
+    //email getter
+    public String getEmail(){return validEmail;}
 
     //create account login dashboard page web elements
     public boolean isLoginDashboardBreadcrumbDisplayed(){

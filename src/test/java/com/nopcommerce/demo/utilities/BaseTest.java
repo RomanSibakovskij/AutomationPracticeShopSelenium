@@ -1,10 +1,8 @@
-package com.nopcommerce.demo;
+package com.nopcommerce.demo.utilities;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.*;
-
-import java.util.*;
 
 
 public class BaseTest {
