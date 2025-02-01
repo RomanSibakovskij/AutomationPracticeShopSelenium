@@ -477,6 +477,28 @@ public class TestMethods extends BaseTest {
         assertTrue(createAccountPage.isRequiredFieldTextDisplayed(), "The create account page required field text isn't displayed");
     }
 
+    //my account page web element assert test method
+    protected void isMyAccountPageWebElementDisplayed(MyAccountPage myAccountPage){
+        //assert my account page breadcrumb is displayed
+        assertTrue(myAccountPage.isMyAccountBreadcrumbDisplayed(), "The my account page breadcrumb isn't displayed");
+        //assert my account page title is displayed
+        assertTrue(myAccountPage.isMyAccountPageTitleDisplayed(), "The my account page title isn't displayed");
+        //assert my account page subtitle is displayed
+        assertTrue(myAccountPage.isMyAccountSubtitleDisplayed(), "The my account page subtitle isn't displayed");
+        //assert my account button link is displayed
+        assertTrue(myAccountPage.isMyAccountButtonLinkDisplayed(), "The my account button link isn't displayed");
+        //assert order history button link is displayed
+        assertTrue(myAccountPage.isOrderHistoryButtonLinkDisplayed(), "The order history button link isn't displayed");
+        //assert credit slips button link is displayed
+        assertTrue(myAccountPage.isCreditSlipsButtonLinkDisplayed(), "The credit slips button link isn't displayed");
+        //assert my addresses button link is displayed
+        assertTrue(myAccountPage.isMyAddressesButtonLinkDisplayed(), "The my addresses button link isn't displayed");
+        //assert my personal information button link is displayed
+        assertTrue(myAccountPage.isMyPersonalInfoButtonLinkDisplayed(), "The my personal information button link isn't displayed");
+        //assert home button link is displayed
+        assertTrue(myAccountPage.isHomeButtonLinkDisplayed(), "The home button link isn't displayed");
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -568,6 +590,14 @@ public class TestMethods extends BaseTest {
         assertEquals("Sign up for our newsletter!", createAccountPage.getCreateAccountNewsletterSignupText(), "The create account page newsletter subtitle doesn't match expectations.");
         //assert create account page required field text is as expected
         assertEquals("*Required field", createAccountPage.getRequiredFieldText(), "The create account page required field text doesn't match expectations.");
+    }
+
+    //my account page text element assert test method
+    protected void isMyAccountPageTextElementAsExpected(MyAccountPage myAccountPage){
+        //assert my account page title text is as expected
+        assertEquals("MY ACCOUNT", myAccountPage.getMyAccountPageTitle(), "The my account page title doesn't match expectations.");
+        //assert my account page subtitle text is as expected
+        assertEquals("Welcome to your account. Here you can manage all of your personal information and orders.", myAccountPage.getMyAccountSubtitle(), "The my account page subtitle doesn't match expectations.");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
