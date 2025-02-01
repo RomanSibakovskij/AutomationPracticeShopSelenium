@@ -170,4 +170,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountTooLongEmailCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002l -> invalid user account creation test - too long password (33 chars)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Long Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountCreationTooLongPasswordTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too long password (33 chars)
+        invalidUserAccountTooLongPasswordCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }

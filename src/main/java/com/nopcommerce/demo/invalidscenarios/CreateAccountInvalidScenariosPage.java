@@ -40,6 +40,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     private String tooLongFirstName;
     private String tooLongLastName;
     private String tooLongEmail = TestDataGenerator.generateRandomEmailAddress(100);
+    private String tooLongPassword;
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -136,6 +137,17 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         logger.info("Valid user password (too long last name): " + password);
         System.out.println("\n");
     }
+    public void invalidUserInputDataTooLongPasswordGetter(){
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
+        lastName = TestDataGenerator.getRandomLastName();
+        tooLongPassword = "Esddjnsfdasff12#$#$%^EDWSFfdsgfjg";
+
+        System.out.println("Invalid generated user input data (too long password): " + "\n");
+        logger.info("Valid user first name (too long password): " + maleFirstName);
+        logger.info("Valid user last name (too long password): " + lastName);
+        logger.info("Too long user password: " + tooLongPassword);
+        System.out.println("\n");
+    }
 
     //valid user data input methods
     public void inputMaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(maleFirstName);}
@@ -164,6 +176,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         createAccountEmailInputField.clear();
         createAccountEmailInputField.sendKeys(tooLongEmail);
     }
+    public void inputTooLongPasswordIntoLastNameInputField(){createAccountPasswordInputField.sendKeys(tooLongPassword);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}

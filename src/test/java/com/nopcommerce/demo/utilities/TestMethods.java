@@ -676,6 +676,42 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user account creation test method - too long password (33 chars)
+    protected void invalidUserAccountTooLongPasswordCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - too long password (33 chars)
+        createAccountInvalidScenariosPage.invalidUserInputDataTooLongPasswordGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountInvalidScenariosPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountInvalidScenariosPage.inputLastNameIntoLastNameInputField();
+        //input too long password (33 chars)
+        createAccountInvalidScenariosPage.inputTooLongPasswordIntoLastNameInputField();
+        //capture screenshot of the invalid user data input - too short password (33 chars)
+        captureScreenshot(driver, "Invalid User Data Input - Too Long Password");
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long Password");
+        //assert the user gets an expected error message (too long password), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "passwd is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long password).");
+        } catch (Exception e) {
+            logger.warn("The too long password error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
