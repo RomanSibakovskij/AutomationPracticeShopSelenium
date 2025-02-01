@@ -712,6 +712,44 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid singular input format tests
+
+    //invalid user account creation test method - invalid first name format (special symbols only)
+    protected void invalidUserAccountInvalidFirstNameFormatCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - invalid first name format(special symbols only)
+        createAccountInvalidScenariosPage.invalidUserInputDataInvalidFirstNameFormatGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input invalid first name format
+        createAccountInvalidScenariosPage.inputInvalidFirstNameFormatIntoFirstNameInputField();
+        //capture screenshot of the invalid user data input - invalid first name format (special symbols only)
+        captureScreenshot(driver, "Invalid User Data Input - Invalid First Name Format");
+        //input valid last name
+        createAccountInvalidScenariosPage.inputLastNameIntoLastNameInputField();
+        //input valid password
+        createAccountInvalidScenariosPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Invalid First Name Format");
+        //assert the user gets an expected error message (invalid first name format), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "firstname is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input error text doesn't match expectations (invalid first name format).");
+        } catch (Exception e) {
+            logger.warn("The invalid first name format error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
