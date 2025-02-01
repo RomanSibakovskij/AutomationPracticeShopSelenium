@@ -29,6 +29,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //missing singular input
     private String noFirstName;
     private String noLastName;
+    private String noPassword;
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -50,9 +51,20 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         password = TestDataGenerator.generateRandomPassword();
 
         System.out.println("Invalid generated user input data (no last name): " + "\n");
-        logger.info("Valid user first name (no last name): " + noFirstName);
-        logger.info("No user last name (no last name): " + lastName);
+        logger.info("Valid user first name (no last name): " + maleFirstName);
+        logger.info("No user last name (no last name): " + noLastName);
         logger.info("Valid user password (no last name): " + password);
+        System.out.println("\n");
+    }
+    public void invalidUserInputDataNoPasswordGetter(){
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
+        lastName = TestDataGenerator.getRandomLastName();
+        noPassword = "";
+
+        System.out.println("Invalid generated user input data (no password): " + "\n");
+        logger.info("Valid user first name (no password): " + maleFirstName);
+        logger.info("Valid user last name (no password): " + lastName);
+        logger.info("No user password (no password): " + noPassword);
         System.out.println("\n");
     }
 
@@ -69,6 +81,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     public void inputNoFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(noFirstName);}
     public void inputNoLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(noLastName);}
     public void inputNoEmailIntoEmailInputField(){createAccountEmailInputField.clear();}
+    public void inputNoPasswordIntoPasswordInputField(){createAccountPasswordInputField.sendKeys(noPassword);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}
