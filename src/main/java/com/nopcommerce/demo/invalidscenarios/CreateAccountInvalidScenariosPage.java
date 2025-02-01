@@ -33,6 +33,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
     //too short singular input
     private String tooShortFirstName;
+    private String tooShortLastName;
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -43,7 +44,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         password = TestDataGenerator.generateRandomPassword();
 
         System.out.println("Invalid generated user input data (no first name): " + "\n");
-        logger.info("No user first name (no first name): " + noFirstName);
+        logger.info("No user first name: " + noFirstName);
         logger.info("Valid user last name (no first name): " + lastName);
         logger.info("Valid user password (no first name): " + password);
         System.out.println("\n");
@@ -55,7 +56,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
         System.out.println("Invalid generated user input data (no last name): " + "\n");
         logger.info("Valid user first name (no last name): " + maleFirstName);
-        logger.info("No user last name (no last name): " + noLastName);
+        logger.info("No user last name: " + noLastName);
         logger.info("Valid user password (no last name): " + password);
         System.out.println("\n");
     }
@@ -67,7 +68,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         System.out.println("Invalid generated user input data (no password): " + "\n");
         logger.info("Valid user first name (no password): " + maleFirstName);
         logger.info("Valid user last name (no password): " + lastName);
-        logger.info("No user password (no password): " + noPassword);
+        logger.info("No user password: " + noPassword);
         System.out.println("\n");
     }
 
@@ -78,9 +79,20 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         password = TestDataGenerator.generateRandomPassword();
 
         System.out.println("Invalid generated user input data (too short first name): " + "\n");
-        logger.info("Too short user first name (too short first name): " + tooShortFirstName);
+        logger.info("Too short user first name: " + tooShortFirstName);
         logger.info("Valid user last name (too short first name): " + lastName);
         logger.info("Valid user password (too short first name): " + password);
+        System.out.println("\n");
+    }
+    public void invalidUserInputDataTooShortLastNameGetter(){
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
+        tooShortLastName = "M";
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated user input data (too short last name): " + "\n");
+        logger.info("Valid user first name (too short last name): " + maleFirstName);
+        logger.info("Too short user last name: " + tooShortLastName);
+        logger.info("Valid user password (too short last name): " + password);
         System.out.println("\n");
     }
 
@@ -101,6 +113,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
     //too short singular input methods
     public void inputTooShortFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(tooShortFirstName);}
+    public void inputTooShortLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(tooShortLastName);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}

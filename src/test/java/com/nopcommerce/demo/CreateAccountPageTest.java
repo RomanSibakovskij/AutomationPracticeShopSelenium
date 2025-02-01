@@ -103,4 +103,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountTooShortFirstNameCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002g -> invalid user account creation test - too short last name
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Short Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAccountCreationTooShortLastNameTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too short last name
+        invalidUserAccountTooShortLastNameCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }
