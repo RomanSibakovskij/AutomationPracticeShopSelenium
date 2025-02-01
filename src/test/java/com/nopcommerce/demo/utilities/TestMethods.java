@@ -185,6 +185,56 @@ public class TestMethods extends BaseTest {
         assertTrue(createAccountLoginDashboardPage.isSignInButtonDisplayed(), "The signin button isn't displayed");
     }
 
+    //create account page web element assert test method
+    protected void isCreateAccountPageWebElementDisplayed(CreateAccountPage createAccountPage){
+        //assert create account breadcrumb is displayed
+        assertTrue(createAccountPage.isCreateAccountBreadcrumbDisplayed(), "The create account page breadcrumb isn't displayed");
+        //assert create account page title is displayed
+        assertTrue(createAccountPage.isCreateAccountPageTitleDisplayed(), "The create account page title isn't displayed");
+        //assert create account page subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountPageSubtitleDisplayed(), "The create account page subtitle isn't displayed");
+        //assert create account page title subtitle (social) is displayed
+        assertTrue(createAccountPage.isCreateAccountTitleSubtitleDisplayed(), "The create account page title social subtitle isn't displayed");
+        //assert create account page 'Mr' radio button is displayed
+        //assertTrue(createAccountPage.isCreateAccountMrRadioButtonDisplayed(), "The create account page 'Mr' radio button isn't displayed");
+        //assert create account page 'Mrs.' radio button is displayed
+        //assertTrue(createAccountPage.isCreateAccountMrsRadioButtonDisplayed(), "The create account page 'Mrs' radio button isn't displayed");
+        //assert create account page first name subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountFirstNameSubtitleDisplayed(), "The create account page first name subtitle isn't displayed");
+        //assert create account page first name input field is displayed
+        assertTrue(createAccountPage.isCreateAccountFirstNameInputFieldDisplayed(), "The create account page first name input field isn't displayed");
+        //assert create account page last name subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountLastNameSubtitleDisplayed(), "The create account page last name subtitle isn't displayed");
+        //assert create account page last name input field is displayed
+        assertTrue(createAccountPage.isCreateAccountLastNameInputFieldDisplayed(), "The create account page last name input field isn't displayed");
+        //assert create account page email subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountEmailSubtitleDisplayed(), "The create account page email subtitle isn't displayed");
+        //assert create account page email input field is displayed
+        assertTrue(createAccountPage.isCreateAccountEmailInputFieldDisplayed(), "The create account page email input field isn't displayed");
+        //assert create account page password subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountPasswordSubtitleDisplayed(), "The create account page password name subtitle isn't displayed");
+        //assert create account page password input field is displayed
+        assertTrue(createAccountPage.isCreateAccountPasswordInputFieldDisplayed(), "The create account page password name input field isn't displayed");
+        //assert create account page password input hint is displayed
+        assertTrue(createAccountPage.isCreateAccountPasswordHintDisplayed(), "The create account page password input hint isn't displayed");
+        //assert create account page date of birth subtitle is displayed
+        assertTrue(createAccountPage.isCreateAccountDateOfBirthSubtitleDisplayed(), "The create account page date of birth subtitle isn't displayed");
+        //assert create account page day dropdown menu is displayed
+        //assertTrue(createAccountPage.isCreateAccountDayDropdownMenuDisplayed(), "The create account page day dropdown menu isn't displayed");
+        //assert create account page month dropdown menu is displayed
+        //assertTrue(createAccountPage.isCreateAccountMonthDropdownMenuDisplayed(), "The create account page month dropdown menu isn't displayed");
+        //assert create account page year dropdown menu is displayed
+        //assertTrue(createAccountPage.isCreateAccountYearDropdownMenuDisplayed(), "The create account page year dropdown menu isn't displayed");
+        //assert create account page newsletter signup checkbox is displayed
+        //assertTrue(createAccountPage.isCreateAccountNewsletterSignupCheckboxDisplayed(), "The create account page newsletter signup checkbox isn't displayed");
+        //assert create account page newsletter signup text is displayed
+        assertTrue(createAccountPage.isCreateAccountNewsletterSignupTextDisplayed(), "The create account page newsletter signup text isn't displayed");
+        //assert create account page register button displayed is displayed
+        assertTrue(createAccountPage.isRegisterButtonDisplayed(), "The create account page register button isn't displayed");
+        //assert create account page required field text is displayed
+        assertTrue(createAccountPage.isRequiredFieldTextDisplayed(), "The create account page required field text isn't displayed");
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -252,6 +302,30 @@ public class TestMethods extends BaseTest {
         assertEquals("Email address", createAccountLoginDashboardPage.getLoginSectionEmailSubtext(), "The login section email subtext doesn't match expectations.");
         //assert login section password subtext is as expected
         assertEquals("Password", createAccountLoginDashboardPage.getLoginSectionPasswordSubtext(), "The login section password subtext doesn't match expectations.");
+    }
+
+    //create account page text element assert test method
+    protected void isCreateAccountPageTextElementAsExpected(CreateAccountPage createAccountPage){
+        //assert create account page title is as expected
+        assertEquals("CREATE AN ACCOUNT", createAccountPage.getCreateAccountPageTitle(), "The create account page title doesn't match expectations.");
+        //assert create account page subtitle is as expected
+        assertEquals("YOUR PERSONAL INFORMATION", createAccountPage.getCreateAccountPageSubtitle(), "The create account page subtitle doesn't match expectations.");
+        //assert create account page title (social) subtitle is as expected
+        assertEquals("Title", createAccountPage.getCreateAccountTitleSubtitle(), "The create account page title social subtitle doesn't match expectations.");
+        //assert create account page first name subtitle is as expected
+        assertEquals("First name *", createAccountPage.getCreateAccountFirstNameSubtitle(), "The create account page first name subtitle doesn't match expectations.");
+        //assert create account page last name subtitle is as expected
+        assertEquals("Last name *", createAccountPage.getCreateAccountLastNameSubtitle(), "The create account page last name subtitle doesn't match expectations.");
+        //assert create account page email subtitle is as expected
+        assertEquals("Email *", createAccountPage.getCreateAccountEmailSubtitle(), "The create account page email subtitle doesn't match expectations.");
+        //assert create account page password subtitle is as expected
+        assertEquals("Password *", createAccountPage.getCreateAccountPasswordSubtitle(), "The create account page password subtitle doesn't match expectations.");
+        //assert create account page date of birth subtitle is as expected
+        assertEquals("Date of Birth", createAccountPage.getCreateAccountDateOfBirthSubtitle(), "The create account page date of birth subtitle doesn't match expectations.");
+        //assert create account page newsletter subtitle is as expected
+        assertEquals("Sign up for our newsletter!", createAccountPage.getCreateAccountNewsletterSignupText(), "The create account page newsletter subtitle doesn't match expectations.");
+        //assert create account page required field text is as expected
+        assertEquals("*Required field", createAccountPage.getRequiredFieldText(), "The create account page required field text doesn't match expectations.");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
