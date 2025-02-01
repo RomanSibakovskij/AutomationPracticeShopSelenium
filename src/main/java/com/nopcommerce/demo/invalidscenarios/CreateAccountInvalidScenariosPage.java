@@ -68,6 +68,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //no singular input methods
     public void inputNoFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(noFirstName);}
     public void inputNoLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(noLastName);}
+    public void inputNoEmailIntoEmailInputField(){createAccountEmailInputField.clear();}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}

@@ -388,6 +388,40 @@ public class TestMethods extends BaseTest {
         assertEquals("There is 1 error\n" + "lastname is required.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (no last name) or the error wasn't triggered.");
     }
 
+    //invalid user account creation test method - no email address
+    protected void invalidUserAccountNoEmailCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter (except for email address)
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //clear email address from input field
+        createAccountInvalidScenariosPage.inputNoEmailIntoEmailInputField();
+        //capture screenshot of the invalid user data input - no email
+        captureScreenshot(driver, "Invalid User Data Input - No Email");
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - No Email");
+        //assert the user gets an expected error message (no email)
+        assertEquals("There is 1 error\n" + "email is required.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (no email) or the error wasn't triggered.");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

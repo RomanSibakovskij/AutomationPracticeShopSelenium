@@ -62,4 +62,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountNoLastNameCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002d -> invalid user account creation test - no email address
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - No Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountCreationNoEmailTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - no email address
+        invalidUserAccountNoEmailCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }
