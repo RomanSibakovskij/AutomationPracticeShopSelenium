@@ -48,6 +48,45 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Navigation to Register Page Test Result");
     }
 
+    //no singular input
+
+    //invalid navigate to 'Create Account' page (no user email) test method
+    protected void invalidNavigateToCreateAccountPageNoEmailTest(){
+        HomePage homePage = new HomePage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //click 'Bestsellers' section button link
+        homePage.clickBestsellersSectionButtonLink();
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //home page bestseller products data logger
+        logHomePageBestSellerProductData(homePage);
+        //capture screenshot of the home page
+        captureScreenshot(driver, "Home Page Visual Display");
+        //click 'Sign In' nav link
+        generalPage.clickSignInNavLink();
+        //capture screenshot of the user moving to create account / login dashboard page
+        captureScreenshot(driver, "User Navigation to Create Account And Login Dashboard Page");
+        //create account/login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account/login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //don't input email into email input field
+        createAccountLoginDashboardPage.inputNoEmailIntoEmailInputField();
+        //click 'Create an account' button
+        createAccountLoginDashboardPage.clickCreateAccountButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - No Email");
+        //assert the user gets the expected error message
+        assertEquals("Invalid email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

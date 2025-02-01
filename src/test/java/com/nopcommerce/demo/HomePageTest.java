@@ -12,6 +12,17 @@ public class HomePageTest extends TestMethods {
     void navigateUserToCreateAccountPageTest(){
         validNavigateToCreateAccountPageTest();
     }
-    
+
+    // no singular input
+
+    //Test 001a -> invalid user navigation to 'Create Account' page test - no user email
+    @Test
+    @DisplayName("Invalid User Navigation To Create Account Page Test - No Email")
+    @Tag("Invalid_User_Navigation_To_Create_Account_Page")
+    @Tag("No_Singular_Input")
+    void navigateUserToCreateAccountPageNoEmailTest(){
+        invalidNavigateToCreateAccountPageNoEmailTest();
+    }
+
 
 }

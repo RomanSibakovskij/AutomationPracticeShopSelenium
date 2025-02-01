@@ -66,6 +66,15 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         logger.info("Valid user register email: " + validEmail);
     }
 
+    //invalid singular input methods (create account section)
+
+    //invalid login email input method - no user email address
+    public void inputNoEmailIntoEmailInputField(){
+        createAccountSectionEmailInputField.sendKeys(noEmail);
+        logger.info("No user register email: " + noEmail);
+    }
+
+
     //click 'Create an account' button method
     public void clickCreateAccountButton() {
         Actions actions = new Actions(driver);
