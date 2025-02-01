@@ -144,4 +144,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountTooLongFirstNameCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002j -> invalid user account creation test - too long last name (33 chars)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Long Last Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountCreationTooLongLastNameTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too long last name (33 chars)
+        invalidUserAccountTooLongLastNameCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }
