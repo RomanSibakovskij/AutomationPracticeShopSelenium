@@ -1,6 +1,7 @@
 package com.nopcommerce.demo.utilities;
 
 import com.nopcommerce.demo.*;
+import com.nopcommerce.demo.invalidscenarios.CreateAccountInvalidScenariosPage;
 import org.slf4j.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.*;
@@ -319,6 +320,40 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid Female User Account Creation Test Result");
         //assert the user gets an expected success message
         assertEquals("Your account has been created.", myAccountPage.getMyAccountSuccessMessageText(), "The valid user account creation success message text doesn't match expectations or the user account creation has failed.");
+    }
+
+    //no singular input tests
+
+    //invalid user account creation test method - no first name
+    protected void invalidUserAccountNoFirstNameCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - no first name
+        createAccountInvalidScenariosPage.invalidUserInputDataNoFirstNameGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //don't input first name
+        createAccountInvalidScenariosPage.inputNoFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountInvalidScenariosPage.inputLastNameIntoLastNameInputField();
+        //input valid password
+        createAccountInvalidScenariosPage.inputPasswordIntoPasswordInputField();
+        //capture screenshot of the invalid user data input - no first name
+        captureScreenshot(driver, "Invalid User Data Input - No First Name");
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - No First Name");
+        //assert the user gets an expected error message (no first name)
+        assertEquals("There is 1 error\n" + "firstname is required.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (no first name) or the error wasn't triggered.");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

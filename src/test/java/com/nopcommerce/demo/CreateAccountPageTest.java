@@ -1,5 +1,6 @@
 package com.nopcommerce.demo;
 
+import com.nopcommerce.demo.invalidscenarios.CreateAccountInvalidScenariosPage;
 import com.nopcommerce.demo.utilities.TestMethods;
 import org.junit.jupiter.api.*;
 
@@ -31,6 +32,21 @@ public class CreateAccountPageTest extends TestMethods{
         validNavigateToCreateAccountPageTest();
         //valid female user account creation test
         validFemaleUserAccountCreationTest(createAccountPage);
+    }
+
+    //no singular input tests
+
+    //Test 002b -> invalid user account creation test - no first name
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - No First Name")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidUserAccountCreationNoFirstNameTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - no first name
+        invalidUserAccountNoFirstNameCreationTest(createAccountInvalidScenariosPage);
     }
 
 }
