@@ -5,5 +5,5 @@ import org.junit.jupiter.api.*;
 
 public class CreateAccountPageTest extends TestMethods{
 
-    
+
 }
