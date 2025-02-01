@@ -255,6 +255,42 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user account creation tests
+
+    //valid male user account creation test method
+    protected void validMaleUserAccountCreationTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid Male User Data Input");
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid Male User Account Creation Test Result");
+        //assert the user gets an expected success message
+        assertEquals("Your account has been created.", myAccountPage.getMyAccountSuccessMessageText(), "The valid user account creation success message text doesn't match expectations or the user account creation has failed.");
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (all pages have them)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //assert header banner link is displayed

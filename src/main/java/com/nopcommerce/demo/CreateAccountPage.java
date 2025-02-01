@@ -1,6 +1,6 @@
 package com.nopcommerce.demo;
 
-import com.nopcommerce.demo.utilities.BasePage;
+import com.nopcommerce.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
@@ -58,7 +58,49 @@ public class CreateAccountPage extends BasePage{
     @FindBy(xpath = "//p[@class='pull-right required']")
     private WebElement requiredFieldText;
 
+    //valid user input data variables
+    private String firstName;
+    private String lastName;
+    private String password;
+
     public CreateAccountPage(WebDriver driver) {super(driver);}
+
+    //valid user input data getter
+    public void validMaleUserInputDataGetter(){
+        firstName = TestDataGenerator.getRandomFirstName();
+        lastName = TestDataGenerator.getRandomLastName();
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Valid generated male user input data: " + "\n");
+        logger.info("Valid user first name: " + firstName);
+        logger.info("Valid user last name: " + lastName);
+        logger.info("Valid user password: " + password);
+        System.out.println("\n");
+    }
+
+    //valid user data input methods
+    public void inputFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(firstName);}
+    public void inputLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(lastName);}
+    public void inputPasswordIntoPasswordInputField(){
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", createAccountPasswordInputField);
+        createAccountPasswordInputField.sendKeys(password);
+    }
+
+    //click 'Mr.' radio button method
+    public void clickMrRadioButton(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(createAccountMrRadioButton).click().perform();
+    }
+
+    //click 'Register' button method
+    public void clickRegisterButton(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(registerButton).click().perform();
+    }
+
+    //private data getter (email is being input on login/register dashboard page)
+    public String getPassword() {return password;}
 
     //create account page text element getters
     public String getCreateAccountPageTitle() {return createAccountPageTitle.getText();}
