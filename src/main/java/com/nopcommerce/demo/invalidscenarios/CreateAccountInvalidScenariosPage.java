@@ -28,6 +28,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
     //missing singular input
     private String noFirstName;
+    private String noLastName;
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -43,6 +44,17 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         logger.info("Valid user password (no first name): " + password);
         System.out.println("\n");
     }
+    public void invalidUserInputDataNoLastNameGetter(){
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
+        noLastName = "";
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated user input data (no last name): " + "\n");
+        logger.info("Valid user first name (no last name): " + noFirstName);
+        logger.info("No user last name (no last name): " + lastName);
+        logger.info("Valid user password (no last name): " + password);
+        System.out.println("\n");
+    }
 
     //valid user data input methods
     public void inputMaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(maleFirstName);}
@@ -53,8 +65,9 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         createAccountPasswordInputField.sendKeys(password);
     }
 
-    //no singular input
+    //no singular input methods
     public void inputNoFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(noFirstName);}
+    public void inputNoLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(noLastName);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}
