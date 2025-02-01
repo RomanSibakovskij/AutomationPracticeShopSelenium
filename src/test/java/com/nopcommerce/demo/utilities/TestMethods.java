@@ -13,7 +13,7 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //general page web element assert test method
+    //general page web element assert test method (all pages have them)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //assert header banner link is displayed
         assertTrue(generalPage.isHeaderBannerLinkDisplayed(), "The header banner link isn't displayed");
@@ -85,8 +85,124 @@ public class TestMethods extends BaseTest {
         assertTrue(generalPage.isFooterCopyrightTextLinkDisplayed(), "The footer copyright text link isn't displayed");
     }
 
+    //home page web element assert test method
+    protected void isHomePageWebElementDisplayed(HomePage homePage){
+        //assert home page image carousel is displayed
+        assertTrue(homePage.isHomePageCarouselDisplayed(), "The home page image carousel isn't displayed");
+        //assert home page image carousel button one is displayed
+        assertTrue(homePage.isHomePageCarouselButtonOneDisplayed(), "The home page image carousel button one isn't displayed");
+        //assert home page image carousel button two is displayed
+        assertTrue(homePage.isHomePageCarouselButtonTwoDisplayed(), "The home page image carousel button two isn't displayed");
+        //assert home page quarter percent sale image link is displayed
+        assertTrue(homePage.isHomePageQuarterPercentSaleImgLinkDisplayed(), "The home page quarter percent sale image link isn't displayed");
+        //assert home page forty-five percent sale image link is displayed
+        assertTrue(homePage.isHomePageFortyFivePercentSaleImgLinkDisplayed(), "The home page forty-five percent sale image link isn't displayed");
+        //assert home page popular section button link is displayed
+        assertTrue(homePage.isPopularSectionButtonLinkDisplayed(), "The home page popular section button link isn't displayed");
+        //assert home page bestseller section button link is displayed
+        assertTrue(homePage.isBestsellersSectionButtonLinkDisplayed(), "The home page bestseller section button link isn't displayed");
+        //assert home page top trends category image is displayed
+        assertTrue(homePage.isTopTrendsCategoryImageDisplayed(), "The top trends category image isn't displayed");
+        //assert home page men coats & jackets image link is displayed
+        assertTrue(homePage.isMenCoatsJacketsImgLinkDisplayed(), "The home page men coats & jackets image link isn't displayed");
+        //assert home page women coats & jackets image link is displayed
+        assertTrue(homePage.isWomenCoatsJacketsImgLinkDisplayed(), "The home page women coats & jackets image link isn't displayed");
+        //assert home page sunglasses image link is displayed
+        assertTrue(homePage.isSunglassesImageLinkDisplayed(), "The home page sunglasses image link isn't displayed");
+        //assert home page handbags image link is displayed
+        assertTrue(homePage.isHandbagsImageLinkDisplayed(), "The home page handbags image link isn't displayed");
+        //assert home page bestseller product images are displayed (as a list)
+        assertTrue(homePage.isBestsellerProductImgDisplayed(), "The home page bestseller product images aren't displayed");
+        //assert home page bestseller product name links are displayed (as a list)
+        assertTrue(homePage.isBestsellerProductNameLinkDisplayed(), "The home page bestseller product name links aren't displayed");
+        //assert home page bestseller product view button are displayed (as a list)
+        //assertTrue(homePage.isBestsellerProductViewButtonDisplayed(), "The home page bestseller product view button aren't displayed");
+        //assert home page bestseller product unit prices are displayed (as a list)
+        assertTrue(homePage.isBestsellerProductUnitPriceDisplayed(), "The home page bestseller product unit prices aren't displayed");
+        //assert home page bestseller product 'add to cart' button are displayed - they're disabled for now (as a list)
+        assertTrue(homePage.isBestsellerProductAddToCartButtonDisplayed(), "The home page bestseller product 'add to cart' buttons aren't displayed");
+        //assert home page bestseller product more buttons are displayed (as a list) //Selenium can't see it even though it's present in DOM and not obstructed
+        //assertTrue(homePage.isBestsellerProductMoreButtonDisplayed(), "The home page bestseller product more buttons aren't displayed");
+        //assert home page follow us section title is displayed
+        assertTrue(homePage.isFollowUsSectionTitleDisplayed(), "The home page follow us section title isn't displayed");
+        //assert home page facebook fan box is displayed
+        assertTrue(homePage.isFacebookFanBoxDisplayed(), "The home page facebook fan box isn't displayed");
+        //assert home page shipping icon is displayed
+        assertTrue(homePage.isShippingIconDisplayed(), "The home page shipping icon isn't displayed");
+        //assert home page shipping section title is displayed
+        assertTrue(homePage.isShippingSectionTitleDisplayed(), "The home page shipping section isn't displayed");
+        //assert home page shipping section text is displayed
+        assertTrue(homePage.isShippingSectionTextDisplayed(), "The home page shipping section text isn't displayed");
+        //assert home page phone icon is displayed
+        assertTrue(homePage.isPhoneIconDisplayed(), "The home page phone icon isn't displayed");
+        //assert home page phone section title is displayed
+        assertTrue(homePage.isPhoneSectionTitleDisplayed(), "The home page phone section title isn't displayed");
+        //assert home page phone section text is displayed
+        assertTrue(homePage.isPhoneSectionTextDisplayed(), "The home page phone section text isn't displayed");
+        //assert home page phone icon is displayed
+        assertTrue(homePage.isCreditCardIconDisplayed(), "The home page credit card icon isn't displayed");
+        //assert home page phone section title is displayed
+        assertTrue(homePage.isCreditCardSectionTitleDisplayed(), "The home page credit card section title isn't displayed");
+        //assert home page phone section text is displayed
+        assertTrue(homePage.isCreditCardSectionTextDisplayed(), "The home page credit card section text isn't displayed");
+        //assert home page custom block section title is displayed
+        assertTrue(homePage.isCustomBlockSectionTitleDisplayed(), "The home page custom block section title isn't displayed");
+        //assert home page custom block section subtitle is displayed
+        assertTrue(homePage.isCustomBlockSectionSubtitleDisplayed(), "The home page custom block section subtitle isn't displayed");
+        //assert home page custom block section text is displayed
+        assertTrue(homePage.isCustomBlockSectionTextDisplayed(), "The home page custom block section text isn't displayed");
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page text element assert test method (all pages have them)
+    protected void isGeneralPageTextElementAsExpected(GeneralPage generalPage){
+        //assert footer information section title is as expected
+        assertEquals("Information", generalPage.getFooterInfoSectionTitle(), "The footer information section title doesn't match expectations.");
+        //assert footer customer service section title is as expected
+        assertEquals("Categories", generalPage.getFooterCategoriesSectionTitle(), "The footer categories section title doesn't match expectations.");
+        //assert footer my account section title is as expected
+        assertEquals("My account", generalPage.getFooterMyAccountSectionTitle(), "The footer my account section title doesn't match expectations.");
+        //assert footer follow us section title is as expected
+        assertEquals("Follow us", generalPage.getFooterFollowUsSectionTitle(), "The footer follow us section title doesn't match expectations.");
+        //assert footer newsletter section title is as expected
+        assertEquals("Newsletter", generalPage.getFooterNewsletterSectionTitle(), "The footer newsletter section title doesn't match expectations.");
+        //assert footer store information section title is as expected
+        assertEquals("Store Information", generalPage.getStoreInfoSectionTitle(), "The footer store information section title doesn't match expectations.");
+        //assert footer store info address is as expected
+        assertEquals("My Company, 42 avenue des Champs Elysées 75000 Paris France", generalPage.getStoreInfoAddress(), "The footer store information address doesn't match expectations.");
+        //assert footer store information phone text is as expected
+        assertEquals("Call us now: 0123-456-789", generalPage.getStoreInfoPhoneText(), "The footer store information phone text doesn't match expectations.");
+        //assert footer email link text is as expected
+        assertEquals("sales@yourcompany.com", generalPage.getFooterEmailLink(), "The footer email link text text doesn't match expectations.");
+        //assert footer copyright text is as expected
+        assertEquals("Ecommerce software by PrestaShop™", generalPage.getFooterCopyrightTextLink(), "The footer copyright text doesn't match expectations.");
+    }
+
+    //home page text element assert text test method
+    protected void isHomePageTextElementAsExpected(HomePage homePage){
+        //assert home page follow us section title is as expected
+        assertEquals("Follow us on Facebook", homePage.getFollowUsSectionTitle(), "The home page follow us section title doesn't match expectations.");
+        //assert home page shipping section title is as expected
+        assertEquals("Lorem Ipsum", homePage.getShippingSectionTitle(), "The home page shipping section title doesn't match expectations.");
+        //assert home page shipping section text is as expected
+        assertEquals("Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu", homePage.getShippingSectionText(), "The home page shipping section text doesn't match expectations.");
+        //assert home page phone section title is as expected
+        assertEquals("Dolor Sit Amet", homePage.getPhoneSectionTitle(), "The home page phone section title doesn't match expectations.");
+        //assert home page phone section text is as expected
+        assertEquals("Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu", homePage.getPhoneSectionText(), "The home page phone section text doesn't match expectations.");
+        //assert home page credit card section title is as expected
+        assertEquals("Ctetur Voluptate", homePage.getCreditCardSectionTitle(), "The home page credit card section title doesn't match expectations.");
+        //assert home page credit card section text is as expected
+        assertEquals("Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu", homePage.getCreditCardSectionText(), "The home page credit card section text doesn't match expectations.");
+        //assert home page custom block section title is as expected
+        assertEquals("Custom Block", homePage.getCustomBlockSectionTitle(), "The home page custom block section title doesn't match expectations.");
+        //assert home page custom block section subtitle is as expected
+        assertEquals("Lorem ipsum dolor sit amet conse ctetu", homePage.getCustomBlockSubtitleText(), "The home page custom block section subtitle doesn't match expectations.");
+        //assert home page custom block section text is as expected
+        assertEquals("Sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.", homePage.getCustomBlockText(), "The home page custom block text doesn't match expectations.");
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

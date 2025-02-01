@@ -87,6 +87,12 @@ public class GeneralPage extends BasePage {
 
     public GeneralPage(WebDriver driver) {super(driver);}
 
+    //click 'Sign In' nav link method
+    public void clickSignInNavLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(loginNavLink).click().perform();
+    }
+
     //footer information section title getter
     public String getFooterInfoSectionTitle(){return footerInformationSectionTitle.getText();}
     //footer categories section title getter
