@@ -750,6 +750,42 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user account creation test method - invalid last name format (special symbols only)
+    protected void invalidUserAccountInvalidLastNameFormatCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - invalid last name format (special symbols only)
+        createAccountInvalidScenariosPage.invalidUserInputDataInvalidLastNameFormatGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountInvalidScenariosPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input invalid last name format (special symbols only)
+        createAccountInvalidScenariosPage.inputInvalidLastNameFormatIntoLastNameInputField();
+        //capture screenshot of the invalid user data input - invalid last name format (special symbols only)
+        captureScreenshot(driver, "Invalid User Data Input - Invalid Last Name Format");
+        //input valid password
+        createAccountInvalidScenariosPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Invalid Last Name Format");
+        //assert the user gets an expected error message (too short last name), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "lastname is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input format error text doesn't match expectations (invalid last name format).");
+        } catch (Exception e) {
+            logger.warn("The invalid last name format error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

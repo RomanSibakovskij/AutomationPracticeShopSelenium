@@ -44,6 +44,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
     //invalid singular input
     private String invalidFirstNameInputFormat;
+    private String invalidLastNameInputFormat;
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -164,6 +165,17 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         logger.info("Valid user password (invalid first name format): " + password);
         System.out.println("\n");
     }
+    public void invalidUserInputDataInvalidLastNameFormatGetter(){
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
+        invalidLastNameInputFormat = "!#!@#$^$%&^%^*%^Y$#$@#$!@";
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated user input data (invalid last name format): " + "\n");
+        logger.info("Valid user first name (invalid last name format): " + maleFirstName);
+        logger.info("Invalid user last name format: " + invalidLastNameInputFormat);
+        logger.info("Valid user password (invalid last name format): " + password);
+        System.out.println("\n");
+    }
 
     //valid user data input methods
     public void inputMaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(maleFirstName);}
@@ -196,7 +208,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
 
     //invalid singular input format methods
     public void inputInvalidFirstNameFormatIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(invalidFirstNameInputFormat);}
-
+    public void inputInvalidLastNameFormatIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(invalidLastNameInputFormat);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}

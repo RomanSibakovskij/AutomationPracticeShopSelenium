@@ -198,4 +198,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountInvalidFirstNameFormatCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002n -> invalid user account creation test - invalid last name format (special symbols only)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Invalid Last Name Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input")
+    void invalidUserAccountCreationInvalidLastNameFormatTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - invalid last name format (special symbols only)
+        invalidUserAccountInvalidLastNameFormatCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }
