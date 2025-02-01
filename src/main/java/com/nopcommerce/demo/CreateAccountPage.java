@@ -59,27 +59,42 @@ public class CreateAccountPage extends BasePage{
     private WebElement requiredFieldText;
 
     //valid user input data variables
-    private String firstName;
+    private String maleFirstName;
+    private String femaleFirstName;
     private String lastName;
     private String password;
 
     public CreateAccountPage(WebDriver driver) {super(driver);}
 
-    //valid user input data getter
+    //valid user input data getter (male)
     public void validMaleUserInputDataGetter(){
-        firstName = TestDataGenerator.getRandomFirstName();
+        maleFirstName = TestDataGenerator.getRandomMaleFirstName();
         lastName = TestDataGenerator.getRandomLastName();
         password = TestDataGenerator.generateRandomPassword();
 
         System.out.println("Valid generated male user input data: " + "\n");
-        logger.info("Valid user first name: " + firstName);
-        logger.info("Valid user last name: " + lastName);
-        logger.info("Valid user password: " + password);
+        logger.info("Valid user first name (male): " + maleFirstName);
+        logger.info("Valid user last name (male): " + lastName);
+        logger.info("Valid user password (male): " + password);
+        System.out.println("\n");
+    }
+
+    //valid user input data getter (female)
+    public void validFemaleUserInputDataGetter(){
+        femaleFirstName = TestDataGenerator.getRandomFemaleFirstName();
+        lastName = TestDataGenerator.getRandomLastName();
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Valid generated female user input data: " + "\n");
+        logger.info("Valid user first name (female): " + femaleFirstName);
+        logger.info("Valid user last name (female): " + lastName);
+        logger.info("Valid user password (female): " + password);
         System.out.println("\n");
     }
 
     //valid user data input methods
-    public void inputFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(firstName);}
+    public void inputMaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(maleFirstName);}
+    public void inputFemaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(femaleFirstName);}
     public void inputLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(lastName);}
     public void inputPasswordIntoPasswordInputField(){
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -91,6 +106,12 @@ public class CreateAccountPage extends BasePage{
     public void clickMrRadioButton(){
         Actions actions = new Actions(driver);
         actions.moveToElement(createAccountMrRadioButton).click().perform();
+    }
+
+    //click 'Mrs.' radio button method
+    public void clickMrsRadioButton(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(createAccountMrsRadioButton).click().perform();
     }
 
     //click 'Register' button method

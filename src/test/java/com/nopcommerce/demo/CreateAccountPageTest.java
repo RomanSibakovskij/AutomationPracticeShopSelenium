@@ -20,4 +20,17 @@ public class CreateAccountPageTest extends TestMethods{
         validMaleUserAccountCreationTest(createAccountPage);
     }
 
+    //Test 002a -> valid user account creation test (female)
+    @Test
+    @DisplayName("Valid Female User Account Creation Test")
+    @Tag("Valid_User_Account_Creation")
+    @Tag("Female")
+    void validUserAccountFemaleCreationTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid female user account creation test
+        validFemaleUserAccountCreationTest(createAccountPage);
+    }
+
 }

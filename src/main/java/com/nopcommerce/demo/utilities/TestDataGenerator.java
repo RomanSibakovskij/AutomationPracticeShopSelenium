@@ -13,28 +13,32 @@ public class TestDataGenerator extends BasePage{
 
     private static final Random RANDOM = new SecureRandom();
 
-    private static String storedFirstName;
+    private static String storedMaleFirstName;
+    private static String storedFemaleFirstName;
     private static String storedLastName;
     private static String emailAddress;
     private static String password;
 
     public TestDataGenerator(WebDriver driver) {super(driver);}
 
-    //first names array
-    private static final String[] firstNames = {
-            "Aiden", "Olivia", "Liam", "Emma", "Noah", "Ava", "Elijah", "Sophia", "Lucas", "Isabella",
-            "Mason", "Mia", "Ethan", "Amelia", "James", "Harper", "Benjamin", "Evelyn", "Jack", "Abigail",
-            "Henry", "Ella", "Alexander", "Avery", "Jackson", "Scarlett", "Sebastian", "Grace", "Owen", "Lily",
-            "Matthew", "Chloe", "William", "Zoey", "Joseph", "Penelope", "Luke", "Hannah", "Daniel", "Aria",
-            "Logan", "Ellie", "David", "Madison", "Samuel", "Nora", "John", "Riley", "Ryan", "Lillian",
-            "Leo", "Paisley", "Nathan", "Aurora", "Isaac", "Addison", "Joshua", "Brooklyn", "Caleb", "Leah",
-            "Hunter", "Savannah", "Andrew", "Sofia", "Connor", "Lucy", "Carter", "Victoria", "Eli", "Willow",
-            "Wyatt", "Violet", "Dylan", "Zoe", "Grayson", "Stella", "Landon", "Hazel", "Gabriel", "Emilia",
-            "Jayden", "Claire", "Anthony", "Bella", "Christian", "Maya", "Julian", "Elena", "Aaron", "Piper",
-            "Dominic", "Ariana", "Adam", "Ruby", "Evan", "Madelyn", "Nicholas", "Alice", "Isaiah", "Skylar",
-            "Thomas", "Eva", "Charles", "Everly", "Christopher", "Naomi", "Miles", "Quinn", "Zachary", "Aubrey",
-            "Ezra", "Peyton", "Jeremiah", "Serenity", "Nathaniel", "Isla", "Robert", "Kennedy", "Jonathan", "Cora"
+    // Male first names (50)
+    private static final String[] maleFirstNames = {
+            "Aiden", "Liam", "Noah", "Elijah", "Lucas", "Mason", "Ethan", "James", "Benjamin", "Jack",
+            "Henry", "Alexander", "Jackson", "Sebastian", "Owen", "Matthew", "William", "Joseph", "Luke", "Daniel",
+            "Logan", "David", "Samuel", "John", "Ryan", "Leo", "Nathan", "Isaac", "Joshua", "Caleb",
+            "Hunter", "Andrew", "Connor", "Carter", "Eli", "Wyatt", "Dylan", "Grayson", "Landon", "Gabriel",
+            "Jayden", "Anthony", "Christian", "Julian", "Aaron", "Dominic", "Adam", "Evan", "Nicholas", "Isaiah"
     };
+
+    // Female first names (50)
+    private static final String[] femaleFirstNames = {
+            "Olivia", "Emma", "Ava", "Sophia", "Isabella", "Mia", "Amelia", "Harper", "Evelyn", "Abigail",
+            "Ella", "Avery", "Scarlett", "Grace", "Lily", "Chloe", "Zoey", "Penelope", "Hannah", "Aria",
+            "Ellie", "Madison", "Nora", "Riley", "Lillian", "Paisley", "Aurora", "Addison", "Brooklyn", "Leah",
+            "Savannah", "Sofia", "Lucy", "Victoria", "Willow", "Violet", "Zoe", "Stella", "Hazel", "Emilia",
+            "Claire", "Bella", "Maya", "Elena", "Piper", "Ariana", "Ruby", "Madelyn", "Alice", "Skylar"
+    };
+
 
     //last names array
     private static final String[] lastNames = {
@@ -52,19 +56,27 @@ public class TestDataGenerator extends BasePage{
             "Jordan", "Owens", "Reynolds", "Fisher", "Ellis", "Harrison", "Gibson", "McDonald", "Cruz", "Marshall"
     };
 
-    //random first name picker method
-    public static String getRandomFirstName() {
-        if (storedFirstName == null) {
+    //random first name (male) picker method
+    public static String getRandomMaleFirstName() {
+        if (storedMaleFirstName == null) {
             Random random = new Random();
-            storedFirstName = firstNames[random.nextInt(firstNames.length)];
+            storedMaleFirstName = maleFirstNames[random.nextInt(maleFirstNames.length)];
         }
-        return storedFirstName;
+        return storedMaleFirstName;
+    }
+    //random first name (female) picker method
+    public static String getRandomFemaleFirstName() {
+        if (storedFemaleFirstName == null) {
+            Random random = new Random();
+            storedFemaleFirstName = femaleFirstNames[random.nextInt(femaleFirstNames.length)];
+        }
+        return storedFemaleFirstName;
     }
     //random last name picker method
     public static String getRandomLastName() {
         if (storedLastName == null) {
             Random random = new Random();
-            storedLastName = firstNames[random.nextInt(firstNames.length)];
+            storedLastName = lastNames[random.nextInt(lastNames.length)];
         }
         return storedLastName;
     }
