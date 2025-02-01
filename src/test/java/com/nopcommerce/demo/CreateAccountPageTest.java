@@ -90,7 +90,7 @@ public class CreateAccountPageTest extends TestMethods{
 
     //too short singular input tests
 
-    //Test 002f -> invalid user account creation test - too short first name
+    //Test 002f -> invalid user account creation test - too short first name (1 char)
     @Test
     @DisplayName("Invalid Male User Account Creation Test - Too Short First Name")
     @Tag("Invalid_User_Account_Creation")
@@ -99,11 +99,11 @@ public class CreateAccountPageTest extends TestMethods{
         CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
         //valid user navigation to 'Create Account' page test
         validNavigateToCreateAccountPageTest();
-        //invalid user account creation test - too short first name
+        //invalid user account creation test - too short first name (1 char)
         invalidUserAccountTooShortFirstNameCreationTest(createAccountInvalidScenariosPage);
     }
 
-    //Test 002g -> invalid user account creation test - too short last name
+    //Test 002g -> invalid user account creation test - too short last name (1 char)
     @Test
     @DisplayName("Invalid Male User Account Creation Test - Too Short Last Name")
     @Tag("Invalid_User_Account_Creation")
@@ -112,8 +112,21 @@ public class CreateAccountPageTest extends TestMethods{
         CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
         //valid user navigation to 'Create Account' page test
         validNavigateToCreateAccountPageTest();
-        //invalid user account creation test - too short last name
+        //invalid user account creation test - too short last name (1 char)
         invalidUserAccountTooShortLastNameCreationTest(createAccountInvalidScenariosPage);
+    }
+
+    //Test 002h -> invalid user account creation test - too short password (4 chars)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Short Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAccountCreationTooShortPasswordTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too short password (4 chars)
+        invalidUserAccountTooShortPasswordCreationTest(createAccountInvalidScenariosPage);
     }
 
 }
