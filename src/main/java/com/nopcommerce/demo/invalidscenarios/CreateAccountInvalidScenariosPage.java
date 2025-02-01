@@ -31,6 +31,9 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     private String noLastName;
     private String noPassword;
 
+    //too short singular input
+    private String tooShortFirstName;
+
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
     //no singular input test data getters
@@ -68,6 +71,19 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
         System.out.println("\n");
     }
 
+    //too short singular input test data getters
+    public void invalidUserInputDataTooShortFirstNameGetter(){
+        tooShortFirstName = "B";
+        lastName = TestDataGenerator.getRandomLastName();
+        password = TestDataGenerator.generateRandomPassword();
+
+        System.out.println("Invalid generated user input data (too short first name): " + "\n");
+        logger.info("Too short user first name (too short first name): " + tooShortFirstName);
+        logger.info("Valid user last name (too short first name): " + lastName);
+        logger.info("Valid user password (too short first name): " + password);
+        System.out.println("\n");
+    }
+
     //valid user data input methods
     public void inputMaleFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(maleFirstName);}
     public void inputLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(lastName);}
@@ -82,6 +98,9 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     public void inputNoLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(noLastName);}
     public void inputNoEmailIntoEmailInputField(){createAccountEmailInputField.clear();}
     public void inputNoPasswordIntoPasswordInputField(){createAccountPasswordInputField.sendKeys(noPassword);}
+
+    //too short singular input methods
+    public void inputTooShortFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(tooShortFirstName);}
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}

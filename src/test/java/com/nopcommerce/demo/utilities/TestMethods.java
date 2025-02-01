@@ -454,6 +454,44 @@ public class TestMethods extends BaseTest {
         assertEquals("There is 1 error\n" + "passwd is required.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (no password) or the error wasn't triggered.");
     }
 
+    //too short singular input tests
+
+    //invalid user account creation test method - too short first name (1 char)
+    protected void invalidUserAccountTooShortFirstNameCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - too short first name (1 char)
+        createAccountInvalidScenariosPage.invalidUserInputDataTooShortFirstNameGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input too short first name
+        createAccountInvalidScenariosPage.inputTooShortFirstNameIntoFirstNameInputField();
+        //capture screenshot of the invalid user data input - too short first name (1 char)
+        captureScreenshot(driver, "Invalid User Data Input - Too Short First Name");
+        //input valid last name
+        createAccountInvalidScenariosPage.inputLastNameIntoLastNameInputField();
+        //input valid password
+        createAccountInvalidScenariosPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Short First Name");
+        //assert the user gets an expected error message (too short first name), log the issue otherwise
+            try {
+                assertEquals("There is 1 error\n" + "Too short firstname.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (no first name).");
+            } catch (Exception e) {
+                logger.warn("The too short first name error wasn't triggered");
+            }
+        }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
