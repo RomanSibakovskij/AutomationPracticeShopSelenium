@@ -73,6 +73,11 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         createAccountSectionEmailInputField.sendKeys(noEmail);
         logger.info("No user register email: " + noEmail);
     }
+    //invalid login email input method - too short user email address
+    public void inputTooShortEmailIntoEmailInputField(){
+        createAccountSectionEmailInputField.sendKeys(tooShortEmail);
+        logger.info("Too short user register email: " + tooShortEmail);
+    }
 
 
     //click 'Create an account' button method

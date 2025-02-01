@@ -24,5 +24,16 @@ public class HomePageTest extends TestMethods {
         invalidNavigateToCreateAccountPageNoEmailTest();
     }
 
+    //too short singular input
+
+    //Test 001b -> invalid user navigation to 'Create Account' page test - too short user email (user navigation to 'Create Account' page doesn't get aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Navigation To Create Account Page Test - Too Short Email")
+    @Tag("Invalid_User_Navigation_To_Create_Account_Page")
+    @Tag("Too_Short_Singular_Input")
+    void navigateUserToCreateAccountPageTooShortEmailTest(){
+        invalidNavigateToCreateAccountPageTooShortEmailTest();
+    }
+
 
 }
