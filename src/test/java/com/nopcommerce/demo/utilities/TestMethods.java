@@ -564,6 +564,44 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //too long singular input tests
+
+    //invalid user account creation test method - too long first name (33 chars)
+    protected void invalidUserAccountTooLongFirstNameCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //invalid user data input getter - too long first name (33 chars)
+        createAccountInvalidScenariosPage.invalidUserInputDataTooLongFirstNameGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input too long first name
+        createAccountInvalidScenariosPage.inputTooLongFirstNameIntoFirstNameInputField();
+        //capture screenshot of the invalid user data input - too long first name (33 chars)
+        captureScreenshot(driver, "Invalid User Data Input - Too Long First Name");
+        //input valid last name
+        createAccountInvalidScenariosPage.inputLastNameIntoLastNameInputField();
+        //input valid password
+        createAccountInvalidScenariosPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long First Name");
+        //assert the user gets an expected error message (too long first name), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "firstname is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long first name).");
+        } catch (Exception e) {
+            logger.warn("The too long first name error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
