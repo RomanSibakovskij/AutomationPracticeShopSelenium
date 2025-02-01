@@ -212,6 +212,47 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid navigate to 'Create Account' page (existing user email format) test method (used beforehand in manual testing)
+    protected void invalidNavigateToCreateAccountPageExistingEmailTest(){
+        HomePage homePage = new HomePage(driver);
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //click 'Bestsellers' section button link
+        homePage.clickBestsellersSectionButtonLink();
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //home page bestseller products data logger
+        logHomePageBestSellerProductData(homePage);
+        //capture screenshot of the home page
+        captureScreenshot(driver, "Home Page Visual Display");
+        //click 'Sign In' nav link
+        generalPage.clickSignInNavLink();
+        //capture screenshot of the user moving to create account / login dashboard page
+        captureScreenshot(driver, "User Navigation to Create Account And Login Dashboard Page");
+        //create account/login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account/login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //input existing email into email input field (used beforehand)
+        createAccountLoginDashboardPage.inputExistingEmailIntoEmailInputField();
+        //click 'Create an account' button
+        createAccountLoginDashboardPage.clickCreateAccountButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Existing Email");
+        //assert the user gets the expected error message, log the issue if it doesn't appear
+        try {
+            assertEquals("An account using this email address has already been registered. Please enter a valid password or request a new one.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+        } catch (NoSuchElementException e) {
+            logger.warn("The user navigation to create account page doesn't get interrupted with existing register email format. Test has failed.");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

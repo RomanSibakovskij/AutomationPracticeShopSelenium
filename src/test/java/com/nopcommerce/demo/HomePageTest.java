@@ -57,5 +57,16 @@ public class HomePageTest extends TestMethods {
         invalidNavigateToCreateAccountPageInvalidEmailFormatTest();
     }
 
+    //existing singular input
+
+    //Test 001e -> invalid user navigation to 'Create Account' page test - existing user email (used in manual testing beforehand)
+    @Test
+    @DisplayName("Invalid User Navigation To Create Account Page Test - Existing Email")
+    @Tag("Invalid_User_Navigation_To_Create_Account_Page")
+    @Tag("Existing_Singular_Input")
+    void navigateUserToCreateAccountPageExistingEmailTest(){
+        invalidNavigateToCreateAccountPageExistingEmailTest();
+    }
+
 
 }

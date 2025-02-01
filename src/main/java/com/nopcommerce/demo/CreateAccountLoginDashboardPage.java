@@ -88,6 +88,11 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         createAccountSectionEmailInputField.sendKeys(invalidEmailFormat);
         logger.info("Invalid user register email format: " + invalidEmailFormat);
     }
+    //invalid login email input method - existing user email address (used beforehand in manual testing)
+    public void inputExistingEmailIntoEmailInputField(){
+        createAccountSectionEmailInputField.sendKeys(existingEmail);
+        logger.info("Existing user register email: " + existingEmail);
+    }
 
     //click 'Create an account' button method
     public void clickCreateAccountButton() {
