@@ -83,7 +83,11 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         createAccountSectionEmailInputField.sendKeys(tooLongEmail);
         logger.info("Too long user register email: " + tooLongEmail);
     }
-
+    //invalid login email input method - invalid user email address format
+    public void inputInvalidEmailFormatIntoEmailInputField(){
+        createAccountSectionEmailInputField.sendKeys(invalidEmailFormat);
+        logger.info("Invalid user register email format: " + invalidEmailFormat);
+    }
 
     //click 'Create an account' button method
     public void clickCreateAccountButton() {

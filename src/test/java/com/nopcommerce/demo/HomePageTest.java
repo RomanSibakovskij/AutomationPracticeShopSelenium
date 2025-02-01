@@ -46,5 +46,16 @@ public class HomePageTest extends TestMethods {
         invalidNavigateToCreateAccountPageTooLongEmailTest();
     }
 
+    //invalid singular input format
+
+    //Test 001d -> invalid user navigation to 'Create Account' page test - invalid user email format
+    @Test
+    @DisplayName("Invalid User Navigation To Create Account Page Test - Invalid Email Format")
+    @Tag("Invalid_User_Navigation_To_Create_Account_Page")
+    @Tag("Invalid_Singular_Input_Format")
+    void navigateUserToCreateAccountPageInvalidEmailFormatTest(){
+        invalidNavigateToCreateAccountPageInvalidEmailFormatTest();
+    }
+
 
 }
