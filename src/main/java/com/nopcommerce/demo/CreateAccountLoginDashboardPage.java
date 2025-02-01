@@ -45,7 +45,11 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     @FindBy(xpath = "//div[@id='create_account_error']")
     private WebElement invalidEmailAddressErrorMessage;
 
+
+
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
+
+
 
     //create account login dashboard page text element getters
     public String getCreateAccountLoginDashboardTitle() {return createAccountLoginDashboardTitle.getText();}
