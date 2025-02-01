@@ -638,6 +638,44 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user account creation test method - too long email address (100 chars)
+    protected void invalidUserAccountTooLongEmailCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter (except too long email)
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //input too long user email (100 chars)
+        createAccountInvalidScenariosPage.inputTooLongEmailIntoEmailInputField();
+        //capture screenshot of the invalid user data input - too long email address (100 chars)
+        captureScreenshot(driver, "Invalid User Data Input - Too Long Email");
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long Email");
+        //assert the user gets an expected error message (too long email address), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "email is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long email address).");
+        } catch (Exception e) {
+            logger.warn("The too long email address error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

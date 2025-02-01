@@ -157,4 +157,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountTooLongLastNameCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002k -> invalid user account creation test - too long email address (100 chars) (user account creation wasn't aborted - test has failed)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Long Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserAccountCreationTooLongEmailTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too long email address (100 chars)
+        invalidUserAccountTooLongEmailCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }

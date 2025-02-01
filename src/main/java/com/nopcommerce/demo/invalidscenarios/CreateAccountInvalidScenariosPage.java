@@ -39,6 +39,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //too long singular input
     private String tooLongFirstName;
     private String tooLongLastName;
+    private String tooLongEmail = TestDataGenerator.generateRandomEmailAddress(100);
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -159,7 +160,10 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //too long singular input methods
     public void inputTooLongFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(tooLongFirstName);}
     public void inputTooLongLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(tooLongLastName);}
-
+    public void inputTooLongEmailIntoEmailInputField(){
+        createAccountEmailInputField.clear();
+        createAccountEmailInputField.sendKeys(tooLongEmail);
+    }
 
     //missing singular input error getter
     public String getMissingSingularInputError(){return createAccountMissingSingularInputError.getText();}
