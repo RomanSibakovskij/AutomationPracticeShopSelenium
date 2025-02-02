@@ -29,6 +29,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String noUpdatedFirstName;
     private String noUpdatedLastName;
     private String noUpdatedEmail;
+    private String testPassword;//(for no confirm password test)
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -50,6 +51,11 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         noUpdatedEmail = "";
         logger.info("No updated user email: " + noUpdatedEmail);
         myAccountInfoEmailInputField.sendKeys(noUpdatedEmail);
+    }
+    public void inputNewPasswordForNoConfirmIntoNewPasswordInputField(){
+        testPassword = "Fzczx@#$#@42";
+        logger.info("New user password (for non-confirmation testing): " + testPassword);
+        myAccountInfoNewPasswordInputField.sendKeys(testPassword);
     }
 
     //singular input error message getter

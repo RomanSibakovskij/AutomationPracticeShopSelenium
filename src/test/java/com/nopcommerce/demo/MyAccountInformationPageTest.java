@@ -112,4 +112,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountNoEmailUpdateTest(createAccountPage);
     }
 
+    //Test 005g -> invalid user password update test - no new password confirmation (user account update didn't get aborted)
+    @Test
+    @DisplayName("Invalid User Password Update Test - No Confirm New Password")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("No_Singular_Input")
+    void invalidUserNoConfirmNewPasswordUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user password address update test - no new password confirmation
+        invalidUserAccountNoConfirmPasswordUpdateTest(createAccountPage);
+    }
+
 }

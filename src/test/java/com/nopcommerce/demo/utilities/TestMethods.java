@@ -1405,6 +1405,38 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Email");
     }
 
+    //invalid 'My Account' page user last name update test method - no new password
+    protected void invalidUserAccountNoConfirmPasswordUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //input new user password but omit 'Confirm Password' input
+        myAccountInfoInvalidScenariosPage.inputNewPasswordForNoConfirmIntoNewPasswordInputField();
+        //capture screenshot of invalid test data input - no new password confirmation
+        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No Confirm New Password");
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "The password and confirmation do not match.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing new password confirmation error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Confirm New Password");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
