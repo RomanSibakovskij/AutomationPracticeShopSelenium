@@ -76,6 +76,7 @@ public class MyAccountInformationPage extends BasePage {
 
     //valid user updated data variables
     private String updatedUserFirstName = "Bennett";
+    private String updatedUserLastName = "Kammerberger";
 
     public MyAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -84,6 +85,11 @@ public class MyAccountInformationPage extends BasePage {
         myAccountInfoFirstNameInputField.clear();
         logger.info("Valid updated user first name: " + updatedUserFirstName);
         myAccountInfoFirstNameInputField.sendKeys(updatedUserFirstName);
+    }
+    public void inputUpdatedLastNameIntoLastNameInputField(){
+        myAccountInfoLastNameInputField.clear();
+        logger.info("Valid updated user last name: " + updatedUserLastName);
+        myAccountInfoLastNameInputField.sendKeys(updatedUserLastName);
     }
 
     //input current user password method
@@ -113,6 +119,16 @@ public class MyAccountInformationPage extends BasePage {
     public String getMyAccountInfoConfirmPasswordSubtext() {return myAccountInfoConfirmPasswordSubtext.getText();}
     public String getMyAccountInfoNewsletterSubtext() {return myAccountInfoNewsletterText.getText();}
     public String getMyAccountInfoUpdateSuccessMessage() {return myAccountInfoUpdateSuccessMessage.getText();}
+
+    //input field data getters
+    public String getFirstNameInputFieldText() {JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", myAccountInfoFirstNameInputField);
+        return myAccountInfoFirstNameInputField.getDomAttribute("value");}
+    public String getLastNameInputFieldText() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", myAccountInfoLastNameInputField);
+        return myAccountInfoLastNameInputField.getDomAttribute("value");
+    }
 
     //my account information page web element assert methods
     public boolean isMyAccountInfoBreadcrumbDisplayed() {

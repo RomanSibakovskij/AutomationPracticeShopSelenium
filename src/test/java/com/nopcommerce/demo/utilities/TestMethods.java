@@ -1157,10 +1157,49 @@ public class TestMethods extends BaseTest {
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
         //click 'Save' button
         myAccountInformationPage.clickSaveButton();
-        //capture screenshot of the test result
-        captureScreenshot(driver, "Valid User Account Update First Name Test Result");
         //assert the user gets an expected success message
         assertEquals("Your personal information has been successfully updated.", myAccountInformationPage.getMyAccountInfoUpdateSuccessMessage(),"The personal information update success message doesn't match expectations or the update process has failed");
+        //click 'My Personal Info' footer link
+        generalPage.clickMyPersonalInfoFooterLink();
+        //assert the last name was indeed updated
+        assertEquals("Bennett", myAccountInformationPage.getFirstNameInputFieldText(), "The first name doesn't match expectations.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Update First Name Test Result");
+    }
+
+    //valid 'My Account' page last name update test method
+    protected void validUserAccountLastNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input updated user last name
+        myAccountInformationPage.inputUpdatedLastNameIntoLastNameInputField();
+        //capture screenshot of valid test data input
+        captureScreenshot(driver, "Valid User Account Updated Last Name Input");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets an expected success message
+        assertEquals("Your personal information has been successfully updated.", myAccountInformationPage.getMyAccountInfoUpdateSuccessMessage(),"The personal information update success message doesn't match expectations or the update process has failed");
+        //click 'My Personal Info' footer link
+        generalPage.clickMyPersonalInfoFooterLink();
+        //assert the last name was indeed updated
+        assertEquals("Kammerberger", myAccountInformationPage.getLastNameInputFieldText(), "The last name doesn't match expectations.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Update Last Name Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

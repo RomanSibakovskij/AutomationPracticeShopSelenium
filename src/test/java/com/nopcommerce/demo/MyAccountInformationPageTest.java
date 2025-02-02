@@ -21,4 +21,18 @@ public class MyAccountInformationPageTest extends TestMethods{
         validUserAccountFirstNameUpdateTest(createAccountPage);
     }
 
+    //Test 005a -> valid user last name update test
+    @Test
+    @DisplayName("Valid User Last Name Update Test")
+    @Tag("Valid_User_Information_Update")
+    void validUserLastNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user last name update test
+        validUserAccountLastNameUpdateTest(createAccountPage);
+    }
+
 }
