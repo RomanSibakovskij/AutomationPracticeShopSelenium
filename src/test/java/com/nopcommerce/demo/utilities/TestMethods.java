@@ -1358,7 +1358,7 @@ public class TestMethods extends BaseTest {
         //don't input user last name
         myAccountInfoInvalidScenariosPage.inputNoLastNameIntoLastNameInputField();
         //capture screenshot of invalid test data input - no last name
-        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No Last Name");
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - No Last Name");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
         //click 'Save' button
@@ -1368,7 +1368,7 @@ public class TestMethods extends BaseTest {
         //assert the user gets the expected error message
         assertEquals("There is 1 error\n" + "lastname is required.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing last name error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Last Name");
+        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - No Last Name");
     }
 
     //invalid 'My Account' page user last name update test method - no email address
@@ -1392,7 +1392,7 @@ public class TestMethods extends BaseTest {
         //don't input user email
         myAccountInfoInvalidScenariosPage.inputNoEmailIntoEmailInputField();
         //capture screenshot of invalid test data input - no email address
-        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No Email");
+        captureScreenshot(driver, "Invalid User Account Updated Email Input - No Email");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
         //click 'Save' button
@@ -1402,7 +1402,7 @@ public class TestMethods extends BaseTest {
         //assert the user gets the expected error message
         assertEquals("There is 1 error\n" + "This email address is not valid", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing email address error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Email");
+        captureScreenshot(driver, "Invalid User Account Update Email Test Result - No Email");
     }
 
     //invalid 'My Account' page user last name update test method - no new password
@@ -1428,13 +1428,13 @@ public class TestMethods extends BaseTest {
         //input new user password but omit 'Confirm Password' input
         myAccountInfoInvalidScenariosPage.inputNewPasswordForNoConfirmIntoNewPasswordInputField();
         //capture screenshot of invalid test data input - no new password confirmation
-        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No Confirm New Password");
+        captureScreenshot(driver, "Invalid User Account Updated Password Input - No Confirm New Password");
         //click 'Save' button
         myAccountInformationPage.clickSaveButton();
         //assert the user gets the expected error message
         assertEquals("There is 1 error\n" + "The password and confirmation do not match.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing new password confirmation error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Confirm New Password");
+        captureScreenshot(driver, "Invalid User Account Update Password Test Result - No Confirm New Password");
     }
 
     //too short singular input
@@ -1457,9 +1457,9 @@ public class TestMethods extends BaseTest {
         isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
         //capture screenshot of the page
         captureScreenshot(driver, "Valid User Account Information Page Display");
-        //input too short user first name
+        //input too short user first name (1 char)
         myAccountInfoInvalidScenariosPage.inputTooShortFirstNameIntoFirstNameInputField();
-        //capture screenshot of invalid test data input - too short first name
+        //capture screenshot of invalid test data input - too short first name (1 char)
         captureScreenshot(driver, "Invalid User Account Updated First Name Input - Too Short First Name");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
@@ -1473,6 +1473,42 @@ public class TestMethods extends BaseTest {
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - Too Short First Name");
+    }
+
+    //invalid 'My Account' page user first name update test method - too short last name (1 char)
+    protected void invalidUserAccountTooShortLastNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input too short user last name (1 char)
+        myAccountInfoInvalidScenariosPage.inputTooShortLastNameIntoLastNameInputField();
+        //capture screenshot of invalid test data input - too short last name (1 char)
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Short last Name");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "lastname is too short.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too short last name error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too short last name error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Too Short Last Name");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

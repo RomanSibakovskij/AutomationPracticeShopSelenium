@@ -144,4 +144,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountTooShortFirstNameUpdateTest(createAccountPage);
     }
 
+    //Test 005i -> invalid user last name update test - too short last name (1 char) (user information update doesn't get aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Last Name Update Test - Too Short Last Name")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserTooShortLastNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user first name update test - too short last name (1 char)
+        invalidUserAccountTooShortLastNameUpdateTest(createAccountPage);
+    }
+
 }
