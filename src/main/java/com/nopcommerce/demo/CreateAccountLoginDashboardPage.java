@@ -66,6 +66,9 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     //valid login section input data
     private String validLoginPassword;
 
+    //missing singular login section input data
+    private String noLoginPassword;
+
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
 
     //valid login email input method (create account section)
@@ -124,7 +127,7 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     public void inputValidLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(validEmail);}
     public void inputValidLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(validLoginPassword);}
 
-    //invalid login input data getter - no login email
+    //no singular input login data getters
     public void invalidLoginUserDataNoEmailGetter(CreateAccountPage createAccountPage) {
 
         noEmail = "";
@@ -136,9 +139,20 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         System.out.println("\n");
 
     }
+    public void invalidLoginUserDataNoPasswordGetter() {
+
+        noLoginPassword = "";
+
+        System.out.println("Invalid login user data (no login password): " + "\n");
+        logger.info("Valid login user email (no login password): " + getValidEmail());
+        logger.info("No login user password: " + noLoginPassword);
+        System.out.println("\n");
+
+    }
 
     //missing singular input methods
     public void inputNoLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(noEmail);}
+    public void inputNoLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(noLoginPassword);}
 
     //click 'Sign In' button method
     public void clickSignInButton() {
