@@ -45,8 +45,10 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     @FindBy(xpath = "//div[@id='create_account_error']")
     private WebElement invalidEmailAddressErrorMessage;
 
+    //create account section data
+
     //valid variable (account creation)
-    private String validEmail = TestDataGenerator.generateRandomEmailAddress(8);
+    private static String validEmail = TestDataGenerator.generateRandomEmailAddress(8);
     //missing singular variable (account creation)
     private String noEmail = "";
     //too short email address input (1 char -> name, domain) (account creation)
@@ -58,9 +60,12 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     //existing singular variable format (used beforehand in manual testing) (account creation)
     private String existingEmail = "cortez3434@fakemail.com";
 
+    //valid login section input data
+    private String validLoginPassword;
+
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
 
-    //valid login email input method
+    //valid login email input method (create account section)
     public void inputValidEmailIntoEmailInputField(){
         createAccountSectionEmailInputField.sendKeys(validEmail);
         logger.info("Valid user register email: " + validEmail);
@@ -100,6 +105,28 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         actions.moveToElement(createAccountButton).click().perform();
     }
 
+    //valid login input data getter
+    public void validLoginUserDataGetter(CreateAccountPage createAccountPage) {
+
+        validLoginPassword = createAccountPage.getPassword();
+
+        System.out.println("Valid login user data: " + "\n");
+        logger.info("Valid login user email: " + getValidEmail());
+        logger.info("Valid login user password: " + validLoginPassword);
+        System.out.println("\n");
+
+    }
+
+    //valid login user data input methods
+    public void inputValidLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(validEmail);}
+    public void inputValidLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(validLoginPassword);}
+
+    //click 'Sign In' button method
+    public void clickSignInButton() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(signInButton).click().perform();
+    }
+
     //create account login dashboard page text element getters
     public String getCreateAccountLoginDashboardTitle() {return createAccountLoginDashboardTitle.getText();}
     public String getCreateAccountSectionTitle() {return createAccountSectionTitle.getText();}
@@ -113,7 +140,12 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     public String getInvalidEmailErrorMessageText(){return invalidEmailAddressErrorMessage.getText();}
 
     //email getter
-    public String getEmail(){return validEmail;}
+    public String getValidEmail() {
+        if (validEmail == null) {
+            validEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        }
+        return validEmail;
+    }
 
     //create account login dashboard page web elements
     public boolean isLoginDashboardBreadcrumbDisplayed(){

@@ -18,6 +18,8 @@ public class GeneralPage extends BasePage {
     private WebElement headerShopPhone;
     @FindBy(xpath = "//div[@class='nav']//a[@class='login']")
     private WebElement loginNavLink;
+    @FindBy(xpath = "//div[@class='nav']//a[@class='logout']")
+    private WebElement logOutNavLink;
     @FindBy(xpath = "//div[@class='nav']//a[@title='Contact us']")
     private WebElement contactUsNavLink;
     @FindBy(xpath = "//div[@id='header_logo']/a")
@@ -91,6 +93,12 @@ public class GeneralPage extends BasePage {
     public void clickSignInNavLink(){
         Actions actions = new Actions(driver);
         actions.moveToElement(loginNavLink).click().perform();
+    }
+
+    //click 'Logout' nav link method
+    public void clickLogOutNavLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(logOutNavLink).click().perform();
     }
 
     //footer information section title getter

@@ -902,6 +902,45 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user login test
+
+    //valid user login test method
+    protected void validUserLoginTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        generalPage.clickLogOutNavLink();
+        //create account login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //valid login user input data getter
+        createAccountLoginDashboardPage.validLoginUserDataGetter(createAccountPage);
+        //input valid login user email address
+        createAccountLoginDashboardPage.inputValidLoginEmailIntoEmailInputField();
+        //input valid login user password
+        createAccountLoginDashboardPage.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the valid user input data
+        captureScreenshot(driver, "Valid User Login Data Input");
+        //click 'Sign In' button
+        createAccountLoginDashboardPage.clickSignInButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Login Test Result");
+        //assert the user gets onto 'My Account' page
+        assertEquals("MY ACCOUNT", myAccountPage.getMyAccountPageTitle(), "The my account page title text doesn't match expectations or the user has failed to login.");
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (all pages have them)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //assert header banner link is displayed
