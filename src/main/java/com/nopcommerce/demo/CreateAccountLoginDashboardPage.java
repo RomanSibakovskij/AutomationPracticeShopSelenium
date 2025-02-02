@@ -43,7 +43,10 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     private WebElement signInButton;
     //invalid email address error element (create account section)
     @FindBy(xpath = "//div[@id='create_account_error']")
-    private WebElement invalidEmailAddressErrorMessage;
+    private WebElement invalidInputErrorMessage;
+    //invalid input error element (login section)
+    @FindBy(xpath = "//div[@id='alert alert-danger']")
+    private WebElement invalidLoginInputErrorMessage;
 
     //create account section data
 
@@ -121,6 +124,22 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     public void inputValidLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(validEmail);}
     public void inputValidLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(validLoginPassword);}
 
+    //invalid login input data getter - no login email
+    public void invalidLoginUserDataNoEmailGetter(CreateAccountPage createAccountPage) {
+
+        noEmail = "";
+        validLoginPassword = createAccountPage.getPassword();
+
+        System.out.println("Invalid login user data (no login email): " + "\n");
+        logger.info("No login user email: " + noEmail);
+        logger.info("Valid login user password (no login email): " + validLoginPassword);
+        System.out.println("\n");
+
+    }
+
+    //missing singular input methods
+    public void inputNoLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(noEmail);}
+
     //click 'Sign In' button method
     public void clickSignInButton() {
         Actions actions = new Actions(driver);
@@ -136,8 +155,9 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     public String getLoginSectionEmailSubtext() {return loginSectionEmailSubtext.getText();}
     public String getLoginSectionPasswordSubtext() {return loginSectionPasswordSubtext.getText();}
 
-    //invalid error message getter
-    public String getInvalidEmailErrorMessageText(){return invalidEmailAddressErrorMessage.getText();}
+    //invalid error message getters
+    public String getInvalidInputErrorMessageText(){return invalidInputErrorMessage.getText();}
+    public String getInvalidLoginInputErrorMessageText(){return invalidLoginInputErrorMessage.getText();}
 
     //email getter
     public String getValidEmail() {

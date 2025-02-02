@@ -62,7 +62,7 @@ public class CreateAccountPage extends BasePage{
     private String maleFirstName;
     private String femaleFirstName;
     private String lastName;
-    private String password;
+    private static String password;
 
     public CreateAccountPage(WebDriver driver) {super(driver);}
 

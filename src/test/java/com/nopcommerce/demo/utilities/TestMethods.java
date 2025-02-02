@@ -85,7 +85,7 @@ public class TestMethods extends BaseTest {
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - No Email");
         //assert the user gets the expected error message
-        assertEquals("Invalid email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+        assertEquals("Invalid email address.", createAccountLoginDashboardPage.getInvalidInputErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
     }
 
     //too short singular input
@@ -125,7 +125,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Too Short Email");
         //assert the user gets the expected error message, log the issue if it doesn't appear
         try {
-            assertEquals("Too short email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+            assertEquals("Too short email address.", createAccountLoginDashboardPage.getInvalidInputErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
         } catch (NoSuchElementException e) {
             logger.warn("The user navigation to create account page doesn't get interrupted with too short register email. Test has failed.");
         }
@@ -166,7 +166,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Too Long Email");
         //assert the user gets the expected error message, log the issue if it doesn't appear
         try {
-            assertEquals("Too long email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+            assertEquals("Too long email address.", createAccountLoginDashboardPage.getInvalidInputErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
         } catch (NoSuchElementException e) {
             logger.warn("The user navigation to create account page doesn't get interrupted with too long register email. Test has failed.");
         }
@@ -207,7 +207,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Invalid Email Format");
         //assert the user gets the expected error message, log the issue if it doesn't appear
         try {
-            assertEquals("Invalid email address.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+            assertEquals("Invalid email address.", createAccountLoginDashboardPage.getInvalidInputErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
         } catch (NoSuchElementException e) {
             logger.warn("The user navigation to create account page doesn't get interrupted with invalid register email format. Test has failed.");
         }
@@ -248,7 +248,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Navigation to Register Page Test Result - Existing Email");
         //assert the user gets the expected error message, log the issue if it doesn't appear
         try {
-            assertEquals("An account using this email address has already been registered. Please enter a valid password or request a new one.", createAccountLoginDashboardPage.getInvalidEmailErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
+            assertEquals("An account using this email address has already been registered. Please enter a valid password or request a new one.", createAccountLoginDashboardPage.getInvalidInputErrorMessageText(), "The invalid input email error message text doesn't match expectations or it didn't appear.");
         } catch (NoSuchElementException e) {
             logger.warn("The user navigation to create account page doesn't get interrupted with existing register email format. Test has failed.");
         }
@@ -937,6 +937,49 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Login Test Result");
         //assert the user gets onto 'My Account' page
         assertEquals("MY ACCOUNT", myAccountPage.getMyAccountPageTitle(), "The my account page title text doesn't match expectations or the user has failed to login.");
+    }
+
+    //invalid user login tests
+
+    //no singular input
+
+    //invalid user login test method - no login email
+    protected void invalidUserLoginNoEmailTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        generalPage.clickLogOutNavLink();
+        //create account login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //invalid login user input data getter - no login email
+        createAccountLoginDashboardPage.invalidLoginUserDataNoEmailGetter(createAccountPage);
+        //don't input login user email address
+        createAccountLoginDashboardPage.inputNoLoginEmailIntoEmailInputField();
+        //input valid login user password
+        createAccountLoginDashboardPage.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the valid user input data
+        captureScreenshot(driver, "Invalid User Login Data Input - No Login Email");
+        //click 'Sign In' button
+        createAccountLoginDashboardPage.clickSignInButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - No login Email");
+        //assert the user gets an expected error message (no login email address), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "An email address required.", createAccountLoginDashboardPage.getInvalidLoginInputErrorMessageText(), "The missing singular input error text doesn't match expectations (no login email address).");
+        } catch (Exception e) {
+            logger.warn("The missing email address error wasn't triggered");
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
