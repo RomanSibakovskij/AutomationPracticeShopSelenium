@@ -1202,6 +1202,54 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Account Update Last Name Test Result");
     }
 
+    //valid 'My Account' page email address update test method
+    protected void validUserAccountEmailUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input updated user email address
+        myAccountInformationPage.inputUpdatedEmailIntoEmailInputField();
+        //capture screenshot of valid test data input
+        captureScreenshot(driver, "Valid User Account Updated Email Input");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets an expected success message
+        assertEquals("Your personal information has been successfully updated.", myAccountInformationPage.getMyAccountInfoUpdateSuccessMessage(),"The personal information update success message doesn't match expectations or the update process has failed");
+        //click 'My Personal Info' footer link
+        generalPage.clickMyPersonalInfoFooterLink();
+        //assert the last name was indeed updated
+        assertEquals(myAccountInformationPage.getUpdatedEmail(), myAccountInformationPage.getEmailInputFieldText(), "The email doesn't match expectations.");
+        //capture screenshot of the updated email
+        captureScreenshot(driver, "Valid User Account Updated Email");
+        //click 'Sign out' nav link
+        generalPage.clickLogOutNavLink();
+        //valid updated user data getter (updated user email)
+        createAccountLoginDashboardPage.validUpdatedEmailUserDataGetter(myAccountInformationPage, createAccountPage);
+        //input updated user email address
+        createAccountLoginDashboardPage.inputUpdatedLoginEmailIntoEmailInputField();
+        //input user login password
+        createAccountLoginDashboardPage.inputValidLoginPasswordIntoPasswordInputField();
+        //click 'Sign in' button
+        createAccountLoginDashboardPage.clickSignInButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Update Email Test Result");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

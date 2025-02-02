@@ -35,4 +35,18 @@ public class MyAccountInformationPageTest extends TestMethods{
         validUserAccountLastNameUpdateTest(createAccountPage);
     }
 
+    //Test 005b -> valid user email update test
+    @Test
+    @DisplayName("Valid User Email Update Test")
+    @Tag("Valid_User_Information_Update")
+    void validUserEmailUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user email address update test
+        validUserAccountEmailUpdateTest(createAccountPage);
+    }
+
 }

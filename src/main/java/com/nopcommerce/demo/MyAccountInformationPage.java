@@ -77,6 +77,7 @@ public class MyAccountInformationPage extends BasePage {
     //valid user updated data variables
     private String updatedUserFirstName = "Bennett";
     private String updatedUserLastName = "Kammerberger";
+    private static String updatedUserEmail = TestDataGenerator.generateRandomEmailAddress(9);
 
     public MyAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -90,6 +91,11 @@ public class MyAccountInformationPage extends BasePage {
         myAccountInfoLastNameInputField.clear();
         logger.info("Valid updated user last name: " + updatedUserLastName);
         myAccountInfoLastNameInputField.sendKeys(updatedUserLastName);
+    }
+    public void inputUpdatedEmailIntoEmailInputField(){
+        myAccountInfoEmailInputField.clear();
+        logger.info("Valid updated user email: " + updatedUserEmail);
+        myAccountInfoEmailInputField.sendKeys(updatedUserEmail);
     }
 
     //input current user password method
@@ -129,6 +135,14 @@ public class MyAccountInformationPage extends BasePage {
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", myAccountInfoLastNameInputField);
         return myAccountInfoLastNameInputField.getDomAttribute("value");
     }
+    public String getEmailInputFieldText() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", myAccountInfoEmailInputField);
+        return myAccountInfoEmailInputField.getDomAttribute("value");
+    }
+
+    //private data getters
+    public String getUpdatedEmail(){return updatedUserEmail;}
 
     //my account information page web element assert methods
     public boolean isMyAccountInfoBreadcrumbDisplayed() {
