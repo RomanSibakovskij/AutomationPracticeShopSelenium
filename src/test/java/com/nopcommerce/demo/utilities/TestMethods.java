@@ -1323,7 +1323,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Account Information Page Display");
         //don't input user first name
         myAccountInfoInvalidScenariosPage.inputNoFirstNameIntoFirstNameInputField();
-        //capture screenshot of valid test data input
+        //capture screenshot of invalid test data input - no first name
         captureScreenshot(driver, "Invalid User Account Updated First Name Input - No First Name");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
@@ -1335,6 +1335,40 @@ public class TestMethods extends BaseTest {
         assertEquals("There is 1 error\n" + "firstname is required.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing first name error doesn't match expectations or the error wasn't triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No First Name");
+    }
+
+    //invalid 'My Account' page user last name update test method - no last name
+    protected void invalidUserAccountNoLastNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //don't input user last name
+        myAccountInfoInvalidScenariosPage.inputNoLastNameIntoLastNameInputField();
+        //capture screenshot of invalid test data input - no last name
+        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No Last Name");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the first name got the expected empty string
+        assertEquals("", myAccountInformationPage.getLastNameInputFieldText(), "The last name doesn't match expectations.");
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "lastname is required.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing last name error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Last Name");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
