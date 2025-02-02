@@ -1101,6 +1101,33 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //valid user logout test
+
+    //valid user logout test method
+    protected void validUserLogOutTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        generalPage.clickLogOutNavLink();
+        //create account login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Logout Test Result");
+        //assert the user gets onto 'Create Account & Login' dashboard page
+        assertEquals("AUTHENTICATION", createAccountLoginDashboardPage.getCreateAccountLoginDashboardTitle(), "The create account login dashboard page title text doesn't match expectations or the user has failed to logout.");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

@@ -103,4 +103,21 @@ public class CreateAccountLoginDashboardPageTest extends TestMethods{
         invalidUserLoginInvalidPasswordTest(createAccountPage);
     }
 
+    //valid user logout tests
+
+    //Test 004 -> valid user logout test
+    @Test
+    @DisplayName("Valid User Account Logout Test")
+    @Tag("Valid_User_Login")
+    @Tag("Male")
+    void validUserAccountLogoutTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user logout test
+        validUserLogOutTest(createAccountPage);
+    }
+
 }
