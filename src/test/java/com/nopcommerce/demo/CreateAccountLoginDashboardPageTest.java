@@ -22,6 +22,21 @@ public class CreateAccountLoginDashboardPageTest extends TestMethods{
         validUserLoginTest(createAccountPage);
     }
 
+    //Test 003a -> valid user login test (female)
+    @Test
+    @DisplayName("Valid Female User Account Login Test")
+    @Tag("Valid_User_Login")
+    @Tag("Female")
+    void validFemaleUserAccountLoginTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid female user account creation test
+        validFemaleUserAccountCreationTest(createAccountPage);
+        //valid user login test
+        validUserLoginTest(createAccountPage);
+    }
+
     //invalid user login tests
 
     //no singular input
