@@ -46,6 +46,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     private String invalidFirstNameInputFormat;
     private String invalidLastNameInputFormat;
     private String invalidEmailInputFormat = "ferrsds232fakemail.com";
+    private String existingEmail = "cortez3434@fakemail.com";
 
     public CreateAccountInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -213,6 +214,10 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     public void inputInvalidEmailFormatIntoEmailInputField(){
         createAccountEmailInputField.clear();
         createAccountEmailInputField.sendKeys(invalidEmailInputFormat);
+    }
+    public void inputExistingEmailIntoEmailInputField(){
+        createAccountEmailInputField.clear();
+        createAccountEmailInputField.sendKeys(existingEmail);
     }
 
     //missing singular input error getter

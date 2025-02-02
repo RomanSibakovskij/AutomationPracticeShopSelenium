@@ -824,6 +824,44 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user account creation test method - existing email address format (used in manual testing beforehand)
+    protected void invalidUserAccountExistingEmailFormatCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter (except existing email)
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //input pre-existing email (used in manual testing beforehand)
+        createAccountInvalidScenariosPage.inputExistingEmailIntoEmailInputField();
+        //capture screenshot of the invalid user data input - existing email address format (used in manual testing beforehand)
+        captureScreenshot(driver, "Invalid User Data Input - Existing Email");
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Existing Email");
+        //assert the user gets an expected error message (invalid email address format), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "An account using this email address has already been registered.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input error text doesn't match expectations (existing email address).");
+        } catch (Exception e) {
+            logger.warn("The existing email address error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
