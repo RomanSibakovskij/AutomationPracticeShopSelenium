@@ -78,6 +78,8 @@ public class MyAccountInformationPage extends BasePage {
     private String updatedUserFirstName = "Bennett";
     private String updatedUserLastName = "Kammerberger";
     private static String updatedUserEmail = TestDataGenerator.generateRandomEmailAddress(9);
+    private static String updatedUserPassword = TestDataGenerator.generateRandomPassword();
+    private String userConfirmPassword;
 
     public MyAccountInformationPage(WebDriver driver) {super(driver);}
 
@@ -96,6 +98,15 @@ public class MyAccountInformationPage extends BasePage {
         myAccountInfoEmailInputField.clear();
         logger.info("Valid updated user email: " + updatedUserEmail);
         myAccountInfoEmailInputField.sendKeys(updatedUserEmail);
+    }
+    public void inputNewPasswordIntoNewPasswordInputField(){
+        logger.info("Valid updated user password: " + updatedUserPassword);
+        myAccountInfoNewPasswordInputField.sendKeys(updatedUserPassword);
+    }
+    public void inputConfirmPasswordIntoConfirmPasswordInputField(){
+        userConfirmPassword = updatedUserPassword;
+        logger.info("Valid matching user confirm password: " + userConfirmPassword);
+        myAccountInfoConfirmPasswordInputField.sendKeys(userConfirmPassword);
     }
 
     //input current user password method
@@ -143,6 +154,7 @@ public class MyAccountInformationPage extends BasePage {
 
     //private data getters
     public String getUpdatedEmail(){return updatedUserEmail;}
+    public String getUpdatedPassword(){return updatedUserPassword;}
 
     //my account information page web element assert methods
     public boolean isMyAccountInfoBreadcrumbDisplayed() {

@@ -75,6 +75,7 @@ public class CreateAccountLoginDashboardPage extends BasePage {
 
     //valid updated input data
     private String validUpdatedLoginEmail;
+    private String validUpdatedLoginPassword;
 
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
 
@@ -196,13 +197,24 @@ public class CreateAccountLoginDashboardPage extends BasePage {
 
         System.out.println("Valid updated user data (updated email): " + "\n");
         logger.info("Valid updated user email: " + validUpdatedLoginEmail);
-        logger.info("Valid user password: " + validLoginPassword);
+        logger.info("Valid login user password (updated email): " + validLoginPassword);
+        System.out.println("\n");
+
+    }
+    public void validUpdatedPasswordUserDataGetter(MyAccountInformationPage myAccountInformationPage) {
+
+        validUpdatedLoginPassword = myAccountInformationPage.getUpdatedPassword();
+
+        System.out.println("Valid updated user data (updated password): " + "\n");
+        logger.info("Valid user email (updated password): " + getValidEmail());
+        logger.info("Valid updated user password: " + validUpdatedLoginPassword);
         System.out.println("\n");
 
     }
 
     //valid updated singular input methods
     public void inputUpdatedLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(validUpdatedLoginEmail);}
+    public void inputUpdatedLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(validUpdatedLoginPassword);}
 
     //click 'Sign In' button method
     public void clickSignInButton() {
