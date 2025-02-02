@@ -88,4 +88,19 @@ public class CreateAccountLoginDashboardPageTest extends TestMethods{
         invalidUserLoginInvalidEmailTest(createAccountPage);
     }
 
+    //Test 003e -> invalid user login test - invalid login password
+    @Test
+    @DisplayName("Invalid User Account Login Test - Invalid Login Password")
+    @Tag("Invalid_User_Login")
+    @Tag("Invalid_Singular_Input")
+    void invalidUserAccountLoginInvalidPasswordTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user login test - invalid login password
+        invalidUserLoginInvalidPasswordTest(createAccountPage);
+    }
+
 }

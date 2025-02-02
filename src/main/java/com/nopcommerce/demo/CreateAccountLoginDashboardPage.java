@@ -71,6 +71,7 @@ public class CreateAccountLoginDashboardPage extends BasePage {
 
     //invalid singular input data
     private String invalidLoginEmail;
+    private String invalidLoginPassword;
 
     public CreateAccountLoginDashboardPage(WebDriver driver) {super(driver);}
 
@@ -169,9 +170,20 @@ public class CreateAccountLoginDashboardPage extends BasePage {
         System.out.println("\n");
 
     }
+    public void invalidLoginUserDataInvalidPasswordGetter() {
+
+        invalidLoginPassword = "Hbvbcxvxc*&(*&^(*";
+
+        System.out.println("Invalid login user data (invalid login password): " + "\n");
+        logger.info("Valid login user email (invalid login password): " + getValidEmail());
+        logger.info("Invalid login user password: " + invalidLoginPassword);
+        System.out.println("\n");
+
+    }
 
     //invalid singular input methods
     public void inputInvalidLoginEmailIntoEmailInputField() {loginSectionEmailInputField.sendKeys(invalidLoginEmail);}
+    public void inputInvalidLoginPasswordIntoPasswordInputField() {loginSectionPasswordInputField.sendKeys(invalidLoginPassword);}
 
     //click 'Sign In' button method
     public void clickSignInButton() {

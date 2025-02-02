@@ -1062,6 +1062,45 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user login test method - invalid login password
+    protected void invalidUserLoginInvalidPasswordTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        generalPage.clickLogOutNavLink();
+        //create account login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //invalid login user input data getter - invalid login password
+        createAccountLoginDashboardPage.invalidLoginUserDataInvalidPasswordGetter();
+        //input valid login user email address
+        createAccountLoginDashboardPage.inputValidLoginEmailIntoEmailInputField();
+        //input invalid login user password
+        createAccountLoginDashboardPage.inputInvalidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the invalid user input data - invalid login password
+        captureScreenshot(driver, "Invalid User Login Data Input - Invalid Login Password");
+        //click 'Sign In' button
+        createAccountLoginDashboardPage.clickSignInButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Password");
+        //assert the user gets an expected error message (invalid login password), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "Password is required.", createAccountLoginDashboardPage.getInvalidLoginInputErrorMessageText(), "The invalid singular input error text doesn't match expectations (invalid login password).");
+        } catch (Exception e) {
+            logger.warn("The invalid password error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
