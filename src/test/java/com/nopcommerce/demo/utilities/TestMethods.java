@@ -968,7 +968,7 @@ public class TestMethods extends BaseTest {
         createAccountLoginDashboardPage.inputNoLoginEmailIntoEmailInputField();
         //input valid login user password
         createAccountLoginDashboardPage.inputValidLoginPasswordIntoPasswordInputField();
-        //capture screenshot of the valid user input data
+        //capture screenshot of the invalid user input data - no login email
         captureScreenshot(driver, "Invalid User Login Data Input - No Login Email");
         //click 'Sign In' button
         createAccountLoginDashboardPage.clickSignInButton();
@@ -1007,7 +1007,7 @@ public class TestMethods extends BaseTest {
         createAccountLoginDashboardPage.inputValidLoginEmailIntoEmailInputField();
         //don't input login user password
         createAccountLoginDashboardPage.inputNoLoginPasswordIntoPasswordInputField();
-        //capture screenshot of the valid user input data
+        //capture screenshot of the invalid user input data - no login password
         captureScreenshot(driver, "Invalid User Login Data Input - No Login Password");
         //click 'Sign In' button
         createAccountLoginDashboardPage.clickSignInButton();
@@ -1018,6 +1018,47 @@ public class TestMethods extends BaseTest {
             assertEquals("There is 1 error\n" + "Password is required.", createAccountLoginDashboardPage.getInvalidLoginInputErrorMessageText(), "The missing singular input error text doesn't match expectations (no login password).");
         } catch (Exception e) {
             logger.warn("The missing password error wasn't triggered");
+        }
+    }
+
+    //invalid singular input
+
+    //invalid user login test method - invalid login email
+    protected void invalidUserLoginInvalidEmailTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        CreateAccountLoginDashboardPage createAccountLoginDashboardPage = new CreateAccountLoginDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //my account page web element assert
+        isMyAccountPageWebElementDisplayed(myAccountPage);
+        //my account page text element assert
+        isMyAccountPageTextElementAsExpected(myAccountPage);
+        //click 'Logout' link
+        generalPage.clickLogOutNavLink();
+        //create account login dashboard page web element assert
+        isCreateAccountLoginDashboardPageWebElementDisplayed(createAccountLoginDashboardPage);
+        //create account login dashboard page text element assert
+        isCreateAccountLoginDashboardPageTextElementAsExpected(createAccountLoginDashboardPage);
+        //invalid login user input data getter - invalid login email
+        createAccountLoginDashboardPage.invalidLoginUserDataInvalidEmailGetter(createAccountPage);
+        //input invalid login user email address
+        createAccountLoginDashboardPage.inputInvalidLoginEmailIntoEmailInputField();
+        //input valid login user password
+        createAccountLoginDashboardPage.inputValidLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the invalid user input data - invalid login email
+        captureScreenshot(driver, "Invalid User Login Data Input - Invalid Login Email");
+        //click 'Sign In' button
+        createAccountLoginDashboardPage.clickSignInButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Email");
+        //assert the user gets an expected error message (invalid login email address), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "Authentication failed.", createAccountLoginDashboardPage.getInvalidLoginInputErrorMessageText(), "The invalid singular input error text doesn't match expectations (invalid login email address).");
+        } catch (Exception e) {
+            logger.warn("The invalid email address error wasn't triggered");
         }
     }
 
