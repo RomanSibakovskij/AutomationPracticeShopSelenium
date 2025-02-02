@@ -97,4 +97,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountNoLastNameUpdateTest(createAccountPage);
     }
 
+    //Test 005f -> invalid user email update test - no email address
+    @Test
+    @DisplayName("Invalid User Email Update Test - No Email")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("No_Singular_Input")
+    void invalidUserNoEmailUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user email address update test - no email address
+        invalidUserAccountNoEmailUpdateTest(createAccountPage);
+    }
+
 }

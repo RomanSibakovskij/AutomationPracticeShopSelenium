@@ -28,6 +28,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     //missing 'My Account' page updated data variables
     private String noUpdatedFirstName;
     private String noUpdatedLastName;
+    private String noUpdatedEmail;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -43,6 +44,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         noUpdatedLastName = "";
         logger.info("No updated user last name: " + noUpdatedLastName);
         myAccountInfoLastNameInputField.sendKeys(noUpdatedLastName);
+    }
+    public void inputNoEmailIntoEmailInputField(){
+        myAccountInfoEmailInputField.clear();
+        noUpdatedEmail = "";
+        logger.info("No updated user email: " + noUpdatedEmail);
+        myAccountInfoEmailInputField.sendKeys(noUpdatedEmail);
     }
 
     //singular input error message getter
