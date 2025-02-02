@@ -67,9 +67,37 @@ public class MyAccountInformationPage extends BasePage {
     private WebElement myAccountInfoBackToAccountButton;
     @FindBy(xpath = "//ul[@class='footer_links clearfix']/li[2]/a")
     private WebElement myAccountInfoHomeButton;
+    //information update success message element
+    @FindBy(xpath = "//p[@class='alert alert-success']")
+    private WebElement myAccountInfoUpdateSuccessMessage;
 
+    //valid user data variable
+    private String userPassword;
+
+    //valid user updated data variables
+    private String updatedUserFirstName = "Bennett";
 
     public MyAccountInformationPage(WebDriver driver) {super(driver);}
+
+    //my account information valid user data input methods
+    public void inputUpdatedFirstNameIntoFirstNameInputField(){
+        myAccountInfoFirstNameInputField.clear();
+        logger.info("Valid updated user first name: " + updatedUserFirstName);
+        myAccountInfoFirstNameInputField.sendKeys(updatedUserFirstName);
+    }
+
+    //input current user password method
+    public void inputCurrentUserPasswordIntoUserPasswordInputField(CreateAccountPage createAccountPage){
+        userPassword = createAccountPage.getPassword();
+        logger.info("Valid user password: " + userPassword);
+        myAccountInfoCurrentPasswordInputField.sendKeys(userPassword);
+    }
+
+    //click 'Save' button method
+    public void clickSaveButton(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAccountInfoSaveButton).click().perform();
+    }
 
     //my account information page text element getters
     public String getMyAccountInfoPageTitle() {return myAccountInfoPageTitle.getText();}
@@ -84,6 +112,7 @@ public class MyAccountInformationPage extends BasePage {
     public String getMyAccountInfoNewPasswordSubtext() {return myAccountInfoNewPasswordSubtext.getText();}
     public String getMyAccountInfoConfirmPasswordSubtext() {return myAccountInfoConfirmPasswordSubtext.getText();}
     public String getMyAccountInfoNewsletterSubtext() {return myAccountInfoNewsletterText.getText();}
+    public String getMyAccountInfoUpdateSuccessMessage() {return myAccountInfoUpdateSuccessMessage.getText();}
 
     //my account information page web element assert methods
     public boolean isMyAccountInfoBreadcrumbDisplayed() {

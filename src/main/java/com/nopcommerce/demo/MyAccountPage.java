@@ -40,6 +40,11 @@ public class MyAccountPage extends BasePage {
     public String getMyAccountSubtitle() {return myAccountSubTitle.getText();}
     public String getMyAccountSuccessMessageText(){return myAccountSuccessMessage.getText();}
 
+    //click 'My Account' information button link method
+    public void clickMyAccountInformationButtonLink(){
+        Actions action = new Actions(driver);
+        action.moveToElement(myPersonalInfoButtonLink).click().perform();
+    }
 
     //my account page web element assert methods
     public boolean isMyAccountBreadcrumbDisplayed(){
