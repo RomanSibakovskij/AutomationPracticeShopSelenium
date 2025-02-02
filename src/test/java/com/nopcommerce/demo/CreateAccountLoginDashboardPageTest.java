@@ -108,7 +108,7 @@ public class CreateAccountLoginDashboardPageTest extends TestMethods{
     //Test 004 -> valid user logout test
     @Test
     @DisplayName("Valid User Account Logout Test")
-    @Tag("Valid_User_Login")
+    @Tag("Valid_User_Logout")
     @Tag("Male")
     void validUserAccountLogoutTest(){
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
@@ -116,6 +116,21 @@ public class CreateAccountLoginDashboardPageTest extends TestMethods{
         validNavigateToCreateAccountPageTest();
         //valid male user account creation test
         validMaleUserAccountCreationTest(createAccountPage);
+        //valid user logout test
+        validUserLogOutTest(createAccountPage);
+    }
+
+    //Test 004a -> valid user logout test (female)
+    @Test
+    @DisplayName("Valid Female User Account Logout Test")
+    @Tag("Valid_User_Logout")
+    @Tag("Female")
+    void validFemaleUserAccountLogoutTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid female user account creation test
+        validFemaleUserAccountCreationTest(createAccountPage);
         //valid user logout test
         validUserLogOutTest(createAccountPage);
     }
