@@ -34,6 +34,7 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //too short singular input
     private String tooShortFirstName;
     private String tooShortLastName;
+    private String tooShortEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
     private String tooShortPassword;
 
     //too long singular input
@@ -197,6 +198,10 @@ public class CreateAccountInvalidScenariosPage extends BasePage {
     //too short singular input methods
     public void inputTooShortFirstNameIntoFirstNameInputField(){createAccountFirstNameInputField.sendKeys(tooShortFirstName);}
     public void inputTooShortLastNameIntoLastNameInputField(){createAccountLastNameInputField.sendKeys(tooShortLastName);}
+    public void inputTooShortEmailIntoEmailInputField(){
+        createAccountEmailInputField.clear();
+        createAccountEmailInputField.sendKeys(tooShortEmail);
+    }
     public void inputTooShortPasswordIntoLastNameInputField(){createAccountPasswordInputField.sendKeys(tooShortPassword);}
 
     //too long singular input methods

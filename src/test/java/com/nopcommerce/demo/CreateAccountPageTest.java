@@ -116,6 +116,19 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountTooShortLastNameCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002h -> invalid user account creation test - too short email address (1 char - name, domain) (user account creation wasn't aborted - test has failed)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Too Short Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserAccountCreationTooShortEmailTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - too short email address (1 char - name,domain)
+        invalidUserAccountTooShortEmailCreationTest(createAccountInvalidScenariosPage);
+    }
+
     //Test 002h -> invalid user account creation test - too short password (4 chars)
     @Test
     @DisplayName("Invalid Male User Account Creation Test - Too Short Password")

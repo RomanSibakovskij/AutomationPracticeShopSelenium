@@ -486,7 +486,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Short First Name");
         //assert the user gets an expected error message (too short first name), log the issue otherwise
             try {
-                assertEquals("There is 1 error\n" + "Too short firstname.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too short first name).");
+                assertEquals("There is 1 error\n" + "Too short firstname.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too short first name).");
             } catch (Exception e) {
                 logger.warn("The too short first name error wasn't triggered");
             }
@@ -522,9 +522,47 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Short Last Name");
         //assert the user gets an expected error message (too short last name), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "Too short lastname.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too short last name).");
+            assertEquals("There is 1 error\n" + "Too short lastname.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too short last name).");
         } catch (Exception e) {
             logger.warn("The too short last name error wasn't triggered");
+        }
+    }
+
+    //invalid user account creation test method - too short email address (1 char, name, domain)
+    protected void invalidUserAccountTooShortEmailCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter (except too short email)
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //input too short email (1 char, name, domain)
+        createAccountInvalidScenariosPage.inputTooShortEmailIntoEmailInputField();
+        //capture screenshot of the invalid user data input - too short email (1 char, name, domain)
+        captureScreenshot(driver, "Invalid User Data Input - Too Short Email");
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Short Email");
+        //assert the user gets an expected error message (too short email address), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "An account using this email address has already been registered.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too short email address).");
+        } catch (Exception e) {
+            logger.warn("The too short email address error wasn't triggered");
         }
     }
 
@@ -558,7 +596,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Short Password");
         //assert the user gets an expected error message (too short password), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "passwd is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too short password).");
+            assertEquals("There is 1 error\n" + "passwd is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too short password).");
         } catch (Exception e) {
             logger.warn("The too short password error wasn't triggered");
         }
@@ -596,7 +634,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long First Name");
         //assert the user gets an expected error message (too long first name), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "firstname is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long first name).");
+            assertEquals("There is 1 error\n" + "firstname is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too long first name).");
         } catch (Exception e) {
             logger.warn("The too long first name error wasn't triggered");
         }
@@ -632,7 +670,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long Last Name");
         //assert the user gets an expected error message (too short last name), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "lastname is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long last name).");
+            assertEquals("There is 1 error\n" + "lastname is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too long last name).");
         } catch (Exception e) {
             logger.warn("The too long last name error wasn't triggered");
         }
@@ -670,7 +708,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long Email");
         //assert the user gets an expected error message (too long email address), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "email is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long email address).");
+            assertEquals("There is 1 error\n" + "email is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too long email address).");
         } catch (Exception e) {
             logger.warn("The too long email address error wasn't triggered");
         }
@@ -706,7 +744,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Too Long Password");
         //assert the user gets an expected error message (too long password), log the issue otherwise
         try {
-            assertEquals("There is 1 error\n" + "passwd is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The missing singular input error text doesn't match expectations (too long password).");
+            assertEquals("There is 1 error\n" + "passwd is too long. Maximum length: 32", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The singular input error text doesn't match expectations (too long password).");
         } catch (Exception e) {
             logger.warn("The too long password error wasn't triggered");
         }
@@ -778,7 +816,7 @@ public class TestMethods extends BaseTest {
         createAccountPage.clickRegisterButton();
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Invalid Last Name Format");
-        //assert the user gets an expected error message (too short last name), log the issue otherwise
+        //assert the user gets an expected error message (invalid last name format), log the issue otherwise
         try {
             assertEquals("There is 1 error\n" + "lastname is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input format error text doesn't match expectations (invalid last name format).");
         } catch (Exception e) {
@@ -854,7 +892,7 @@ public class TestMethods extends BaseTest {
         createAccountPage.clickRegisterButton();
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Existing Email");
-        //assert the user gets an expected error message (invalid email address format), log the issue otherwise
+        //assert the user gets an expected error message (existing email address), log the issue otherwise
         try {
             assertEquals("There is 1 error\n" + "An account using this email address has already been registered.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input error text doesn't match expectations (existing email address).");
         } catch (Exception e) {
