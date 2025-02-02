@@ -63,4 +63,23 @@ public class MyAccountInformationPageTest extends TestMethods{
         validUserAccountPasswordUpdateTest(createAccountPage);
     }
 
+    //invalid 'My Account' user information update tests
+
+    //no singular input
+
+    //Test 005d -> invalid user first name update test - no first name
+    @Test
+    @DisplayName("Invalid User First Name Update Test - No First Name")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("No_Singular_Input")
+    void invalidUserNoFirstNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user first name update test - no first name
+        invalidUserAccountNoFirstNameUpdateTest(createAccountPage);
+    }
+
 }

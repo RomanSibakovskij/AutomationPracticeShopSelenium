@@ -2,6 +2,7 @@ package com.nopcommerce.demo.utilities;
 
 import com.nopcommerce.demo.*;
 import com.nopcommerce.demo.invalidscenarios.CreateAccountInvalidScenariosPage;
+import com.nopcommerce.demo.invalidscenarios.MyAccountInfoInvalidScenariosPage;
 import org.slf4j.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.*;
@@ -1296,6 +1297,44 @@ public class TestMethods extends BaseTest {
         createAccountLoginDashboardPage.clickSignInButton();
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Account Update Password Test Result");
+    }
+
+    //invalid 'My Account' page update information tests
+
+    //no singular input
+
+    //invalid 'My Account' page user first name update test method - no first name
+    protected void invalidUserAccountNoFirstNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //don't input user first name
+        myAccountInfoInvalidScenariosPage.inputNoFirstNameIntoFirstNameInputField();
+        //capture screenshot of valid test data input
+        captureScreenshot(driver, "Invalid User Account Updated First Name Input - No First Name");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the first name got the expected empty string
+        assertEquals("", myAccountInformationPage.getFirstNameInputFieldText(), "The first name doesn't match expectations.");
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "firstname is required.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The missing first name error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No First Name");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
