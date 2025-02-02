@@ -52,7 +52,7 @@ public class CreateAccountLoginDashboardPage extends BasePage {
     //too short email address input (1 char -> name, domain) (account creation)
     private String tooShortEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
     //too long email address input (100 chars -> name, domain) (account creation)
-    private String tooLongEmail = TestDataGenerator.generateRandomTooShortEmailAddress(100);
+    private String tooLongEmail = TestDataGenerator.generateRandomTooLongEmailAddress(100);
     //invalid singular variable format (missing '@') (account creation)
     private String invalidEmailFormat = "frerdr343fakemail.com";
     //existing singular variable format (used beforehand in manual testing) (account creation)

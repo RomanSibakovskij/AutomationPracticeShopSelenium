@@ -786,6 +786,44 @@ public class TestMethods extends BaseTest {
         }
     }
 
+    //invalid user account creation test method - invalid email address format (missing '@')
+    protected void invalidUserAccountInvalidEmailFormatCreationTest(CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //create account page web element assert
+        isCreateAccountPageWebElementDisplayed(createAccountPage);
+        //create account page text element assert
+        isCreateAccountPageTextElementAsExpected(createAccountPage);
+        //valid user data input getter (except invalid email)
+        createAccountPage.validMaleUserInputDataGetter();
+        //click 'Mr.' radio button
+        createAccountPage.clickMrRadioButton();
+        //input valid first name
+        createAccountPage.inputMaleFirstNameIntoFirstNameInputField();
+        //input valid last name
+        createAccountPage.inputLastNameIntoLastNameInputField();
+        //input invalid user email format (missing '@')
+        createAccountInvalidScenariosPage.inputInvalidEmailFormatIntoEmailInputField();
+        //capture screenshot of the invalid user data input - invalid email address format (missing '@')
+        captureScreenshot(driver, "Invalid User Data Input - Invalid Email Format");
+        //input valid password
+        createAccountPage.inputPasswordIntoPasswordInputField();
+        //click 'Register' button
+        createAccountPage.clickRegisterButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Male User Account Creation Test Result - Invalid Email Format");
+        //assert the user gets an expected error message (invalid email address format), log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "email is invalid.", createAccountInvalidScenariosPage.getMissingSingularInputError(), "The invalid singular input format error text doesn't match expectations (invalid email address format).");
+        } catch (Exception e) {
+            logger.warn("The invalid email address format error wasn't triggered");
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

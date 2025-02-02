@@ -211,4 +211,17 @@ public class CreateAccountPageTest extends TestMethods{
         invalidUserAccountInvalidLastNameFormatCreationTest(createAccountInvalidScenariosPage);
     }
 
+    //Test 002o -> invalid user account creation test - invalid email address format (missing '@') (user account creation wasn't aborted - test has failed)
+    @Test
+    @DisplayName("Invalid Male User Account Creation Test - Invalid Email Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input")
+    void invalidUserAccountCreationInvalidEmailFormatTest(){
+        CreateAccountInvalidScenariosPage createAccountInvalidScenariosPage = new CreateAccountInvalidScenariosPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //invalid user account creation test - invalid email address format (missing '@')
+        invalidUserAccountInvalidEmailFormatCreationTest(createAccountInvalidScenariosPage);
+    }
+
 }
