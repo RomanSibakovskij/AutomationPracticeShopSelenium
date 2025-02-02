@@ -1374,6 +1374,65 @@ public class TestMethods extends BaseTest {
         assertTrue(myAccountPage.isHomeButtonLinkDisplayed(), "The home button link isn't displayed");
     }
 
+    //my account information page web element assert test method
+    protected void isMyAccountInformationPageWebElementDisplayed(MyAccountInformationPage myAccountInformationPage) {
+        //assert my account information breadcrumb is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoBreadcrumbDisplayed(), "The my account information breadcrumb isn't displayed");
+        //assert my account information page title is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoPageTitleDisplayed(), "The my account information page title isn't displayed");
+        //assert my account information page subtitle is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoPageSubtitleDisplayed(), "The my account information page subtitle isn't displayed");
+        //assert my account information required field text is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoRequiredFieldTextDisplayed(), "The my account information required field text isn't displayed");
+        //assert my account information social title subtitle is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoSocialTitleSubtitleDisplayed(), "The my account information social title subtitle isn't displayed");
+        //assert my account information 'Mr.' radio button is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoMrRadioButtonDisplayed(), "The my account information 'Mr,' radio button isn't displayed");
+        //assert my account information 'Mrs.' radio button is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoMrsRadioButtonDisplayed(), "The my account information 'Mrs.' radio button isn't displayed");
+        //assert my account information first name subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoFirstNameSubtextDisplayed(), "The my account information first name subtext isn't displayed");
+        //assert my account information first name input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoFirstNameInputFieldDisplayed(), "The my account information first name input field isn't displayed");
+        //assert my account information last name subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoLastNameSubtextDisplayed(), "The my account information last name subtext isn't displayed");
+        //assert my account information last name input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoLastNameInputFieldDisplayed(), "The my account information last name input field isn't displayed");
+        //assert my account information email subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoEmailSubtextDisplayed(), "The my account information email subtext isn't displayed");
+        //assert my account information email input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoEmailInputFieldDisplayed(), "The my account information email input field isn't displayed");
+        //assert my account information date of birth subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoDateOfBirthSubtextDisplayed(), "The my account information date of birth subtext isn't displayed");
+        //assert my account information day dropdown menu is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoDayDropdownMenuDisplayed(), "The my account information day dropdown menu isn't displayed");
+        //assert my account information month dropdown menu is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoMonthDropdownMenuDisplayed(), "The my account information month dropdown menu isn't displayed");
+        //assert my account information year dropdown menu is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoYearDropdownMenuDisplayed(), "The my account information year dropdown menu isn't displayed");
+        //assert my account information current password subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoCurrentPasswordSubtextDisplayed(), "The my account information current password subtext isn't displayed");
+        //assert my account information current password input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoCurrentPasswordInputFieldDisplayed(), "The my account information current password input field isn't displayed");
+        //assert my account information new password subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoNewPasswordSubtextDisplayed(), "The my account information new password subtext isn't displayed");
+        //assert my account information new password input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoNewPasswordInputFieldDisplayed(), "The my account information new password input field isn't displayed");
+        //assert my account information confirm password subtext is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoConfirmPasswordSubtextDisplayed(), "The my account information confirm password subtext isn't displayed");
+        //assert my account information confirm password input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoConfirmPasswordInputFieldDisplayed(), "The my account information confirm password input field isn't displayed");
+        //assert my account information newsletter text is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoNewsletterTextDisplayed(), "The my account information newsletter subtext isn't displayed");
+        //assert my account information newsletter input field is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoNewsletterCheckboxDisplayed(), "The my account information newsletter input field isn't displayed");
+        //assert my account information save button is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoSaveButtonDisplayed(), "The my account information 'Save' button isn't displayed");
+        //assert my account information 'back to account' button is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoBackToAccountButtonDisplayed(), "The my account information 'Back to your accounts' button isn't displayed");
+        //assert my account information 'home' button is displayed
+        assertTrue(myAccountInformationPage.isMyAccountInfoHomeButtonDisplayed(), "The my account information 'Home' button isn't displayed");
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1473,6 +1532,34 @@ public class TestMethods extends BaseTest {
         assertEquals("MY ACCOUNT", myAccountPage.getMyAccountPageTitle(), "The my account page title doesn't match expectations.");
         //assert my account page subtitle text is as expected
         assertEquals("Welcome to your account. Here you can manage all of your personal information and orders.", myAccountPage.getMyAccountSubtitle(), "The my account page subtitle doesn't match expectations.");
+    }
+
+    //my account information page text element assert test method
+    protected void isMyAccountInformationPageTextElementAsExpected(MyAccountInformationPage myAccountInformationPage){
+        //assert my account information page title is as expected
+        assertEquals("YOUR ACCOUNT INFORMATION", myAccountInformationPage.getMyAccountInfoPageTitle(), "The my account information page title doesn't match expectations.");
+        //assert my account information page subtitle is as expected
+        assertEquals("Please be sure to update your personal information if it has changed.", myAccountInformationPage.getMyAccountInfoPageSubtitle(), "The my account information page subtitle doesn't match expectations.");
+        //assert my account information page required field text is as expected
+        assertEquals("*Required field", myAccountInformationPage.getRequiredFieldText(), "The my account information required field text doesn't match expectations.");
+        //assert my account information page social title subtext is as expected
+        assertEquals("Social title", myAccountInformationPage.getMyAccountSocialSubtext(), "The my account information social title subtext doesn't match expectations.");
+        //assert my account information page first name subtext is as expected
+        assertEquals("* First name", myAccountInformationPage.getMyAccountInfoFirstNameSubtext(), "The my account information first name subtext doesn't match expectations.");
+        //assert my account information page last name subtext is as expected
+        assertEquals("* Last name", myAccountInformationPage.getMyAccountInfoLastNameSubtext(), "The my account information last name subtext doesn't match expectations.");
+        //assert my account information page email subtext is as expected
+        assertEquals("* E-mail address", myAccountInformationPage.getMyAccountInfoEmailSubtext(), "The my account information email subtext doesn't match expectations.");
+        //assert my account information page date of birth subtext is as expected
+        assertEquals("Date of Birth", myAccountInformationPage.getMyAccountInfoDateOfBirthSubtext(), "The my account information date of birth subtext doesn't match expectations.");
+        //assert my account information page current password subtext is as expected
+        assertEquals("* Current Password", myAccountInformationPage.getMyAccountInfoCurrentPasswordSubtext(), "The my account information current password subtext doesn't match expectations.");
+        //assert my account information page new password subtext is as expected
+        assertEquals("New Password", myAccountInformationPage.getMyAccountInfoNewPasswordSubtext(), "The my account information new password subtext doesn't match expectations.");
+        //assert my account information page confirm password subtext is as expected
+        assertEquals("Confirmation", myAccountInformationPage.getMyAccountInfoConfirmPasswordSubtext(), "The my account information confirm password subtext doesn't match expectations.");
+        //assert my account information page newsletter subtext is as expected
+        assertEquals("Sign up for our newsletter!", myAccountInformationPage.getMyAccountInfoNewsletterSubtext(), "The my account information newsletter subtext doesn't match expectations.");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
