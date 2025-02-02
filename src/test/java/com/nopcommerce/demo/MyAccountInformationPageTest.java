@@ -112,7 +112,7 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountNoEmailUpdateTest(createAccountPage);
     }
 
-    //Test 005g -> invalid user password update test - no new password confirmation (user account update didn't get aborted)
+    //Test 005g -> invalid user password update test - no new password confirmation
     @Test
     @DisplayName("Invalid User Password Update Test - No Confirm New Password")
     @Tag("Invalid_User_Information_Update")
@@ -125,6 +125,23 @@ public class MyAccountInformationPageTest extends TestMethods{
         validMaleUserAccountCreationTest(createAccountPage);
         //invalid user password address update test - no new password confirmation
         invalidUserAccountNoConfirmPasswordUpdateTest(createAccountPage);
+    }
+
+    //too short singular input
+
+    //Test 005h -> invalid user first name update test - too short first name (1 char) (user information update doesn't get aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User First Name Update Test - Too Short First Name")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Short_Singular_Input")
+    void invalidUserTooShortFirstNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user first name update test - too short first name (1 char)
+        invalidUserAccountTooShortFirstNameUpdateTest(createAccountPage);
     }
 
 }

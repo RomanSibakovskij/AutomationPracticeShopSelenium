@@ -31,9 +31,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String noUpdatedEmail;
     private String testPassword;//(for no confirm password test)
 
+    //too short singular input updated variables
+    private String tooShortUpdatedFirstName;
+
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
-    //my account information missing user data input methods
+    //my account information missing singular user data input methods
     public void inputNoFirstNameIntoFirstNameInputField(){
         myAccountInfoFirstNameInputField.clear();
         noUpdatedFirstName = "";
@@ -56,6 +59,14 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         testPassword = "Fzczx@#$#@42";
         logger.info("New user password (for non-confirmation testing): " + testPassword);
         myAccountInfoNewPasswordInputField.sendKeys(testPassword);
+    }
+
+    //my account information too short singular user data input methods
+    public void inputTooShortFirstNameIntoFirstNameInputField(){
+        myAccountInfoFirstNameInputField.clear();
+        tooShortUpdatedFirstName = "Z";
+        logger.info("Too short updated user first name: " + tooShortUpdatedFirstName);
+        myAccountInfoFirstNameInputField.sendKeys(tooShortUpdatedFirstName);
     }
 
     //singular input error message getter

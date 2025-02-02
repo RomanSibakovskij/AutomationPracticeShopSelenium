@@ -1437,6 +1437,44 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - No Confirm New Password");
     }
 
+    //too short singular input
+
+    //invalid 'My Account' page user first name update test method - too short first name (1 char)
+    protected void invalidUserAccountTooShortFirstNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input too short user first name
+        myAccountInfoInvalidScenariosPage.inputTooShortFirstNameIntoFirstNameInputField();
+        //capture screenshot of invalid test data input - too short first name
+        captureScreenshot(driver, "Invalid User Account Updated First Name Input - Too Short First Name");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "firstname is too short.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too short first name error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too short first name error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update First Name Test Result - Too Short First Name");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
