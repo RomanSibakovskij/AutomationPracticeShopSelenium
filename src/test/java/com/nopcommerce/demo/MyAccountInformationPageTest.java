@@ -298,4 +298,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountInvalidEmailFormatUpdateTest(createAccountPage);
     }
 
+    //Test 005s -> invalid user email update test - existing email (used beforehand in manual testing)
+    @Test
+    @DisplayName("Invalid User Email Update Test - Existing Email")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Preexisting_Singular_Input")
+    void invalidUserExistingEmailUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user email update test - existing email (used beforehand in manual testing)
+        invalidUserAccountExistingEmailUpdateTest(createAccountPage);
+    }
+
 }

@@ -49,6 +49,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String invalidUpdatedFirstNameFormat;
     private String invalidUpdatedLastNameFormat;
     private String invalidUpdatedEmailFormat;
+    private String existingUpdatedEmail;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -155,6 +156,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         invalidUpdatedEmailFormat = "dsffsqwq23fakemail.com";
         logger.info("Invalid updated user email (by format): " + invalidUpdatedEmailFormat);
         myAccountInfoEmailInputField.sendKeys(invalidUpdatedEmailFormat);
+    }
+    public void inputExistingEmailIntoEmailInputField(){
+        myAccountInfoEmailInputField.clear();
+        existingUpdatedEmail = "cortez3434@fakemail.com";
+        logger.info("Invalid updated user email (by format): " + existingUpdatedEmail);
+        myAccountInfoEmailInputField.sendKeys(existingUpdatedEmail);
     }
 
     //singular input error message getter
