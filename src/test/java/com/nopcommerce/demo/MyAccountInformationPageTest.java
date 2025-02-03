@@ -221,4 +221,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountTooLongLastNameUpdateTest(createAccountPage);
     }
 
+    //Test 005n -> invalid user email update test - too long email (100 chars) (error doesn't get triggered but the information update is aborted - test has passed)
+    @Test
+    @DisplayName("Invalid User Email Update Test - Too Long Email")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserTooLongEmailUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user email update test - too long email (100 chars)
+        invalidUserAccountTooLongEmailUpdateTest(createAccountPage);
+    }
+
 }

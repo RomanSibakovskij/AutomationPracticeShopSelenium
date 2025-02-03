@@ -41,6 +41,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     //too long singular input updated variables
     private String tooLongUpdatedFirstName;
     private String tooLongUpdatedLastName;
+    private String tooLongUpdatedEmail;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -111,6 +112,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         tooLongUpdatedLastName = "Xffdsadwsdfghfafrujkuykmjnsfdasff";
         logger.info("Too long updated user last name: " + tooLongUpdatedLastName);
         myAccountInfoLastNameInputField.sendKeys(tooLongUpdatedLastName);
+    }
+    public void inputTooLongEmailIntoEmailInputField(){
+        myAccountInfoEmailInputField.clear();
+        tooLongUpdatedEmail = TestDataGenerator.generateRandomTooLongEmailAddress(100);
+        logger.info("Too long updated user email: " + tooLongUpdatedEmail);
+        myAccountInfoEmailInputField.sendKeys(tooLongUpdatedEmail);
     }
 
     //singular input error message getter
