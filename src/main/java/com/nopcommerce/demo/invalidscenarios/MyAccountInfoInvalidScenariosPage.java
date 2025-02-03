@@ -34,6 +34,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     //too short singular input updated variables
     private String tooShortUpdatedFirstName;
     private String tooShortUpdatedLastName;
+    private String tooShortUpdatedEmail;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -74,6 +75,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         tooShortUpdatedLastName = "G";
         logger.info("Too short updated user last name: " + tooShortUpdatedLastName);
         myAccountInfoLastNameInputField.sendKeys(tooShortUpdatedLastName);
+    }
+    public void inputTooShortEmailIntoEmailInputField(){
+        myAccountInfoEmailInputField.clear();
+        tooShortUpdatedEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+        logger.info("Too short updated user email: " + tooShortUpdatedEmail);
+        myAccountInfoEmailInputField.sendKeys(tooShortUpdatedEmail);
     }
 
     //singular input error message getter

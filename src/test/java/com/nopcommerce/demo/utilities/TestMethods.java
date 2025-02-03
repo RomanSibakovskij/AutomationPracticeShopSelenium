@@ -1496,7 +1496,7 @@ public class TestMethods extends BaseTest {
         //input too short user last name (1 char)
         myAccountInfoInvalidScenariosPage.inputTooShortLastNameIntoLastNameInputField();
         //capture screenshot of invalid test data input - too short last name (1 char)
-        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Short last Name");
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Short Last Name");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
         //click 'Save' button
@@ -1509,6 +1509,42 @@ public class TestMethods extends BaseTest {
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Too Short Last Name");
+    }
+
+    //invalid 'My Account' page user first name update test method - too short email (1 char - name,domain)
+    protected void invalidUserAccountTooShortEmailUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input too short user email (1 char - name,domain)
+        myAccountInfoInvalidScenariosPage.inputTooShortEmailIntoEmailInputField();
+        //capture screenshot of invalid test data input - too short email (1 char - name,domain)
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Short Email");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "email is too short.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too short email error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too short email error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Too Short Email");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
