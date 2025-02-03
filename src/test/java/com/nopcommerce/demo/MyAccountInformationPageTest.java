@@ -268,4 +268,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountInvalidFirstNameFormatUpdateTest(createAccountPage);
     }
 
+    //Test 005q -> invalid user last name update test - invalid last name format (special symbols only)
+    @Test
+    @DisplayName("Invalid User Last Name Update Test - Invalid Last Name Format")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserInvalidLastNameFormatUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user last name update test - invalid last name format (special symbols only)
+        invalidUserAccountInvalidLastNameFormatUpdateTest(createAccountPage);
+    }
+
 }

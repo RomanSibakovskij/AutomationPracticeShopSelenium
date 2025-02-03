@@ -47,6 +47,7 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
 
     //invalid singular input (by format) updated variables
     private String invalidUpdatedFirstNameFormat;
+    private String invalidUpdatedLastNameFormat;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -141,6 +142,12 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         invalidUpdatedFirstNameFormat = "!#@#$%#$%^$%&^$%#@#";
         logger.info("Invalid updated user first name (by format): " + invalidUpdatedFirstNameFormat);
         myAccountInfoFirstNameInputField.sendKeys(invalidUpdatedFirstNameFormat);
+    }
+    public void inputInvalidLastNameFormatIntoLastNameInputField(){
+        myAccountInfoLastNameInputField.clear();
+        invalidUpdatedLastNameFormat = "!#@#$%#$%^$%&^$$#@%#@#";
+        logger.info("Invalid updated user last name (by format): " + invalidUpdatedLastNameFormat);
+        myAccountInfoLastNameInputField.sendKeys(invalidUpdatedLastNameFormat);
     }
 
     //singular input error message getter

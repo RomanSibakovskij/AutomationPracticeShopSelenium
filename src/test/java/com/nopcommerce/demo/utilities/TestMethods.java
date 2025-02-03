@@ -1771,6 +1771,42 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - Invalid First Name Format");
     }
 
+    //invalid 'My Account' page user first name update test method - invalid last name format (special symbols only)
+    protected void invalidUserAccountInvalidLastNameFormatUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input invalid user last name format (special symbols only)
+        myAccountInfoInvalidScenariosPage.inputInvalidLastNameFormatIntoLastNameInputField();
+        //capture screenshot of invalid test data input - invalid last name format (special symbols only)
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Invalid Last Name Format");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "lastname is invalid.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The invalid last name format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The invalid last name format error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Invalid Last Name");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
