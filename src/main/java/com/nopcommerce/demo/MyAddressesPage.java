@@ -28,6 +28,9 @@ public class MyAddressesPage extends BasePage{
     private WebElement myAddressesBackToAccountButton;
     @FindBy(xpath = "//ul[@class='footer_links clearfix']/li[2]/a")
     private WebElement myAddressesHomeButton;
+    //address removed message box element
+    @FindBy(xpath = "//p[@class='alert alert-warning']")
+    private WebElement addressRemovedMessageBox;
     //my address box (can exist as a list if there are multiple addresses)
     @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[1]")
     private List<WebElement> addressTitleElements;
@@ -102,6 +105,9 @@ public class MyAddressesPage extends BasePage{
     public String getMyAddressesPageDescriptionOne() {return myAddressesPageDescriptionOne.getText();}
     public String getMyAddressesPageDescriptionTwo() {return myAddressesPageDescriptionTwo.getText();}
 
+    //address removal message box text getter
+    public String getAddressRemovedMessage() {return addressRemovedMessageBox.getText();}
+
     //click 'Add a new address' button method
     public void clickAddANewAddressButton() {
         Actions actions = new Actions(driver);
@@ -131,6 +137,37 @@ public class MyAddressesPage extends BasePage{
 
     public void clickUpdateAddressButtonOne() {
         clickUpdateAddressButtonElements(0);
+    }
+
+    //click 'Delete' address button method
+    public void clickDeleteAddressButtonElements(int deleteButtonIndex) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(720));
+
+        //assert list isn't empty before access
+        if (addressDeleteButtonElements != null && !addressDeleteButtonElements.isEmpty()) {
+            //index validation
+            if (deleteButtonIndex >= 0 && deleteButtonIndex < addressUpdateButtonElements.size()) {
+                wait.until(ExpectedConditions.elementToBeClickable(addressDeleteButtonElements.get(deleteButtonIndex)));
+                addressUpdateButtonElements.get(deleteButtonIndex).click();
+            } else {
+                throw new IndexOutOfBoundsException("Invalid button index: " + deleteButtonIndex);
+            }
+        } else {
+            //switch locator to findElement if only one's present
+            WebElement singleElement = driver.findElement(By.xpath("//div[@class='col-xs-12 col-sm-6 address']/ul/li[9]/a[2]"));
+            wait.until(ExpectedConditions.elementToBeClickable(singleElement));
+            singleElement.click();
+        }
+    }
+
+    public void clickDeleteAddressButtonOne() {
+        clickDeleteAddressButtonElements(0);
+    }
+
+    //click 'OK' google popup button
+    public void clickOKButton() {
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
     }
 
     //my addresses page web elements

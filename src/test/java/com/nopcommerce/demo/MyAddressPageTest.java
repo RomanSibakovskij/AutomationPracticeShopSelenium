@@ -40,7 +40,7 @@ public class MyAddressPageTest extends TestMethods{
     @Test
     @DisplayName("Valid User Address Addition And Update Test")
     @Tag("Valid_User_Address_Addition")
-    @Tag("Addresses_Addition_And_Update")
+    @Tag("Address_Addition_And_Update")
     void validAddUserAddressAndUpdateTest(){
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         //valid user navigation to 'Create Account' page test
@@ -49,6 +49,21 @@ public class MyAddressPageTest extends TestMethods{
         validMaleUserAccountCreationTest(createAccountPage);
         //valid user address addition and update test
         validUserAddressAdditionAndUpdateTest();
+    }
+
+    //Test 006c -> valid user address addition and removal test
+    @Test
+    @DisplayName("Valid User Address Addition And Removal Test")
+    @Tag("Valid_User_Address_Addition")
+    @Tag("Address_Addition_And_Removal")
+    void validAddUserAddressAndRemovalTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition and removal test
+        validUserAddressAdditionAndRemovalTest();
     }
 
 

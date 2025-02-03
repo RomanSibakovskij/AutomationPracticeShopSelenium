@@ -1881,7 +1881,7 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //valid user 'My Address' address addition test
+    //valid user 'My Address' address addition tests
 
     //valid user address addition test method
     protected void validUserAddressAdditionTest(){
@@ -2083,6 +2083,62 @@ public class TestMethods extends BaseTest {
         logMyAddressesPageAddressData(myAddressesPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Account Updated Address Input Test Result");
+    }
+
+    //valid user address addition and removal test method
+    protected void validUserAddressAdditionAndRemovalTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressesPage myAddressesPage = new MyAddressesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account 'My Address' Page Display");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid User Account Address Data Input");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //my addresses page web element assert
+        isMyAddressesPageWebElementDisplayed(myAddressesPage);
+        //my addresses page text element assert
+        isMyAddressesPageTextElementAsExpected(myAddressesPage);
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //capture screenshot before address removal
+        captureScreenshot(driver, "Valid User Account Address Addition Before Removal");
+        //click 'Delete' address button
+        myAddressesPage.clickDeleteAddressButtonOne();
+        //click 'OK' button to confirm address removal
+        myAddressesPage.clickOKButton();
+        //assert the user gets the expected message box
+        assertEquals("No addresses are available. Add a new address", myAddressesPage.getAddressRemovedMessage(), "The address removal message doesn't match expectations or removal has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Address Removal Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
