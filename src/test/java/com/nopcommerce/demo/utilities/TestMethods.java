@@ -2005,6 +2005,86 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Account Two Addresses Input Test Result");
     }
 
+    //valid user address addition and update test method
+    protected void validUserAddressAdditionAndUpdateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressesPage myAddressesPage = new MyAddressesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account 'My Address' Page Display");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid User Account Address Data Input");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //my addresses page web element assert
+        isMyAddressesPageWebElementDisplayed(myAddressesPage);
+        //my addresses page text element assert
+        isMyAddressesPageTextElementAsExpected(myAddressesPage);
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //click 'Update' address button
+        myAddressesPage.clickUpdateAddressButtonOne();
+        //capture screenshot before address update
+        captureScreenshot(driver, "Valid User Account Address Data Before Update");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //clear address one input field before update
+        myAddressPage.clearAddressInputField();
+        //input updated valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //clear city input field before update
+        myAddressPage.clearCityInputField();
+        //input updated valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Alabama' state option
+        myAddressPage.selectStateAlabamaOption();
+        //clear postal code input field before update
+        myAddressPage.clearPostalCodeInputField();
+        //input updated valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //clear home phone input field before update
+        myAddressPage.clearHomePhoneInputField();
+        //input updated valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Updated Address Input Test Result");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Updated Address Input Test Result");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

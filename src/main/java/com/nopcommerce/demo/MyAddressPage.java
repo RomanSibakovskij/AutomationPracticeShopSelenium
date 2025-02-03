@@ -50,6 +50,8 @@ public class MyAddressPage extends BasePage{
     private WebElement myAddressStateDropdownMenu;
     @FindBy(xpath = "//select[@id='id_state']/option[@value='13']")
     private WebElement myAddressStateIllinoisOption;
+    @FindBy(xpath = "//select[@id='id_state']/option[@value='1']")
+    private WebElement myAddressStateAlabamaOption;
     @FindBy(xpath = "//div[@class='box']//label[@for='postcode']")
     private WebElement myAddressPostalCodeSubtext;
     @FindBy(xpath = "//div[@class='box']//input[@id='postcode']")
@@ -128,14 +130,23 @@ public class MyAddressPage extends BasePage{
         actions.moveToElement(myAddressStateDropdownMenu).click().perform();
     }
 
-    //select 'Illinois' stat option method
+    //select 'Illinois' state option method
     public void selectStateIllinoisOption() {myAddressStateIllinoisOption.click();}
+
+    //select 'Alabama' state option method
+    public void selectStateAlabamaOption() {myAddressStateAlabamaOption.click();}
 
     //click 'Save' button method
     public void clickSaveButton() {
         Actions actions = new Actions(driver);
         actions.moveToElement(saveButton).click().perform();
     }
+
+    //clear input field methods (for address update test)
+    public void clearAddressInputField() {myAddress1InputField.clear();}
+    public void clearCityInputField() {myAddressCityInputField.clear();}
+    public void clearPostalCodeInputField() {myAddressPostalCodeInputField.clear();}
+    public void clearHomePhoneInputField() {myAddressHomePhoneInputField.clear();}
 
     //my address page text element getters
     public String getMyAddressPageTitle() {return myAddressPageTitle.getText();}

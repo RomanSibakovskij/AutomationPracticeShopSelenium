@@ -108,6 +108,31 @@ public class MyAddressesPage extends BasePage{
         actions.moveToElement(myAddressesAddANewAddressButton).click().perform();
     }
 
+    //click 'Update' address button method
+    public void clickUpdateAddressButtonElements(int updateButtonIndex) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(720));
+
+        //assert list isn't empty before access
+        if (addressUpdateButtonElements != null && !addressUpdateButtonElements.isEmpty()) {
+            //index validation
+            if (updateButtonIndex >= 0 && updateButtonIndex < addressUpdateButtonElements.size()) {
+                wait.until(ExpectedConditions.elementToBeClickable(addressUpdateButtonElements.get(updateButtonIndex)));
+                addressUpdateButtonElements.get(updateButtonIndex).click();
+            } else {
+                throw new IndexOutOfBoundsException("Invalid button index: " + updateButtonIndex);
+            }
+        } else {
+            //switch locator to findElement if only one's present
+            WebElement singleElement = driver.findElement(By.xpath("//div[@class='col-xs-12 col-sm-6 address']/ul/li[9]/a[1]"));
+            wait.until(ExpectedConditions.elementToBeClickable(singleElement));
+            singleElement.click();
+        }
+    }
+
+    public void clickUpdateAddressButtonOne() {
+        clickUpdateAddressButtonElements(0);
+    }
+
     //my addresses page web elements
     public boolean isMyAddressesBreadcrumbDisplayed() {return myAddressesBreadcrumb.isDisplayed();}
     public boolean isMyAddressesPageTitleDisplayed() {return myAddressesPageTitle.isDisplayed();}
