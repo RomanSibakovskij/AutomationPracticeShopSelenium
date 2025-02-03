@@ -102,6 +102,12 @@ public class MyAddressesPage extends BasePage{
     public String getMyAddressesPageDescriptionOne() {return myAddressesPageDescriptionOne.getText();}
     public String getMyAddressesPageDescriptionTwo() {return myAddressesPageDescriptionTwo.getText();}
 
+    //click 'Add a new address' button method
+    public void clickAddANewAddressButton() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAddressesAddANewAddressButton).click().perform();
+    }
+
     //my addresses page web elements
     public boolean isMyAddressesBreadcrumbDisplayed() {return myAddressesBreadcrumb.isDisplayed();}
     public boolean isMyAddressesPageTitleDisplayed() {return myAddressesPageTitle.isDisplayed();}

@@ -1931,6 +1931,80 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Account Address Input Test Result");
     }
 
+    //valid two user addresses addition test method
+    protected void validTwoUserAddressesAdditionTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressesPage myAddressesPage = new MyAddressesPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account 'My Address' Page Display Before First Address Input");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid User Account First Address Data Input");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //my addresses page web element assert
+        isMyAddressesPageWebElementDisplayed(myAddressesPage);
+        //my addresses page text element assert
+        isMyAddressesPageTextElementAsExpected(myAddressesPage);
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //click 'Add a new address' button
+        myAddressesPage.clickAddANewAddressButton();
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account 'My Address' Page Display Before Second Address Addition");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid User Account Additional Address Data Input");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Two Addresses Input Test Result");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
