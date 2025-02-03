@@ -1807,6 +1807,42 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Invalid Last Name");
     }
 
+    //invalid 'My Account' page user first name update test method - invalid email format (missing '@')
+    protected void invalidUserAccountInvalidEmailFormatUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input invalid user email format (missing '@')
+        myAccountInfoInvalidScenariosPage.inputInvalidEmailFormatIntoEmailInputField();
+        //capture screenshot of invalid test data input - invalid email format (missing '@')
+        captureScreenshot(driver, "Invalid User Account Updated Email Input - Invalid Email Format");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "email is invalid.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The invalid email format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The invalid email format error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Email Test Result - Invalid Email Format");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

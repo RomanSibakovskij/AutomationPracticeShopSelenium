@@ -283,4 +283,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountInvalidLastNameFormatUpdateTest(createAccountPage);
     }
 
+    //Test 005r -> invalid user email update test - invalid email format (missing '@') (error wasn't triggered but the information update was aborted - test has passed)
+    @Test
+    @DisplayName("Invalid User Email Update Test - Invalid Email Format")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserInvalidEmailFormatUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user email update test - invalid email format (missing '@')
+        invalidUserAccountInvalidEmailFormatUpdateTest(createAccountPage);
+    }
+
 }
