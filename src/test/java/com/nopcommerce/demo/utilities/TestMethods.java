@@ -2185,6 +2185,74 @@ public class TestMethods extends BaseTest {
         assertTrue(myAccountInformationPage.isMyAccountInfoHomeButtonDisplayed(), "The my account information 'Home' button isn't displayed");
     }
 
+    //my address page web element assert test method
+    protected void isMyAddressPageWebElementDisplayed(MyAddressPage myAddressPage){
+        //assert my address breadcrumb is displayed
+        assertTrue(myAddressPage.isMyAddressBreadcrumbDisplayed(), "The my address breadcrumb isn't displayed");
+        //assert my address page title is displayed
+        assertTrue(myAddressPage.isMyAddressPageTitleDisplayed(), "The my address page title isn't displayed");
+        //assert my address page subtitle is displayed
+        assertTrue(myAddressPage.isMyAddressPageSubtitleDisplayed(), "The my address page subtitle isn't displayed");
+        //assert required field is displayed
+        assertTrue(myAddressPage.isRequiredFieldTextDisplayed(), "The required field text isn't displayed");
+        //assert my address first name subtext is displayed
+        assertTrue(myAddressPage.isMyAddressFirstNameSubtextDisplayed(), "The my address first name subtext isn't displayed");
+        //assert my address first name input field is displayed
+        assertTrue(myAddressPage.isMyAddressFirstNameInputFieldDisplayed(), "The my address first name input field isn't displayed");
+        //assert my address last name subtext is displayed
+        assertTrue(myAddressPage.isMyAddressLastNameSubtextDisplayed(), "The my address last name subtext isn't displayed");
+        //assert my address last name input field is displayed
+        assertTrue(myAddressPage.isMyAddressLastNameInputFieldDisplayed(), "The my address last name input field isn't displayed");
+        //assert my address company subtext is displayed
+        assertTrue(myAddressPage.isMyAddressCompanySubtextDisplayed(), "The my address company subtext isn't displayed");
+        //assert my address company input field is displayed
+        assertTrue(myAddressPage.isMyAddressCompanyInputFieldDisplayed(), "The my address company input field isn't displayed");
+        //assert my address one subtext is displayed
+        assertTrue(myAddressPage.isMyAddressOneSubtextDisplayed(), "The my address one subtext isn't displayed");
+        //assert my address one input field is displayed
+        assertTrue(myAddressPage.isMyAddressOneInputFieldDisplayed(), "The my address one input field isn't displayed");
+        //assert my address two subtext is displayed
+        assertTrue(myAddressPage.isMyAddressTwoSubtextDisplayed(), "The my address two subtext isn't displayed");
+        //assert my address two input field is displayed
+        assertTrue(myAddressPage.isMyAddressTwoInputFieldDisplayed(), "The my address two input field isn't displayed");
+        //assert my address city subtext is displayed
+        assertTrue(myAddressPage.isMyAddressCitySubtextDisplayed(), "The my address city subtext isn't displayed");
+        //assert my address city input field is displayed
+        assertTrue(myAddressPage.isMyAddressCityInputFieldDisplayed(), "The my address city input field isn't displayed");
+        //assert my address state subtext is displayed
+        assertTrue(myAddressPage.isMyAddressStateSubtextDisplayed(), "The my address state subtext isn't displayed");
+        //assert my address state input field is displayed
+        assertTrue(myAddressPage.isMyAddressStateDropdownMenuDisplayed(), "The my address state dropdown menu isn't displayed");
+        //assert my address postal code subtext is displayed
+        assertTrue(myAddressPage.isMyAddressPostalCodeSubtextDisplayed(), "The my address postal code subtext isn't displayed");
+        //assert my address postal code input field is displayed
+        assertTrue(myAddressPage.isMyAddressPostalCodeInputFieldDisplayed(), "The my address postal code input field isn't displayed");
+        //assert my address country subtext is displayed
+        assertTrue(myAddressPage.isMyAddressCountrySubtextDisplayed(), "The my address country subtext isn't displayed");
+        //assert my address country input field is displayed
+        assertTrue(myAddressPage.isMyAddressCountryDropdownMenuDisplayed(), "The my address country dropdown menu isn't displayed");
+        //assert my address home phone subtext is displayed
+        assertTrue(myAddressPage.isMyAddressHomePhoneSubtextDisplayed(), "The my address home phone subtext isn't displayed");
+        //assert my address home phone input field is displayed
+        assertTrue(myAddressPage.isMyAddressHomePhoneInputFieldDisplayed(), "The my address home phone input field isn't displayed");
+        //assert my address mobile phone subtext is displayed
+        assertTrue(myAddressPage.isMyAddressMobilePhoneSubtextDisplayed(), "The my address mobile phone subtext isn't displayed");
+        //assert my address mobile phone input field is displayed
+        assertTrue(myAddressPage.isMyAddressMobilePhoneInputFieldDisplayed(), "The my address mobile phone input field isn't displayed");
+        //assert my address additional information subtext is displayed
+        assertTrue(myAddressPage.isMyAddressAdditionalInfoSubtextDisplayed(), "The my address additional information subtext isn't displayed");
+        //assert my address additional information input field is displayed
+        assertTrue(myAddressPage.isMyAddressAdditionalInfoInputFieldDisplayed(), "The my address additional information input field isn't displayed");
+        //assert my address alias subtext is displayed
+        assertTrue(myAddressPage.isMyAddressAliasSubtextDisplayed(), "The my address alias subtext isn't displayed");
+        //assert my address alias input field is displayed
+        assertTrue(myAddressPage.isMyAddressAliasInputFieldDisplayed(), "The my address alias input field isn't displayed");
+        //assert save button is displayed
+        assertTrue(myAddressPage.isSaveButtonDisplayed(), "The save button isn't displayed");
+        //assert back to addresses button is displayed
+        assertTrue(myAddressPage.isBackToAddressesDisplayed(), "The back to addresses button isn't displayed");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (all pages have them)
@@ -2311,6 +2379,42 @@ public class TestMethods extends BaseTest {
         assertEquals("Confirmation", myAccountInformationPage.getMyAccountInfoConfirmPasswordSubtext(), "The my account information confirm password subtext doesn't match expectations.");
         //assert my account information page newsletter subtext is as expected
         assertEquals("Sign up for our newsletter!", myAccountInformationPage.getMyAccountInfoNewsletterSubtext(), "The my account information newsletter subtext doesn't match expectations.");
+    }
+
+    //my address page text element assert test method
+    protected void isMyAddressPageTextElementAsExpected(MyAddressPage myAddressPage){
+        //assert my address page title text is as expected
+        assertEquals("YOUR ADDRESSES", myAddressPage.getMyAddressPageTitle(), "The my address page title doesn't match expectations.");
+        //assert my address page subtitle text is as expected
+        assertEquals("To add a new address, please fill out the form below.", myAddressPage.getMyAddressPageSubtitle(), "The my address page subtitle doesn't match expectations.");
+        //assert my address required field text is as expected
+        assertEquals("*Required field", myAddressPage.getRequiredFieldText(), "The my address required field text doesn't match expectations.");
+        //assert my address page first name subtext is as expected
+        assertEquals("First name *", myAddressPage.getMyAddressFirstNameSubtext(), "The my address first name subtext doesn't match expectations.");
+        //assert my address page last name subtext is as expected
+        assertEquals("Last name *", myAddressPage.getMyAddressLastNameSubtext(), "The my address last name subtext doesn't match expectations.");
+        //assert my address page company subtext is as expected
+        assertEquals("Company", myAddressPage.getMyAddressCompanySubtext(), "The my address company subtext doesn't match expectations.");
+        //assert my address one subtext is as expected
+        assertEquals("Address *", myAddressPage.getMyAddressOneSubtext(), "The my address one subtext doesn't match expectations.");
+        //assert my address two subtext is as expected
+        assertEquals("Address (Line 2)", myAddressPage.getMyAddressTwoSubtext(), "The my address two subtext doesn't match expectations.");
+        //assert my address page city subtext is as expected
+        assertEquals("City *", myAddressPage.getMyAddressCitySubtext(), "The my address city subtext doesn't match expectations.");
+        //assert my address page state subtext is as expected
+        assertEquals("State *", myAddressPage.getMyAddressStateSubtext(), "The my address state subtext doesn't match expectations.");
+        //assert my address page postal code subtext is as expected
+        assertEquals("Zip/Postal Code *", myAddressPage.getMyAddressPostalCodeSubtext(), "The my address postal code subtext doesn't match expectations.");
+        //assert my address page country subtext is as expected
+        assertEquals("Country *", myAddressPage.getMyAddressCountrySubtext(), "The my address country subtext doesn't match expectations.");
+        //assert my address page home phone subtext is as expected
+        assertEquals("Home phone **", myAddressPage.getMyAddressHomePhoneSubtext(), "The my address home phone subtext doesn't match expectations.");
+        //assert my address page mobile phone subtext is as expected
+        assertEquals("Mobile phone **", myAddressPage.getMyAddressMobilePhoneSubtext(), "The my address mobile phone subtext doesn't match expectations.");
+        //assert my address page additional information subtext is as expected
+        assertEquals("Additional information", myAddressPage.getMyAddressAdditionalInfoSubtext(), "The my address additional information subtext doesn't match expectations.");
+        //assert my address page alias subtext is as expected
+        assertEquals("Please assign an address title for future reference. *", myAddressPage.getMyAddressAliasSubtext(), "The my address alias subtext doesn't match expectations.");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
