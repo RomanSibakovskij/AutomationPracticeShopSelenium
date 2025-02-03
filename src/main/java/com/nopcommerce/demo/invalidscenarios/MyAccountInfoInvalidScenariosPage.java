@@ -38,6 +38,9 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String tooShortUpdatedPassword;
     private String tooShortUpdatedConfirmPassword;
 
+    //too long singular input updated variables
+    private String tooLongUpdatedFirstName;
+
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
     //my account information missing singular user data input methods
@@ -93,6 +96,14 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         tooShortUpdatedConfirmPassword = tooShortUpdatedPassword;
         logger.info("Too short updated user confirm (new) password: " + tooShortUpdatedConfirmPassword);
         myAccountInfoConfirmPasswordInputField.sendKeys(tooShortUpdatedConfirmPassword);
+    }
+
+    //my account information too long singular user data input methods
+    public void inputTooLongFirstNameIntoFirstNameInputField(){
+        myAccountInfoFirstNameInputField.clear();
+        tooLongUpdatedFirstName = "Dcfdsadwsdfghfafrujkuykmjnsfdasff";
+        logger.info("Too long updated user first name: " + tooLongUpdatedFirstName);
+        myAccountInfoFirstNameInputField.sendKeys(tooLongUpdatedFirstName);
     }
 
     //singular input error message getter

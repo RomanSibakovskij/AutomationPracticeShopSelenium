@@ -189,4 +189,21 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountTooShortNewPasswordConfirmUpdateTest(createAccountPage);
     }
 
+    //too long singular input
+
+    //Test 005l -> invalid user first name update test - too long first name (33 chars) (user information update doesn't get aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User First Name Update Test - Too Long First Name")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserTooLongFirstNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user first name update test - too long first name (33 chars)
+        invalidUserAccountTooLongFirstNameUpdateTest(createAccountPage);
+    }
+
 }
