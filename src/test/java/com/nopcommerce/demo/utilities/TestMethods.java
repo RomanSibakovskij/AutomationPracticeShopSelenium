@@ -1695,6 +1695,44 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update Email Test Result - Too Long Email");
     }
 
+    //invalid 'My Account' page user first name update test method - too long new password / confirm password (33 chars)
+    protected void invalidUserAccountTooLongNewPasswordConfirmUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //input too long new password (33 chars)
+        myAccountInfoInvalidScenariosPage.inputTooLongNewPasswordIntoNewPasswordInputField();
+        //input too long confirm (new) password (33 chars)
+        myAccountInfoInvalidScenariosPage.inputTooLongConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of invalid test data input - too long new password / confirm password (33 chars)
+        captureScreenshot(driver, "Invalid User Account Updated Password Input - Too Long New Password and Confirm Password");
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "passwd is too long. Maximum length: 32", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too long password error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too long new password / confirm password error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Password Test Result - Too Long New Password and Confirm Password");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

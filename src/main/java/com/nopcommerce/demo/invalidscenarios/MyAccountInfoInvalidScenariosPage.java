@@ -42,6 +42,8 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String tooLongUpdatedFirstName;
     private String tooLongUpdatedLastName;
     private String tooLongUpdatedEmail;
+    private String tooLongUpdatedPassword;
+    private String tooLongUpdatedConfirmPassword;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -118,6 +120,16 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         tooLongUpdatedEmail = TestDataGenerator.generateRandomTooLongEmailAddress(100);
         logger.info("Too long updated user email: " + tooLongUpdatedEmail);
         myAccountInfoEmailInputField.sendKeys(tooLongUpdatedEmail);
+    }
+    public void inputTooLongNewPasswordIntoNewPasswordInputField(){
+        tooLongUpdatedPassword = "Fcddjnffgasff12#$#$%^EDWSFfdsgfjg";
+        logger.info("Too long updated user new password: " + tooLongUpdatedPassword);
+        myAccountInfoNewPasswordInputField.sendKeys(tooLongUpdatedPassword);
+    }
+    public void inputTooLongConfirmPasswordIntoConfirmPasswordInputField(){
+        tooLongUpdatedConfirmPassword = tooLongUpdatedPassword;
+        logger.info("Too long updated user confirm (new) password: " + tooLongUpdatedConfirmPassword);
+        myAccountInfoConfirmPasswordInputField.sendKeys(tooLongUpdatedConfirmPassword);
     }
 
     //singular input error message getter

@@ -236,4 +236,19 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountTooLongEmailUpdateTest(createAccountPage);
     }
 
+    //Test 005o -> invalid user last name update test - too long new password / confirm password (33 chars)
+    @Test
+    @DisplayName("Invalid User Password Update Test - Too Long New Password and Confirm Password")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserTooLongNewPasswordConfirmUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user password update test - too long new password / confirm password (33 chars)
+        invalidUserAccountTooLongNewPasswordConfirmUpdateTest(createAccountPage);
+    }
+
 }
