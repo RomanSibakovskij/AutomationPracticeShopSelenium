@@ -35,6 +35,8 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
     private String tooShortUpdatedFirstName;
     private String tooShortUpdatedLastName;
     private String tooShortUpdatedEmail;
+    private String tooShortUpdatedPassword;
+    private String tooShortUpdatedConfirmPassword;
 
     public MyAccountInfoInvalidScenariosPage(WebDriver driver) {super(driver);}
 
@@ -81,6 +83,16 @@ public class MyAccountInfoInvalidScenariosPage extends BasePage {
         tooShortUpdatedEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
         logger.info("Too short updated user email: " + tooShortUpdatedEmail);
         myAccountInfoEmailInputField.sendKeys(tooShortUpdatedEmail);
+    }
+    public void inputTooShortNewPasswordIntoNewPasswordInputField(){
+        tooShortUpdatedPassword = "Fdc2";
+        logger.info("Too short updated user new password: " + tooShortUpdatedPassword);
+        myAccountInfoNewPasswordInputField.sendKeys(tooShortUpdatedPassword);
+    }
+    public void inputTooShortConfirmPasswordIntoConfirmPasswordInputField(){
+        tooShortUpdatedConfirmPassword = tooShortUpdatedPassword;
+        logger.info("Too short updated user confirm (new) password: " + tooShortUpdatedConfirmPassword);
+        myAccountInfoConfirmPasswordInputField.sendKeys(tooShortUpdatedConfirmPassword);
     }
 
     //singular input error message getter

@@ -1532,7 +1532,7 @@ public class TestMethods extends BaseTest {
         //input too short user email (1 char - name,domain)
         myAccountInfoInvalidScenariosPage.inputTooShortEmailIntoEmailInputField();
         //capture screenshot of invalid test data input - too short email (1 char - name,domain)
-        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Short Email");
+        captureScreenshot(driver, "Invalid User Account Updated Email Input - Too Short Email");
         //input current user password
         myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
         //click 'Save' button
@@ -1544,7 +1544,45 @@ public class TestMethods extends BaseTest {
             logger.warn("The too short email error doesn't get triggered or is non-existent.");
         }
         //capture screenshot of the test result
-        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Too Short Email");
+        captureScreenshot(driver, "Invalid User Account Update Email Test Result - Too Short Email");
+    }
+
+    //invalid 'My Account' page user first name update test method - too short new password / confirm password (4 chars)
+    protected void invalidUserAccountTooShortNewPasswordConfirmUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //input too short new password (4 chars)
+        myAccountInfoInvalidScenariosPage.inputTooShortNewPasswordIntoNewPasswordInputField();
+        //input too short confirm (new) password (4 chars)
+        myAccountInfoInvalidScenariosPage.inputTooShortConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of invalid test data input - too short new password / confirm password (4 chars)
+        captureScreenshot(driver, "Invalid User Account Updated Password Input - Too Short New Password and Confirm Password");
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "passwd is invalid.", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too short password error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too short new password / confirm password error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Password Test Result - Too Short New Password and Confirm Password");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
