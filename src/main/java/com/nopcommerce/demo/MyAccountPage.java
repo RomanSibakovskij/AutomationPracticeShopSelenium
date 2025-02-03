@@ -21,7 +21,7 @@ public class MyAccountPage extends BasePage {
     private WebElement myAccountSubTitle;
     //button link elements
     @FindBy(xpath = "//ul[@class='myaccount-link-list']/li[1]/a")
-    private WebElement myAccountButtonLink;
+    private WebElement addFirstAddressButtonLink;
     @FindBy(xpath = "//ul[@class='myaccount-link-list']/li[2]/a")
     private WebElement orderHistoryButtonLink;
     @FindBy(xpath = "//ul[@class='myaccount-link-list']/li[3]/a")
@@ -46,6 +46,12 @@ public class MyAccountPage extends BasePage {
         action.moveToElement(myPersonalInfoButtonLink).click().perform();
     }
 
+    //click 'Add My First Address' button link method
+    public void clickAddMyFirstAddressButtonLink(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addFirstAddressButtonLink).click().perform();
+    }
+
     //my account page web element assert methods
     public boolean isMyAccountBreadcrumbDisplayed(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
@@ -62,10 +68,10 @@ public class MyAccountPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(myAccountSubTitle));
         return myAccountSubTitle.isDisplayed();
     }
-    public boolean isMyAccountButtonLinkDisplayed(){
+    public boolean isAddFirstAddressButtonLinkDisplayed(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
-        wait.until(ExpectedConditions.visibilityOf(myAccountButtonLink));
-        return myAccountButtonLink.isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(addFirstAddressButtonLink));
+        return addFirstAddressButtonLink.isDisplayed();
     }
     public boolean isOrderHistoryButtonLinkDisplayed(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));

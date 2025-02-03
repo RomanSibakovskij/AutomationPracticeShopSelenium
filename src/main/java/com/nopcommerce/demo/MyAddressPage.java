@@ -48,6 +48,8 @@ public class MyAddressPage extends BasePage{
     private WebElement myAddressStateSubtext;
     @FindBy(xpath = "//div[@class='box']//select[@id='id_state']")
     private WebElement myAddressStateDropdownMenu;
+    @FindBy(xpath = "//select[@id='id_state']/option[@value='13']")
+    private WebElement myAddressStateIllinoisOption;
     @FindBy(xpath = "//div[@class='box']//label[@for='postcode']")
     private WebElement myAddressPostalCodeSubtext;
     @FindBy(xpath = "//div[@class='box']//input[@id='postcode']")
@@ -80,6 +82,17 @@ public class MyAddressPage extends BasePage{
     private WebElement backToAddressesButton;
 
     public MyAddressPage(WebDriver driver) {super(driver);}
+
+    //click 'State' dropdown menu method
+    public void clickStateDropdownMenu() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(myAddressStateDropdownMenu).click().perform();
+    }
+
+    //select 'Illinois' stat option method
+    public void selectStateIllinoisOption() {
+        myAddressStateIllinoisOption.click();
+    }
 
     //my address page text element getters
     public String getMyAddressPageTitle() {return myAddressPageTitle.getText();}
