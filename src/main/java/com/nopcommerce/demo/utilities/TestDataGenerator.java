@@ -56,6 +56,38 @@ public class TestDataGenerator extends BasePage{
             "Jordan", "Owens", "Reynolds", "Fisher", "Ellis", "Harrison", "Gibson", "McDonald", "Cruz", "Marshall"
     };
 
+    // array of Illinois state cities
+    private static final String[] ILLINOIS_CITIES = {
+            "Chicago", "Aurora", "Naperville", "Joliet", "Rockford", "Springfield",
+            "Elgin", "Peoria", "Champaign", "Waukegan", "Cicero", "Bloomington",
+            "Arlington Heights", "Evanston", "Decatur", "Schaumburg", "Bolingbrook",
+            "Palatine", "Skokie", "Des Plaines", "Orland Park", "Tinley Park",
+            "Oak Lawn", "Berwyn", "Mount Prospect", "Normal", "Wheaton", "Hoffman Estates",
+            "Oak Park", "Downers Grove", "Elmhurst", "Glenview", "DeKalb", "Lombard",
+            "Moline", "Buffalo Grove", "Bartlett", "Urbana", "Crystal Lake", "Quincy",
+            "Streamwood", "Carol Stream", "Romeoville", "Plainfield", "Hanover Park",
+            "Carpentersville", "Wheeling", "Park Ridge", "Addison", "Calumet City"
+    };
+
+    //random addresses title array
+
+    private static final String[] MY_ADDRESS_TITLES = {
+            "Home", "Work", "Vacation House", "Parents' House", "Beach House",
+            "Cabin", "Apartment", "Condo", "Dorm Room", "Lake House",
+            "Grandma's House", "Uncle's House", "Aunt's House", "Friend's Place", "Hotel",
+            "Warehouse", "Storage Unit", "Office", "Gym Locker", "Library Locker",
+            "Workshop", "Studio", "Farmhouse", "Mountain Lodge", "Cottage",
+            "Penthouse", "Guest House", "Weekend Retreat", "Holiday Home", "Rental Property",
+            "Investment Property", "Company Branch", "Retail Store", "Clubhouse", "Community Center",
+            "Boat House", "RV", "Tiny House", "Treehouse", "Countryside Retreat",
+            "Ski Cabin", "Desert Getaway", "Urban Loft", "Ranch", "Bungalow",
+            "Summer House", "Winter Retreat", "Fishing Cabin", "Remote Hideout", "Secret Spot"
+    };
+
+
+    //Illinois street types array
+    private static final String[] STREET_TYPES = {"St.", "Ave.", "Blvd.", "Rd.", "Ln.", "Dr.", "Ct.", "Pl."};
+
     //random first name (male) picker method
     public static String getRandomMaleFirstName() {
         if (storedMaleFirstName == null) {
@@ -145,6 +177,48 @@ public class TestDataGenerator extends BasePage{
         password.append(shuffledNumericPart);
 
         return password.toString();
+    }
+
+    //generate a random address with a given length for the street name
+    public static String generateRandomAddress(int length) {
+        int streetNumber = RANDOM.nextInt(9999) + 1; // street number between 1 and 9999
+        String streetName = generateRandomString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", length);
+        String streetType = STREET_TYPES[RANDOM.nextInt(STREET_TYPES.length)];
+        return streetNumber + " " + streetName + " " + streetType;
+    }
+
+    // cities rnd instance
+    private static final Random rndIllinoisCities = new Random();
+
+    // method to get a random city from the array
+    public static String getRandomCity() {
+        int index = rndIllinoisCities.nextInt(ILLINOIS_CITIES.length);
+        return ILLINOIS_CITIES[index];
+    }
+
+    // generate random postal code for Illinois
+    public static int getRandomPostalCode() {
+        return 60000 + RANDOM.nextInt(30000);
+    }
+
+    //random phone number generator
+    public static String generatePhoneNumber(int length) {
+        if (length < 1) {throw new IllegalArgumentException("Phone number length must be at least 1.");}
+
+        Random random = new Random();
+        String phoneNumber = "";
+        //generate the specified number of random digits
+        for (int i = 0; i < length; i++) {
+            phoneNumber += random.nextInt(10); //generate a random digit (0-9)
+        }
+        return phoneNumber;
+    }
+
+    // method to get a random 'My Address' title from the array
+    public static String getRandomMyAddressTitle() {
+        Random random = new Random();
+        int index = random.nextInt(MY_ADDRESS_TITLES.length);
+        return MY_ADDRESS_TITLES[index];
     }
 
 }
