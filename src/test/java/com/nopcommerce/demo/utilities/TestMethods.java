@@ -1923,6 +1923,12 @@ public class TestMethods extends BaseTest {
         myAddressPage.clickSaveButton();
         //my addresses page web element assert
         isMyAddressesPageWebElementDisplayed(myAddressesPage);
+        //my addresses page text element assert
+        isMyAddressesPageTextElementAsExpected(myAddressesPage);
+        //log displayed address data
+        logMyAddressesPageAddressData(myAddressesPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Address Input Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2499,6 +2505,18 @@ public class TestMethods extends BaseTest {
         assertEquals("Please assign an address title for future reference. *", myAddressPage.getMyAddressAliasSubtext(), "The my address alias subtext doesn't match expectations.");
     }
 
+    //my addresses page text element assert test method
+    protected void isMyAddressesPageTextElementAsExpected(MyAddressesPage myAddressesPage){
+        //assert 'My Addresses' page title is as expected
+        assertEquals("MY ADDRESSES", myAddressesPage.getMyAddressesPageTitle(), "The 'My Addresses' page title doesn't match expectations.");
+        //assert 'My Addresses' page subtitle is as expected
+        assertEquals("Your addresses are listed below.", myAddressesPage.getMyAddressesPageSubtitle(), "The 'My Addresses' page subtitle doesn't match expectations.");
+        //assert 'My Addresses' page description one is as expected
+        assertEquals("Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.", myAddressesPage.getMyAddressesPageDescriptionOne(), "The 'My Addresses' page description one doesn't match expectations.");
+        //assert 'My Addresses' page description two is as expected
+        assertEquals("Be sure to update your personal information if it has changed.", myAddressesPage.getMyAddressesPageDescriptionTwo(), "The 'My Addresses' page description two doesn't match expectations.");
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page bestseller product data logger method
@@ -2506,6 +2524,18 @@ public class TestMethods extends BaseTest {
         System.out.println("Home page best seller product data: " + "\n");
         logger.info("Best seller product name(s): " + homePage.getBestsellerProductNames() + "\n");
         logger.info("Best seller product unit price(s): " + homePage.getBestsellerProductUnitPrices() + "\n");
+        System.out.println("\n");
+    }
+
+    //my addresses page address data logger method
+    protected void logMyAddressesPageAddressData(MyAddressesPage myAddressesPage){
+        System.out.println("'My Addresses' page displayed address data:" + "\n");
+        logger.info("Address title(s): " + myAddressesPage.getAddressTitle() + "\n");
+        logger.info("Address user full name(s): " + myAddressesPage.getAddressUserName() + "\n");
+        logger.info("Address(es): " + myAddressesPage.getAddressElements() + "\n");
+        logger.info("Address state(s): " + myAddressesPage.getAddressState() + "\n");
+        logger.info("Address country(ies): " + myAddressesPage.getAddressCountry() + "\n");
+        logger.info("Address phone number(s): " + myAddressesPage.getAddressPhoneNumber() + "\n");
         System.out.println("\n");
     }
 

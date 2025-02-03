@@ -33,13 +33,13 @@ public class MyAddressesPage extends BasePage{
     private List<WebElement> addressTitleElements;
     @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[2]")
     private List<WebElement> addressUserNameElements;
-    @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[3]")
-    private List<WebElement> addressElements;
     @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[4]")
-    private List<WebElement> addressStateElements;
+    private List<WebElement> addressElements;
     @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[5]")
-    private List<WebElement> addressCountryElements;
+    private List<WebElement> addressStateElements;
     @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[6]")
+    private List<WebElement> addressCountryElements;
+    @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 address']/ul/li[7]")
     private List<WebElement> addressPhoneNumberElements;
 
     private List<WebElement> addressUpdateButtonElements = driver.findElements(By.xpath("//div[@class='col-xs-12 col-sm-6 address']/ul/li[9]/a[1]"));
