@@ -251,4 +251,21 @@ public class MyAccountInformationPageTest extends TestMethods{
         invalidUserAccountTooLongNewPasswordConfirmUpdateTest(createAccountPage);
     }
 
+    //invalid singular input (by format)
+
+    //Test 005p -> invalid user first name update test - invalid first name format (special symbols only)
+    @Test
+    @DisplayName("Invalid User First Name Update Test - Invalid First Name Format")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidUserInvalidFirstNameFormatUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user first name update test - invalid first name format (special symbols only)
+        invalidUserAccountInvalidFirstNameFormatUpdateTest(createAccountPage);
+    }
+
 }
