@@ -1888,6 +1888,7 @@ public class TestMethods extends BaseTest {
         GeneralPage generalPage = new GeneralPage(driver);
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressesPage myAddressesPage = new MyAddressesPage(driver);
         //general page web element assert
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
@@ -1920,6 +1921,8 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User Account Address Data Input");
         //click 'Save' button
         myAddressPage.clickSaveButton();
+        //my addresses page web element assert
+        isMyAddressesPageWebElementDisplayed(myAddressesPage);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2294,6 +2297,42 @@ public class TestMethods extends BaseTest {
         assertTrue(myAddressPage.isSaveButtonDisplayed(), "The save button isn't displayed");
         //assert back to addresses button is displayed
         assertTrue(myAddressPage.isBackToAddressesDisplayed(), "The back to addresses button isn't displayed");
+    }
+
+    //my addresses page web element assert test method
+    protected void isMyAddressesPageWebElementDisplayed(MyAddressesPage myAddressesPage) {
+        //assert 'My Addresses' page breadcrumb displayed
+        assertTrue(myAddressesPage.isMyAddressesBreadcrumbDisplayed(), "The 'My Addresses' page breadcrumb isn't displayed");
+        //assert 'My Addresses' page title displayed
+        assertTrue(myAddressesPage.isMyAddressesPageTitleDisplayed(), "The 'My Addresses' page title isn't displayed");
+        //assert 'My Addresses' page subtitle displayed
+        assertTrue(myAddressesPage.isMyAddressesPageSubtitleDisplayed(), "The 'My Addresses' page subtitle isn't displayed");
+        //assert 'My Addresses' page description one displayed
+        assertTrue(myAddressesPage.isMyAddressesPageDescriptionOneDisplayed(), "The 'My Addresses' page description one isn't displayed");
+        //assert 'My Addresses' page description two displayed
+        assertTrue(myAddressesPage.isMyAddressesPageDescriptionTwoDisplayed(), "The 'My Addresses' page description two isn't displayed");
+        //assert 'My Addresses' page 'Add a new address' button displayed
+        assertTrue(myAddressesPage.isMyAddressesAddANewAddressButtonDisplayed(), "The 'My Addresses' 'Add a new address' button isn't displayed");
+        //assert 'My Addresses' page 'Back to account' button displayed
+        assertTrue(myAddressesPage.isMyAddressesBackToAccountButtonDisplayed(), "The 'My Addresses' 'Back to account' button isn't displayed");
+        //assert 'My Addresses' page home button displayed
+        assertTrue(myAddressesPage.isMyAddressesHomeButtonDisplayed(), "The 'My Addresses' page home button isn't displayed");
+        //assert 'My Addresses' page address titles are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressTitleDisplayed(), "The 'My Addresses' page address titles aren't displayed ");
+        //assert 'My Addresses' page address usernames are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressUserNameDisplayed(), "The 'My Addresses' page address user names aren't displayed ");
+        //assert 'My Addresses' page address elements are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressElementDisplayed(), "The 'My Addresses' page address elements aren't displayed ");
+        //assert 'My Addresses' page address states are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressStateDisplayed(), "The 'My Addresses' page address states aren't displayed ");
+        //assert 'My Addresses' page address countries are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressCountryDisplayed(), "The 'My Addresses' page address countries aren't displayed ");
+        //assert 'My Addresses' page address phone numbers are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressPhoneNumberDisplayed(), "The 'My Addresses' page address phone numbers aren't displayed ");
+        //assert 'My Addresses' page address update buttons are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressUpdateButtonDisplayed(), "The 'My Addresses' page address update buttons aren't displayed ");
+        //assert 'My Addresses' page address delete buttons are displayed (as a list)
+        assertTrue(myAddressesPage.isAddressDeleteButtonDisplayed(), "The 'My Addresses' page address delete buttons aren't displayed ");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
