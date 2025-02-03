@@ -81,7 +81,46 @@ public class MyAddressPage extends BasePage{
     @FindBy(xpath = "//ul[@class='footer_links clearfix']/li/a")
     private WebElement backToAddressesButton;
 
+    //valid user address relevant data
+    private String userAddress;
+    private String userCity;
+    private int userPostalCode;
+    private String userHomePhone;
+    private String userMyAddressTitle;
+
     public MyAddressPage(WebDriver driver) {super(driver);}
+
+    //valid user address relevant data getter
+    public void validUserAddressDataGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(6);
+
+        System.out.println("Generated valid user address data: " + "\n");
+
+        logger.info("Valid user address: " + userAddress);
+        logger.info("Valid user city: " + userCity);
+        logger.info("Valid user postal code: " + userPostalCode);
+        logger.info("Valid user home phone: " + userHomePhone);
+
+        System.out.println("\n");
+    }
+
+    //valid user address data input methods
+    public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
+    public void inputValidUserCityIntoAddressInputField(){myAddressCityInputField.sendKeys(userCity);}
+    public void inputValidUserPostalCodeIntoAddressInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(userPostalCode));}
+    public void inputValidUserHomePhoneIntoAddressInputField(){myAddressHomePhoneInputField.sendKeys(userHomePhone);}
+
+    //valid user address title input method
+    public void inputValidUserAddressTitleIntoAddressAliasInputField(){
+        myAddressAliasInputField.clear();
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+        logger.info("Valid user address title: " + userMyAddressTitle);
+        myAddressAliasInputField.sendKeys(userMyAddressTitle);
+    }
 
     //click 'State' dropdown menu method
     public void clickStateDropdownMenu() {
@@ -90,8 +129,12 @@ public class MyAddressPage extends BasePage{
     }
 
     //select 'Illinois' stat option method
-    public void selectStateIllinoisOption() {
-        myAddressStateIllinoisOption.click();
+    public void selectStateIllinoisOption() {myAddressStateIllinoisOption.click();}
+
+    //click 'Save' button method
+    public void clickSaveButton() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(saveButton).click().perform();
     }
 
     //my address page text element getters

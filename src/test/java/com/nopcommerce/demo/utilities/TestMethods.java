@@ -1900,6 +1900,26 @@ public class TestMethods extends BaseTest {
         isMyAddressPageTextElementAsExpected(myAddressPage);
         //capture screenshot of the page
         captureScreenshot(driver, "Valid User Account 'My Address' Page Display");
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoAddressInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the valid user data input
+        captureScreenshot(driver, "Valid User Account Address Data Input");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
