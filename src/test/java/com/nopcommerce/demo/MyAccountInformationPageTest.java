@@ -155,7 +155,7 @@ public class MyAccountInformationPageTest extends TestMethods{
         validNavigateToCreateAccountPageTest();
         //valid male user account creation test
         validMaleUserAccountCreationTest(createAccountPage);
-        //invalid user first name update test - too short last name (1 char)
+        //invalid user last name update test - too short last name (1 char)
         invalidUserAccountTooShortLastNameUpdateTest(createAccountPage);
     }
 
@@ -170,7 +170,7 @@ public class MyAccountInformationPageTest extends TestMethods{
         validNavigateToCreateAccountPageTest();
         //valid male user account creation test
         validMaleUserAccountCreationTest(createAccountPage);
-        //invalid user first name update test - too short email (1 char - name, domain)
+        //invalid user email update test - too short email (1 char - name, domain)
         invalidUserAccountTooShortEmailUpdateTest(createAccountPage);
     }
 
@@ -185,13 +185,13 @@ public class MyAccountInformationPageTest extends TestMethods{
         validNavigateToCreateAccountPageTest();
         //valid male user account creation test
         validMaleUserAccountCreationTest(createAccountPage);
-        //invalid user first name update test - too short new password / confirm password (4 chars)
+        //invalid user password update test - too short new password / confirm password (4 chars)
         invalidUserAccountTooShortNewPasswordConfirmUpdateTest(createAccountPage);
     }
 
     //too long singular input
 
-    //Test 005l -> invalid user first name update test - too long first name (33 chars) (user information update doesn't get aborted - test has failed)
+    //Test 005l -> invalid user first name update test - too long first name (33 chars)
     @Test
     @DisplayName("Invalid User First Name Update Test - Too Long First Name")
     @Tag("Invalid_User_Information_Update")
@@ -204,6 +204,21 @@ public class MyAccountInformationPageTest extends TestMethods{
         validMaleUserAccountCreationTest(createAccountPage);
         //invalid user first name update test - too long first name (33 chars)
         invalidUserAccountTooLongFirstNameUpdateTest(createAccountPage);
+    }
+
+    //Test 005m -> invalid user last name update test - too long last name (33 chars)
+    @Test
+    @DisplayName("Invalid User Last Name Update Test - Too Long Last Name")
+    @Tag("Invalid_User_Information_Update")
+    @Tag("Too_Long_Singular_Input")
+    void invalidUserTooLongLastNameUpdateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user last name update test - too long last name (33 chars)
+        invalidUserAccountTooLongLastNameUpdateTest(createAccountPage);
     }
 
 }

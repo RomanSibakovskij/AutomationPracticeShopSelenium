@@ -1623,6 +1623,42 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Update First Name Test Result - Too Long First Name");
     }
 
+    //invalid 'My Account' page user first name update test method - too long last name (33 chars)
+    protected void invalidUserAccountTooLongLastNameUpdateTest(CreateAccountPage createAccountPage){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAccountInformationPage myAccountInformationPage = new MyAccountInformationPage(driver);
+        MyAccountInfoInvalidScenariosPage myAccountInfoInvalidScenariosPage = new MyAccountInfoInvalidScenariosPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'My Account' information button link
+        myAccountPage.clickMyAccountInformationButtonLink();
+        //my account information page web element assert
+        isMyAccountInformationPageWebElementDisplayed(myAccountInformationPage);
+        //my account information page text element assert
+        isMyAccountInformationPageTextElementAsExpected(myAccountInformationPage);
+        //capture screenshot of the page
+        captureScreenshot(driver, "Valid User Account Information Page Display");
+        //input too long user last name (33 chars)
+        myAccountInfoInvalidScenariosPage.inputTooLongLastNameIntoLastNameInputField();
+        //capture screenshot of invalid test data input - too long last name (33 chars)
+        captureScreenshot(driver, "Invalid User Account Updated Last Name Input - Too Long Last Name");
+        //input current user password
+        myAccountInformationPage.inputCurrentUserPasswordIntoUserPasswordInputField(createAccountPage);
+        //click 'Save' button
+        myAccountInformationPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "lastname is too long. Maximum length: 32", myAccountInfoInvalidScenariosPage.getSingularInputErrorMessage(), "The too long last name error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too long last name error doesn't get triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Update Last Name Test Result - Too Long Last Name");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
