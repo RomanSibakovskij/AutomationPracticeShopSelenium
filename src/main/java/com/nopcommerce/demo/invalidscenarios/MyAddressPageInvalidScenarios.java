@@ -36,6 +36,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String noUserCity;
     private String noUserPostalCode;
     private String noUserHomePhone;
+    private String noUserMyAddressTitle;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -118,6 +119,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataNoUserAddressTitleGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        noUserMyAddressTitle = "";
+
+        System.out.println("Generated invalid user address data (no user address title): ");
+
+        logger.info("Valid user address (no user address title): " + userAddress);
+        logger.info("Valid user city (no user address title): " + userCity);
+        logger.info("Valid user postcode (no user address title): " + userPostalCode);
+        logger.info("Valid user home phone (no user address title): " + userHomePhone);
+        logger.info("No user address title: " + noUserMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -129,7 +149,6 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputValidUserAddressTitleIntoAddressAliasInputField(){
         myAddressAliasInputField.clear();
         userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
-        logger.info("Valid user address title: " + userMyAddressTitle);
         myAddressAliasInputField.sendKeys(userMyAddressTitle);
     }
 
@@ -140,6 +159,11 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputNoUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(noUserCity);}
     public void inputNoUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(noUserPostalCode);}
     public void inputNoUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(noUserHomePhone);}
+    public void inputNoUserAddressTitleIntoAddressAliasInputField(){
+        myAddressAliasInputField.clear();
+        myAddressAliasInputField.sendKeys(noUserMyAddressTitle);
+    }
+
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}

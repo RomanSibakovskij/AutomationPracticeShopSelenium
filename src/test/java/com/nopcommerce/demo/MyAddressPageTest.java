@@ -145,4 +145,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionNoUserHomePhoneTest();
     }
 
+    //Test 006i -> invalid user address addition test - no user address title
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No User Address Title")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddUserAddressNoAddressTitleTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - no user address title
+        invalidUserAddressAdditionNoUserAddressTitleTest();
+    }
+
 }
