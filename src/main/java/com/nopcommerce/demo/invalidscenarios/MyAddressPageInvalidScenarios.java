@@ -47,6 +47,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //too long singular input data
     private String tooLongUserAddress;
     private String tooLongUserCity;
+    private int tooLongUserPostalCode;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -266,6 +267,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataTooLongUserPostalCodeGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        tooLongUserPostalCode = 648229;
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too long user postal code): ");
+
+        logger.info("Valid user address (too long user postal code): " + userAddress);
+        logger.info("Valid user city (too long user postal code): " + userCity);
+        logger.info("Too long user postcode: " + tooLongUserPostalCode);
+        logger.info("Valid user home phone (too long user postal code): " + userHomePhone);
+        logger.info("Valid user address title (too long user postal code): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -303,6 +323,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     public void inputTooLongUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(tooLongUserAddress);}
     public void inputTooLongUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(tooLongUserCity);}
+    public void inputTooLongUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(tooLongUserPostalCode));}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}

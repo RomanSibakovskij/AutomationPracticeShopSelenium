@@ -254,4 +254,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongUserCityTest();
     }
 
+    //Test 006p -> invalid user address addition test - too long user postal code (6 digits)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long User Postal Code")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddUserAddressTooLongPostCodeTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too long user post code (6 digits)
+        invalidUserAddressAdditionTooLongUserPostCodeTest();
+    }
+
 }
