@@ -44,6 +44,9 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private int tooShortUserPostalCode;
     private String tooShortUserHomePhone;
 
+    //too long singular input data
+    private String tooLongUserAddress;
+
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
     //invalid user address data getters
@@ -222,6 +225,27 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    //too long singular input
+
+    public void invalidUserAddressDataTooLongUserAddressGetter(){
+
+        tooLongUserAddress = TestDataGenerator.generateRandomAddress(90);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too long user address): ");
+
+        logger.info("Too long user address: " + tooLongUserAddress);
+        logger.info("Valid user city (too long user address): " + userCity);
+        logger.info("Valid user postcode (too long user address): " + userPostalCode);
+        logger.info("Valid user home phone (too long user address): " + userHomePhone);
+        logger.info("Valid user address title (too long user address): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -254,6 +278,10 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputTooShortUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(tooShortUserCity);}
     public void inputTooShortUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(tooShortUserPostalCode));}
     public void inputTooShortUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(tooShortUserHomePhone);}
+
+    //too long singular input
+
+    public void inputTooLongUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(tooLongUserAddress);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
