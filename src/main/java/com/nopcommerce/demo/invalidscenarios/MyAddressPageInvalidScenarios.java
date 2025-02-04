@@ -8,16 +8,8 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     @FindBy(xpath = "//div[@class='box']//input[@id='address1']")
     private WebElement myAddress1InputField;
-    @FindBy(xpath = "//div[@class='box']//input[@id='address2']")
-    private WebElement myAddress2InputField;
     @FindBy(xpath = "//div[@class='box']//input[@id='city']")
     private WebElement myAddressCityInputField;
-    @FindBy(xpath = "//div[@class='box']//select[@id='id_state']")
-    private WebElement myAddressStateDropdownMenu;
-    @FindBy(xpath = "//select[@id='id_state']/option[@value='13']")
-    private WebElement myAddressStateIllinoisOption;
-    @FindBy(xpath = "//select[@id='id_state']/option[@value='1']")
-    private WebElement myAddressStateAlabamaOption;
     @FindBy(xpath = "//div[@class='box']//input[@id='postcode']")
     private WebElement myAddressPostalCodeInputField;
     @FindBy(xpath = "//div[@class='box']//select[@id='id_country']")
@@ -43,6 +35,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String noUserAddress;
     private String noUserCity;
     private String noUserPostalCode;
+    private String noUserHomePhone;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -106,6 +99,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataNoUserHomePhoneGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        noUserHomePhone = "";
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (no user home phone): ");
+
+        logger.info("Valid user address (no user home phone): " + userAddress);
+        logger.info("Valid user city (no user home phone): " + userCity);
+        logger.info("Valid user postcode (no user home phone): " + userPostalCode);
+        logger.info("No user home phone: " + noUserHomePhone);
+        logger.info("Valid user address title (no user home phone): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -127,6 +139,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputNoUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(noUserAddress);}
     public void inputNoUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(noUserCity);}
     public void inputNoUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(noUserPostalCode);}
+    public void inputNoUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(noUserHomePhone);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
