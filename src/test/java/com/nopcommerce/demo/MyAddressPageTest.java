@@ -299,4 +299,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongUserMobilePhoneTest();
     }
 
+    //Test 006s -> invalid user address addition test - too long user address title (33 chars)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long User Address Title")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddUserAddressTooLongAddressTitleTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too long user address title (33 chars)
+        invalidUserAddressAdditionTooLongUserAddressTitleTest();
+    }
+
 }
