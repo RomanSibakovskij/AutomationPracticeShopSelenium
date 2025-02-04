@@ -41,6 +41,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     //missing singular input data
     private String noUserAddress;
+    private String noUserCity;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -58,10 +59,29 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("Generated invalid user address data (no user address): ");
 
         logger.info("No user address: " + noUserAddress);
-        logger.info("Valid user city: " + userCity);
-        logger.info("Valid user postcode: " + userPostalCode);
-        logger.info("Valid user home phone: " + userHomePhone);
-        logger.info("Valid user myAddressTitle: " + userMyAddressTitle);
+        logger.info("Valid user city (no user address): " + userCity);
+        logger.info("Valid user postcode (no user address): " + userPostalCode);
+        logger.info("Valid user home phone (no user address): " + userHomePhone);
+        logger.info("Valid user myAddressTitle (no user address): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
+    public void invalidUserAddressDataNoUserCityGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        noUserCity = "";
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (no user city): ");
+
+        logger.info("Valid user address (no user city): " + userAddress);
+        logger.info("No user city: " + noUserCity);
+        logger.info("Valid user postcode (no user city): " + userPostalCode);
+        logger.info("Valid user home phone (no user city): " + userHomePhone);
+        logger.info("Valid user myAddressTitle (no user city): " + userMyAddressTitle);
 
         System.out.println("\n");
     }
@@ -84,7 +104,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //no singular input
 
     public void inputNoUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(noUserAddress);}
-
+    public void inputNoUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(noUserCity);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}

@@ -2168,7 +2168,7 @@ public class TestMethods extends BaseTest {
         myAddressPageInvalidScenarios.invalidUserAddressDataNoUserAddressGetter();
         //don't input user address (address1)
         myAddressPageInvalidScenarios.inputNoUserAddressIntoAddressInputField();
-        //capture screenshot of the page
+        //capture screenshot of the invalid data input
         captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - No User Address");
         //input valid user city
         myAddressPageInvalidScenarios.inputValidUserCityIntoAddressInputField();
@@ -2182,7 +2182,7 @@ public class TestMethods extends BaseTest {
         myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoAddressInputField();
         //input valid user address title
         myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
-        //capture screenshot of the valid user data input
+        //capture screenshot of the invalid user data input
         captureScreenshot(driver, "Invalid User Account Address Data Input - No User Address");
         //click 'Save' button
         myAddressPage.clickSaveButton();
@@ -2192,6 +2192,49 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User Address");
     }
 
+    //invalid user address addition test method - no user city
+    protected void invalidUserAddressAdditionNoUserCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - no user city
+        myAddressPageInvalidScenarios.invalidUserAddressDataNoUserCityGetter();
+        //input valid user address (address1)
+        myAddressPageInvalidScenarios.inputValidUserAddressIntoAddressInputField();
+        //don't input user city
+        myAddressPageInvalidScenarios.inputNoUserCityIntoCityInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - No User City");
+        //input valid user postal code
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoAddressInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoAddressInputField();
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - No User City");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "city is required.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The missing user city error doesn't match expectations or the error hasn't been triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User City");
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
