@@ -239,4 +239,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongUserAddressTest();
     }
 
+    //Test 006o -> invalid user address addition test - too long user city (100 chars) (user address addition hasn't been aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long User City")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddUserAddressTooLongCityTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too long user city (100 chars)
+        invalidUserAddressAdditionTooLongUserCityTest();
+    }
+
 }

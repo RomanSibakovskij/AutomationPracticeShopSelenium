@@ -46,6 +46,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     //too long singular input data
     private String tooLongUserAddress;
+    private String tooLongUserCity;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -246,6 +247,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataTooLongUserCityGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        tooLongUserCity = "Wdsfdfbxvxnhkkjkqewerhjfsdfgjhkytrterewertyjnbfvdsdfdgjhmnbvxzxxcvbbnfdrfsreeytyiyuiyrtefdfhfgjfyrtw";
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too long user city): ");
+
+        logger.info("Valid user address (too long user city): " + userAddress);
+        logger.info("Too long user city: " + tooLongUserCity);
+        logger.info("Valid user postcode (too long user city): " + userPostalCode);
+        logger.info("Valid user home phone (too long user city): " + userHomePhone);
+        logger.info("Valid user address title (too long user city): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -282,6 +302,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //too long singular input
 
     public void inputTooLongUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(tooLongUserAddress);}
+    public void inputTooLongUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(tooLongUserCity);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
