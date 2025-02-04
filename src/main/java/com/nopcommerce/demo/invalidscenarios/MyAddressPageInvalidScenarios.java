@@ -49,6 +49,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String tooLongUserCity;
     private int tooLongUserPostalCode;
     private String tooLongUserHomePhone;
+    private String tooLongUserMobilePhone;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -300,8 +301,27 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         logger.info("Valid user address (too long user home phone): " + userAddress);
         logger.info("Valid user city (too long user home phone): " + userCity);
         logger.info("Valid user postcode (too long user home phone): " + userPostalCode);
-        logger.info("Too long user home phone: " + tooShortUserHomePhone);
+        logger.info("Too long user home phone: " + tooLongUserHomePhone);
         logger.info("Valid user address title (too long user home phone): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
+    public void invalidUserAddressDataTooLongUserMobilePhoneGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        tooLongUserMobilePhone = "123434643424523458679898375435423";
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too long user mobile phone): ");
+
+        logger.info("Valid user address (too long user mobile phone): " + userAddress);
+        logger.info("Valid user city (too long user mobile phone): " + userCity);
+        logger.info("Valid user postcode (too long user mobile phone): " + userPostalCode);
+        logger.info("Too long user mobile phone: " + tooLongUserMobilePhone);
+        logger.info("Valid user address title (too long user mobile phone): " + userMyAddressTitle);
 
         System.out.println("\n");
     }
@@ -345,6 +365,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputTooLongUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(tooLongUserCity);}
     public void inputTooLongUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(tooLongUserPostalCode));}
     public void inputTooLongUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(tooLongUserHomePhone);}
+    public void inputTooLongUserMobilePhoneIntoMobilePhoneInputField(){myAddressMobilePhoneInputField.sendKeys(tooLongUserMobilePhone);}
 
 
     //invalid singular input error getter

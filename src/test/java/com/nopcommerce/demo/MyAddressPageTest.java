@@ -284,4 +284,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongUserHomePhoneTest();
     }
 
+    //Test 006r -> invalid user address addition test - too long user mobile phone (33 digits) (additional test)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Long User Mobile Phone")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddUserAddressTooLongMobilePhoneTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too long user mobile phone (33 digits)
+        invalidUserAddressAdditionTooLongUserMobilePhoneTest();
+    }
+
 }
