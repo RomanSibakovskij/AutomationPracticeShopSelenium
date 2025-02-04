@@ -331,4 +331,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionInvalidUserAddressFormatTest();
     }
 
+    //Test 006u -> invalid user address addition test - invalid user city format (special symbols only)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid User City Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input")
+    void invalidAddUserAddressInvalidCityFormatTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - invalid user city format (special symbols only)
+        invalidUserAddressAdditionInvalidUserCityFormatTest();
+    }
+
 }

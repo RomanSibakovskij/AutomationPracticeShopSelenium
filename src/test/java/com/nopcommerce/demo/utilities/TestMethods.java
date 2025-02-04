@@ -2936,6 +2936,54 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - Invalid User Address Format");
     }
 
+    //invalid user address addition test method - invalid user city format (special symbols only)
+    protected void invalidUserAddressAdditionInvalidUserCityFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - invalid user city format (special symbols only)
+        myAddressPageInvalidScenarios.invalidUserAddressDataInvalidUserCityFormatGetter();
+        //input valid user address (address1)
+        myAddressPageInvalidScenarios.inputValidUserAddressIntoAddressInputField();
+        //input invalid user city format (special symbols only)
+        myAddressPageInvalidScenarios.inputInvalidUserCityFormatIntoCityInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - Invalid User City Format");
+        //input valid user postal code
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - Invalid User City Format");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "city is invalid.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The invalid user city format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The invalid user city format error hasn't been triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - Invalid User City Format");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

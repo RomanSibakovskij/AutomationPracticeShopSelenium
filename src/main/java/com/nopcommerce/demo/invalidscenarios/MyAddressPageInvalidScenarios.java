@@ -54,6 +54,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     //invalid singular input data (by format)
     private String invalidUserAddressFormat;
+    private String invalidUserCityFormat;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -370,6 +371,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataInvalidUserCityFormatGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        invalidUserCityFormat = "!@!@#$%^*&^(&^&%%$%#@$@$#@%";
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (invalid user city format): ");
+
+        logger.info("Valid user address (invalid user city format): " + userAddress);
+        logger.info("Invalid user city format: " + invalidUserCityFormat);
+        logger.info("Valid user postcode (invalid user city format): " + userPostalCode);
+        logger.info("Valid user home phone (invalid user city format): " + userHomePhone);
+        logger.info("Valid user address title (invalid user city format): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -418,6 +438,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //invalid singular input (by format)
 
     public void inputInvalidUserAddressFormatIntoAddressInputField(){myAddress1InputField.sendKeys(invalidUserAddressFormat);}
+    public void inputInvalidUserCityFormatIntoCityInputField(){myAddressCityInputField.sendKeys(invalidUserCityFormat);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
