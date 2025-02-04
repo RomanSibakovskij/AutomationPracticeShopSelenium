@@ -42,6 +42,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //missing singular input data
     private String noUserAddress;
     private String noUserCity;
+    private String noUserPostalCode;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -62,7 +63,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         logger.info("Valid user city (no user address): " + userCity);
         logger.info("Valid user postcode (no user address): " + userPostalCode);
         logger.info("Valid user home phone (no user address): " + userHomePhone);
-        logger.info("Valid user myAddressTitle (no user address): " + userMyAddressTitle);
+        logger.info("Valid user address title (no user address): " + userMyAddressTitle);
 
         System.out.println("\n");
     }
@@ -81,7 +82,26 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         logger.info("No user city: " + noUserCity);
         logger.info("Valid user postcode (no user city): " + userPostalCode);
         logger.info("Valid user home phone (no user city): " + userHomePhone);
-        logger.info("Valid user myAddressTitle (no user city): " + userMyAddressTitle);
+        logger.info("Valid user address title (no user city): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
+    public void invalidUserAddressDataNoUserPostalCodeGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        noUserPostalCode = "";
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (no user postal code): ");
+
+        logger.info("Valid user address (no user postal code): " + userAddress);
+        logger.info("Valid user city (no user postal code): " + userCity);
+        logger.info("No user postcode: " + noUserPostalCode);
+        logger.info("Valid user home phone (no user postal code): " + userHomePhone);
+        logger.info("Valid user address title (no user postal code): " + userMyAddressTitle);
 
         System.out.println("\n");
     }
@@ -106,6 +126,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     public void inputNoUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(noUserAddress);}
     public void inputNoUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(noUserCity);}
+    public void inputNoUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(noUserPostalCode);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}

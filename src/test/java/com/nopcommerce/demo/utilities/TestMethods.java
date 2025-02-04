@@ -2274,6 +2274,50 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User State");
     }
 
+    //invalid user address addition test method - no user postal code
+    protected void invalidUserAddressAdditionNoUserPostCodeTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - no user postal code
+        myAddressPageInvalidScenarios.invalidUserAddressDataNoUserPostalCodeGetter();
+        //input valid user address (address1)
+        myAddressPageInvalidScenarios.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPageInvalidScenarios.inputValidUserCityIntoCityInputField();
+        //don't input user postal code
+        myAddressPageInvalidScenarios.inputNoUserPostalCodeIntoPostalCodeInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - No User Postal Code");
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - No User Postal Code");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "The Zip/Postal code you've entered is invalid. It must follow this format: 00000", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The missing user postal code error doesn't match expectations or the error hasn't been triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User Postal Code");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)

@@ -115,4 +115,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionNoUserStateTest();
     }
 
+    //Test 006g -> invalid user address addition test - no user postal code
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No User Postal Code")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddUserAddressNoPostCodeTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - no user post code
+        invalidUserAddressAdditionNoUserPostCodeTest();
+    }
+
 }
