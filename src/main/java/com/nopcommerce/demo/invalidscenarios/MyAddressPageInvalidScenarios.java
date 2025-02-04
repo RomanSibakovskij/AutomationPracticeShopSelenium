@@ -38,6 +38,9 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String noUserHomePhone;
     private String noUserMyAddressTitle;
 
+    //too short singular input data
+    private String tooShortUserAddress;
+
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
     //invalid user address data getters
@@ -138,6 +141,27 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    //too short singular input
+
+    public void invalidUserAddressDataTooShortUserAddressGetter(){
+
+        tooShortUserAddress = "3.St";
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too short user address): ");
+
+        logger.info("Too short user address: " + tooShortUserAddress);
+        logger.info("Valid user city (too short user address): " + userCity);
+        logger.info("Valid user postcode (too short user address): " + userPostalCode);
+        logger.info("Valid user home phone (too short user address): " + userHomePhone);
+        logger.info("Valid user address title (too short user address): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -163,6 +187,10 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         myAddressAliasInputField.clear();
         myAddressAliasInputField.sendKeys(noUserMyAddressTitle);
     }
+
+    //too short singular input
+
+    public void inputTooShortUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(tooShortUserAddress);}
 
 
     //invalid singular input error getter

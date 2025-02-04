@@ -160,4 +160,21 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionNoUserAddressTitleTest();
     }
 
+    //too short singular input
+
+    //Test 006j -> invalid user address addition test - too short user address (4 chars) (user address addition hasn't been aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Short User Address")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddUserAddressTooShortAddressTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too short user address (4 chars)
+        invalidUserAddressAdditionTooShortUserAddressTest();
+    }
+
 }
