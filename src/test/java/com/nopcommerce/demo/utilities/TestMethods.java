@@ -2444,14 +2444,63 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Data Input - Too Short User Address");
         //click 'Save' button
         myAddressPage.clickSaveButton();
-        //assert the user gets the expected error message
+        //assert the user gets the expected error message, log the issue otherwise
         try {
             assertEquals("There is 1 error\n" + "address1 is too short.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The too short user address error doesn't match expectations.");
         } catch (Exception e) {
-            logger.warn("The too short user error hasn't been triggered or is non-existent.");
+            logger.warn("The too short user address error hasn't been triggered or is non-existent.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - Too Short User Address");
+    }
+
+    //invalid user address addition test method - too short user city (1 char)
+    protected void invalidUserAddressAdditionTooShortUserCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - too short user city (1 char)
+        myAddressPageInvalidScenarios.invalidUserAddressDataTooShortUserCityGetter();
+        //input valid user address (address1)
+        myAddressPageInvalidScenarios.inputValidUserAddressIntoAddressInputField();
+        //input too short user city (1 char)
+        myAddressPageInvalidScenarios.inputTooShortUserCityIntoCityInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - Too Short User City");
+        //input valid user postal code
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - Too Short User City");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "city is too short.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The too short user city error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The too short user city error hasn't been triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - Too Short User City");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

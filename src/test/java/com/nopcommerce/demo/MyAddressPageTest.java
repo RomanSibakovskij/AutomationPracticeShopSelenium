@@ -177,4 +177,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooShortUserAddressTest();
     }
 
+    //Test 006k -> invalid user address addition test - too short user city (1 char) (user address addition hasn't been aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Short User City")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddUserAddressTooShortCityTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too short user city (1 char)
+        invalidUserAddressAdditionTooShortUserCityTest();
+    }
+
 }
