@@ -55,6 +55,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     //invalid singular input data (by format)
     private String invalidUserAddressFormat;
     private String invalidUserCityFormat;
+    private String invalidUserPostalCodeFormat;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -390,6 +391,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataInvalidUserPostalCodeFormatGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        invalidUserPostalCodeFormat = "@!#$#@$%^%&";
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (invalid user postal code format): ");
+
+        logger.info("Valid user address (invalid user postal code format): " + userAddress);
+        logger.info("Valid user city (invalid user postal code format): " + userCity);
+        logger.info("Invalid user postcode format: " + invalidUserPostalCodeFormat);
+        logger.info("Valid user home phone (invalid user postal code format): " + userHomePhone);
+        logger.info("Valid user address title (invalid user postal code format): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -439,6 +459,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
 
     public void inputInvalidUserAddressFormatIntoAddressInputField(){myAddress1InputField.sendKeys(invalidUserAddressFormat);}
     public void inputInvalidUserCityFormatIntoCityInputField(){myAddressCityInputField.sendKeys(invalidUserCityFormat);}
+    public void inputInvalidUserPostalCodeFormatIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(invalidUserPostalCodeFormat);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
