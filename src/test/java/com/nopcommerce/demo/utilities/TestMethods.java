@@ -1907,15 +1907,15 @@ public class TestMethods extends BaseTest {
         //input valid user address (address1)
         myAddressPage.inputValidUserAddressIntoAddressInputField();
         //input valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the valid user data input
@@ -1955,15 +1955,15 @@ public class TestMethods extends BaseTest {
         //input valid user address (address1)
         myAddressPage.inputValidUserAddressIntoAddressInputField();
         //input valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the valid user data input
@@ -1985,15 +1985,15 @@ public class TestMethods extends BaseTest {
         //input valid user address (address1)
         myAddressPage.inputValidUserAddressIntoAddressInputField();
         //input valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the valid user data input
@@ -2029,15 +2029,15 @@ public class TestMethods extends BaseTest {
         //input valid user address (address1)
         myAddressPage.inputValidUserAddressIntoAddressInputField();
         //input valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the valid user data input
@@ -2063,7 +2063,7 @@ public class TestMethods extends BaseTest {
         //clear city input field before update
         myAddressPage.clearCityInputField();
         //input updated valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Alabama' state option
@@ -2071,11 +2071,11 @@ public class TestMethods extends BaseTest {
         //clear postal code input field before update
         myAddressPage.clearPostalCodeInputField();
         //input updated valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //clear home phone input field before update
         myAddressPage.clearHomePhoneInputField();
         //input updated valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Account Updated Address Input Test Result");
         //click 'Save' button
@@ -2109,15 +2109,15 @@ public class TestMethods extends BaseTest {
         //input valid user address (address1)
         myAddressPage.inputValidUserAddressIntoAddressInputField();
         //input valid user city
-        myAddressPage.inputValidUserCityIntoAddressInputField();
+        myAddressPage.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPage.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPage.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the valid user data input
@@ -2171,15 +2171,15 @@ public class TestMethods extends BaseTest {
         //capture screenshot of the invalid data input
         captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - No User Address");
         //input valid user city
-        myAddressPageInvalidScenarios.inputValidUserCityIntoAddressInputField();
+        myAddressPageInvalidScenarios.inputValidUserCityIntoCityInputField();
         //input valid user postal code
-        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the invalid user data input
@@ -2217,13 +2217,13 @@ public class TestMethods extends BaseTest {
         //capture screenshot of the invalid input
         captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - No User City");
         //input valid user postal code
-        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoAddressInputField();
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
         //click 'State' dropdown menu
         myAddressPage.clickStateDropdownMenu();
         //select 'Illinois' option
         myAddressPage.selectStateIllinoisOption();
         //input valid user home phone number
-        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoAddressInputField();
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
         //input valid user address title
         myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
         //capture screenshot of the invalid user data input
@@ -2234,6 +2234,44 @@ public class TestMethods extends BaseTest {
         assertEquals("There is 1 error\n" + "city is required.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The missing user city error doesn't match expectations or the error hasn't been triggered.");
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User City");
+    }
+
+    //invalid user address addition test method - no user state
+    protected void invalidUserAddressAdditionNoUserStateTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //valid user address (address-related) data getter
+        myAddressPage.validUserAddressDataGetter();
+        //input valid user address (address1)
+        myAddressPage.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPage.inputValidUserCityIntoCityInputField();
+        //input valid user postal code
+        myAddressPage.inputValidUserPostalCodeIntoPostalCodeInputField();
+        //input valid user home phone number
+        myAddressPage.inputValidUserHomePhoneIntoHomePhoneInputField();
+        //input valid user address title
+        myAddressPage.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - No User State");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message
+        assertEquals("There is 1 error\n" + "This country requires you to chose a State.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The missing user state error doesn't match expectations or the error hasn't been triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - No User State");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

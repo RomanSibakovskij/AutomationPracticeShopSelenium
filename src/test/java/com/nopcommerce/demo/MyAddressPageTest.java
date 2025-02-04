@@ -100,4 +100,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionNoUserCityTest();
     }
 
+    //Test 006f -> invalid user address addition test - no user state
+    @Test
+    @DisplayName("Invalid User Address Addition Test - No User State")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("No_Singular_Input")
+    void invalidAddUserAddressNoStateTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - no user state
+        invalidUserAddressAdditionNoUserStateTest();
+    }
+
 }

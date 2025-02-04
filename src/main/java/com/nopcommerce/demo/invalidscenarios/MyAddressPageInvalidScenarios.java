@@ -86,11 +86,12 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
-    public void inputValidUserCityIntoAddressInputField(){myAddressCityInputField.sendKeys(userCity);}
-    public void inputValidUserPostalCodeIntoAddressInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(userPostalCode));}
-    public void inputValidUserHomePhoneIntoAddressInputField(){myAddressHomePhoneInputField.sendKeys(userHomePhone);}
+    public void inputValidUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(userCity);}
+    public void inputValidUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(userPostalCode));}
+    public void inputValidUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(userHomePhone);}
 
     //valid user address title input method
     public void inputValidUserAddressTitleIntoAddressAliasInputField(){
