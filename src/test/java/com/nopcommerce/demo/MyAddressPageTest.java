@@ -207,4 +207,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooShortUserPostCodeTest();
     }
 
+    //Test 006m -> invalid user address addition test - too short user home phone (3 digits) (user address addition hasn't been aborted - test has failed)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Too Short User Home Phone")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddUserAddressTooShortHomePhoneTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - too short user home phone (3 digits)
+        invalidUserAddressAdditionTooShortUserHomePhoneTest();
+    }
+
 }

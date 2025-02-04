@@ -42,6 +42,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String tooShortUserAddress;
     private String tooShortUserCity;
     private int tooShortUserPostalCode;
+    private String tooShortUserHomePhone;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -202,6 +203,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataTooShortUserHomePhoneGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        tooShortUserHomePhone = "342";
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (too short user home phone): ");
+
+        logger.info("Valid user address (too short user home phone): " + userAddress);
+        logger.info("Valid user city (too short user home phone): " + userCity);
+        logger.info("Valid user postcode (too short user home phone): " + userPostalCode);
+        logger.info("Too short user home phone: " + tooShortUserHomePhone);
+        logger.info("Valid user address title (too short user home phone): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -233,6 +253,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputTooShortUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(tooShortUserAddress);}
     public void inputTooShortUserCityIntoCityInputField(){myAddressCityInputField.sendKeys(tooShortUserCity);}
     public void inputTooShortUserPostalCodeIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(String.valueOf(tooShortUserPostalCode));}
+    public void inputTooShortUserHomePhoneIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(tooShortUserHomePhone);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
