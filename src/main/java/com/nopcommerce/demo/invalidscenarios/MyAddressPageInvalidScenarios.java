@@ -52,6 +52,9 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String tooLongUserMobilePhone;
     private String tooLongMyAddressTitle;
 
+    //invalid singular input data (by format)
+    private String invalidUserAddressFormat;
+
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
     //invalid user address data getters
@@ -346,6 +349,27 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid singular input (by format)
+
+    public void invalidUserAddressDataInvalidUserAddressFormatGetter(){
+
+        invalidUserAddressFormat = "!@#$%%&^&(**&)&^*&%$#!#@$";
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        userMyAddressTitle = TestDataGenerator.getRandomMyAddressTitle();
+
+        System.out.println("Generated invalid user address data (invalid user address format): ");
+
+        logger.info("Invalid user address format: " + invalidUserAddressFormat);
+        logger.info("Valid user city (invalid user address format): " + userCity);
+        logger.info("Valid user postcode (invalid user address format): " + userPostalCode);
+        logger.info("Valid user home phone (invalid user address format): " + userHomePhone);
+        logger.info("Valid user address title (invalid user address format): " + userMyAddressTitle);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -390,6 +414,10 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         myAddressAliasInputField.clear();
         myAddressAliasInputField.sendKeys(tooLongMyAddressTitle);
     }
+
+    //invalid singular input (by format)
+
+    public void inputInvalidUserAddressFormatIntoAddressInputField(){myAddress1InputField.sendKeys(invalidUserAddressFormat);}
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}

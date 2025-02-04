@@ -2840,7 +2840,7 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - Too Long User Home Phone");
     }
 
-    //invalid user address addition test method - too long user address title (100 chars)
+    //invalid user address addition test method - too long user address title (33 chars)
     protected void invalidUserAddressAdditionTooLongUserAddressTitleTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -2884,6 +2884,56 @@ public class TestMethods extends BaseTest {
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - Too Long User Address Title");
+    }
+
+    //invalid singular input (by format)
+
+    //invalid user address addition test method - invalid user address format (100 chars)
+    protected void invalidUserAddressAdditionInvalidUserAddressFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - invalid user address format (special symbols only)
+        myAddressPageInvalidScenarios.invalidUserAddressDataInvalidUserAddressFormatGetter();
+        //input invalid user address format (address1) (special symbols only)
+        myAddressPageInvalidScenarios.inputInvalidUserAddressFormatIntoAddressInputField();
+        //capture screenshot of the invalid data input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - Invalid User Address Format");
+        //input valid user city
+        myAddressPageInvalidScenarios.inputValidUserCityIntoCityInputField();
+        //input valid user postal code
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input valid user home phone number
+        myAddressPageInvalidScenarios.inputValidUserHomePhoneIntoHomePhoneInputField();
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - Invalid User Address Format");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "address1 is invalid.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The invalid user address format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The invalid user address format error hasn't been triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - Invalid User Address Format");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -314,4 +314,21 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionTooLongUserAddressTitleTest();
     }
 
+    //invalid singular input (by format)
+
+    //Test 006t -> invalid user address addition test - invalid user address format (special symbols only)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid User Address Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddUserAddressInvalidAddressFormatTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - invalid user address format (special symbols only)
+        invalidUserAddressAdditionInvalidUserAddressFormatTest();
+    }
+
 }
