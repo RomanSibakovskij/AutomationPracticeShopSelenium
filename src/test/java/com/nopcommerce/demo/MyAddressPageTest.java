@@ -361,4 +361,19 @@ public class MyAddressPageTest extends TestMethods{
         invalidUserAddressAdditionInvalidUserPostCodeFormatTest();
     }
 
+    //Test 006w -> invalid user address addition test - invalid user home phone format (special symbols only)
+    @Test
+    @DisplayName("Invalid User Address Addition Test - Invalid User Home Phone Format")
+    @Tag("Invalid_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddUserAddressInvalidHomePhoneFormatTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //invalid user address addition test - invalid user home phone format (special symbols only)
+        invalidUserAddressAdditionInvalidUserHomePhoneFormatTest();
+    }
+
 }

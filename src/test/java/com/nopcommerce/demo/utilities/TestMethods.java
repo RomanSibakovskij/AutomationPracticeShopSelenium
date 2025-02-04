@@ -3032,6 +3032,54 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Invalid User Account Address Input Test Result - Invalid User Postal Code Format");
     }
 
+    //invalid user address addition test method - invalid user home phone format (special symbols only)
+    protected void invalidUserAddressAdditionInvalidUserHomePhoneFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        MyAddressPage myAddressPage = new MyAddressPage(driver);
+        MyAddressPageInvalidScenarios myAddressPageInvalidScenarios = new MyAddressPageInvalidScenarios(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Add My First Address' button link
+        myAccountPage.clickAddMyFirstAddressButtonLink();
+        //my address page web element assert
+        isMyAddressPageWebElementDisplayed(myAddressPage);
+        //my address page text element assert
+        isMyAddressPageTextElementAsExpected(myAddressPage);
+        //invalid user address (address-related) data getter - invalid user home phone format (special symbols only)
+        myAddressPageInvalidScenarios.invalidUserAddressDataInvalidUserHomePhoneFormatGetter();
+        //input valid user address (address1)
+        myAddressPageInvalidScenarios.inputValidUserAddressIntoAddressInputField();
+        //input valid user city
+        myAddressPageInvalidScenarios.inputValidUserCityIntoCityInputField();
+        //input valid user postal code
+        myAddressPageInvalidScenarios.inputValidUserPostalCodeIntoPostalCodeInputField();
+        //click 'State' dropdown menu
+        myAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        myAddressPage.selectStateIllinoisOption();
+        //input invalid user home phone number format (special symbols only)
+        myAddressPageInvalidScenarios.inputInvalidUserHomePhoneFormatIntoHomePhoneInputField();
+        //capture screenshot of the invalid input
+        captureScreenshot(driver, "Invalid User Account 'My Address' Address Input - Invalid User Home Phone Format");
+        //input valid user address title
+        myAddressPageInvalidScenarios.inputValidUserAddressTitleIntoAddressAliasInputField();
+        //capture screenshot of the invalid user data input
+        captureScreenshot(driver, "Invalid User Account Address Data Input - Invalid User Home Phone Format");
+        //click 'Save' button
+        myAddressPage.clickSaveButton();
+        //assert the user gets the expected error message, log the issue otherwise
+        try {
+            assertEquals("There is 1 error\n" + "phone is invalid.", myAddressPageInvalidScenarios.getInvalidSingularInputErrorMessage(), "The invalid user home phone format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.warn("The invalid user home phone format error hasn't been triggered or is non-existent.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Address Input Test Result - Invalid User Home Phone Format");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (all pages have them)
