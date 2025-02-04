@@ -57,6 +57,7 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     private String invalidUserCityFormat;
     private String invalidUserPostalCodeFormat;
     private String invalidUserHomePhoneFormat;
+    private String invalidUserMyAddressTitleFormat;
 
     public MyAddressPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -430,6 +431,25 @@ public class MyAddressPageInvalidScenarios extends BasePage{
         System.out.println("\n");
     }
 
+    public void invalidUserAddressDataInvalidUserAddressTitleFormatGetter(){
+
+        userAddress = TestDataGenerator.generateRandomAddress(6);
+        userCity = TestDataGenerator.getRandomCity();
+        userPostalCode = TestDataGenerator.getRandomPostalCode();
+        userHomePhone = TestDataGenerator.generatePhoneNumber(7);
+        invalidUserMyAddressTitleFormat = "!#@#$%#$^%";
+
+        System.out.println("Generated invalid user address data (invalid address title format): ");
+
+        logger.info("Valid user address (invalid address title format): " + userAddress);
+        logger.info("Valid user city (invalid address title format): " + userCity);
+        logger.info("Valid user postcode (invalid address title format): " + userPostalCode);
+        logger.info("Valid user home phone (invalid address title format): " + userHomePhone);
+        logger.info("Invalid user address title format: " + invalidUserMyAddressTitleFormat);
+
+        System.out.println("\n");
+    }
+
 
     //valid user address data input methods
     public void inputValidUserAddressIntoAddressInputField(){myAddress1InputField.sendKeys(userAddress);}
@@ -481,6 +501,10 @@ public class MyAddressPageInvalidScenarios extends BasePage{
     public void inputInvalidUserCityFormatIntoCityInputField(){myAddressCityInputField.sendKeys(invalidUserCityFormat);}
     public void inputInvalidUserPostalCodeFormatIntoPostalCodeInputField(){myAddressPostalCodeInputField.sendKeys(invalidUserPostalCodeFormat);}
     public void inputInvalidUserHomePhoneFormatIntoHomePhoneInputField(){myAddressHomePhoneInputField.sendKeys(invalidUserHomePhoneFormat);}
+    public void inputInvalidUserAddressTitleFormatIntoAddressAliasInputField(){
+        myAddressAliasInputField.clear();
+        myAddressAliasInputField.sendKeys(invalidUserMyAddressTitleFormat);
+    }
 
     //invalid singular input error getter
     public String getInvalidSingularInputErrorMessage(){return myAddressInfoSingularInputErrorMessage.getText();}
