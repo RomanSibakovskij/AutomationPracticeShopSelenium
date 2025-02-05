@@ -116,6 +116,26 @@ public class SingleProductCategoryDashboardPage extends BasePage {
 
     public SingleProductCategoryDashboardPage(WebDriver driver) {super(driver);}
 
+    //hover above product image method
+    public void hoverAboveProductImageLink(int index) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productImageLinkElements.get(index)).perform();
+    }
+
+    //click 'Add to Compare' link method
+    public void clickAddToCompareLink(int index) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productAddToCompareLinkElements.get(index)).click().perform();
+    }
+
+    //click 'Compare' button box method
+    public void clickCompareButtonBox() {
+        Actions actions = new Actions(driver);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productDashboardCompareButtonBox);
+        actions.moveToElement(productDashboardCompareButtonBox).click().perform();
+    }
+
     //single product category dashboard page text element getters (main page content)
     public String getProductDashboardCategoryImgTitle() {return productDashboardCategoryImgTitle.getText();}
     public String getProductDashboardCategoryImgDesc() {return productDashboardCategoryImgDesc.getText();}

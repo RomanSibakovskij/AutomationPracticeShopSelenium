@@ -119,6 +119,12 @@ public class GeneralPage extends BasePage {
         actions.moveToElement(footerMyPersonalInfoLink).click().perform();
     }
 
+    //element 'wait to load' method
+    public void waitElementsToLoad(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*"))); // Waits for all elements in the DOM
+    }
+
 
     //footer information section title getter
     public String getFooterInfoSectionTitle(){return footerInformationSectionTitle.getText();}

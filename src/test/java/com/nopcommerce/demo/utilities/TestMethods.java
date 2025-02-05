@@ -3154,6 +3154,39 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //add two product to compare list test method
+    protected void addBlouseAndPrintedDressToCompareListTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        ProductComparisonPage productComparisonPage = new ProductComparisonPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //hover above 'Blouse' product image
+        singleProductCategoryDashboardPage.hoverAboveProductImageLink(1);
+        //click 'Add to Compare' link
+        singleProductCategoryDashboardPage.clickAddToCompareLink(1);
+        //hover above 'Printed Chiffon Dress' product image
+        singleProductCategoryDashboardPage.hoverAboveProductImageLink(6);
+        //click 'Add to Compare' link
+        singleProductCategoryDashboardPage.clickAddToCompareLink(6);
+        //click 'Compare' button box
+        singleProductCategoryDashboardPage.clickCompareButtonBox();
+        //wait for elements to load
+        generalPage.waitElementsToLoad(driver);
+        //product comparison page web element assert
+        isProductComparisonPageWebElementDisplayed(productComparisonPage);
+        //product comparison page text element assert
+        isProductComparisonPageTextElementAsExpected(productComparisonPage);
+        //log product comparison page data
+        logProductComparisonPageProductData(productComparisonPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Blouse and Dress Product Addition To Comparison Page Test Result");
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (all pages have them)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //assert header banner link is displayed
@@ -3674,6 +3707,48 @@ public class TestMethods extends BaseTest {
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenProductDescDisplayed(), "The 'Single Product Category' dashboard page aside category seven product descriptions aren't displayed");
     }
 
+    //product comparison page web element assert test method
+    protected void isProductComparisonPageWebElementDisplayed(ProductComparisonPage productComparisonPage){
+        //assert product comparison page breadcrumb is displayed
+        assertTrue(productComparisonPage.isProductComparisonPageBreadcrumbDisplayed(), "The 'Product Comparison' page breadcrumb isn't displayed");
+        //assert product comparison page title is displayed
+        assertTrue(productComparisonPage.isProductComparisonPageTitleDisplayed(), "The 'Product Comparison' page title isn't displayed");
+        //assert product comparison page comparison box subtext is displayed
+        assertTrue(productComparisonPage.isProductComparisonBoxSubtextDisplayed(), "The 'Product Comparison' page comparison box subtext isn't displayed");
+        //assert product comparison page comparison box tweet share link is displayed
+        assertTrue(productComparisonPage.isProductComparisonBoxTweetShareLinkDisplayed(), "The 'Product Comparison' page comparison box tweet share link isn't displayed");
+        //assert product comparison page comparison box facebook share link is displayed
+        assertTrue(productComparisonPage.isProductComparisonBoxFacebookShareLinkDisplayed(), "The 'Product Comparison' page comparison box facebook share link isn't displayed");
+        //assert product comparison page comparison box google share link is displayed
+        assertTrue(productComparisonPage.isProductComparisonBoxGoogleShareLinkDisplayed(), "The 'Product Comparison' page comparison box google share link isn't displayed");
+        //assert product comparison page comparison box pinterest share link is displayed
+        assertTrue(productComparisonPage.isProductComparisonBoxPinterestShareLinkDisplayed(), "The 'Product Comparison' page comparison box pinterest share link isn't displayed");
+        //assert product comparison page continue shopping button is displayed
+        assertTrue(productComparisonPage.isProductComparisonContinueShoppingButtonDisplayed(), "The 'Product Comparison' page continue shopping button isn't displayed");
+        //assert product comparison page comparison product names are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductNameDisplayed(), "The 'Product Comparison' page comparison product names aren't displayed");
+        //assert product comparison page comparison product unit prices are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductUnitPriceDisplayed(), "The 'Product Comparison' page comparison product unit prices aren't displayed");
+        //assert product comparison page comparison product reduced price tags are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductReducedPriceTagDisplayed(), "The 'Product Comparison' page comparison product reduced price tags aren't displayed");
+        //assert product comparison page comparison product descriptions are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductDescDisplayed(), "The 'Product Comparison' page comparison product descriptions aren't displayed");
+        //assert product comparison page comparison product images are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductImageDisplayed(), "The 'Product Comparison' page comparison product images aren't displayed");
+        //assert product comparison page comparison product remove buttons are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductRemoveButtonDisplayed(), "The 'Product Comparison' page comparison product remove buttons aren't displayed");
+        //assert product comparison page comparison product add to cart buttons are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductAddToCartButtonDisplayed(), "The 'Product Comparison' page comparison product add to cart buttons aren't displayed");
+        //assert product comparison page comparison product view buttons are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductViewButtonDisplayed(), "The 'Product Comparison' page comparison product view buttons aren't displayed");
+        //assert product comparison page comparison product compositions are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductCompositionDisplayed(), "The 'Product Comparison' page comparison product compositions aren't displayed");
+        //assert product comparison page comparison product styles are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductStylesDisplayed(), "The 'Product Comparison' page comparison product styles aren't displayed");
+        //assert product comparison page comparison product properties are displayed (as a list)
+        assertTrue(productComparisonPage.isProductComparedProductPropertiesDisplayed(), "The 'Product Comparison' page comparison product properties aren't displayed");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (all pages have them)
@@ -3898,6 +3973,14 @@ public class TestMethods extends BaseTest {
         //assertEquals("VIEWED PRODUCTS", singleProductCategoryDashboardPage.getProductDashboardAsideCatSevenTitle(), "The 'Women Product Dashboard' page aside category seven title doesn't match expectations.");
     }
 
+    //product comparison page text element assert test method
+    protected void isProductComparisonPageTextElementAsExpected(ProductComparisonPage productComparisonPage){
+        //assert product comparison page title is as expected
+        assertEquals("PRODUCT COMPARISON", productComparisonPage.getProductComparisonPageTitle(), "The 'Product Comparison' page title doesn't match expectations.");
+        //assert product comparison box subtext is as expected
+        assertEquals("Share this comparison with your friends:", productComparisonPage.getProductComparisonBoxSubtext(), "The 'Product Comparison' page comparison box subtext doesn't match expectations.");
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page bestseller product data logger method
@@ -3932,6 +4015,21 @@ public class TestMethods extends BaseTest {
         logger.info("Displayed product availability list: " + singleProductCategoryDashboardPage.getProductDashboardAvailabilityBoxText());
         System.out.println("'Single Product Category' page displayed product data (aside section):" + "\n");
         logger.info("Aside product name(s): " + singleProductCategoryDashboardPage.getAsideProductName());
+        System.out.println("\n");
+    }
+
+    //product comparison page product data logger method
+    protected void logProductComparisonPageProductData(ProductComparisonPage productComparisonPage){
+        System.out.println("Product comparison displayed data: " + "\n");
+        logger.info("Compared product name(s): " + productComparisonPage.getProductComparedName());
+        logger.info("Compared product unit price(s): " + productComparisonPage.getProductComparedUnitPrice());
+        logger.info("Compared product description(s): " + productComparisonPage.getProductComparedDescription());
+        logger.info("Compared product composition(s): " + productComparisonPage.getProductComparedComposition());
+        logger.info("Compared product style(s): " + productComparisonPage.getProductComparedStyles());
+        logger.info("Compared product property(ies): " + productComparisonPage.getProductComparedProperty());
+        if(productComparisonPage.isProductComparedProductReducedPriceTagDisplayed()) {
+            logger.info("Compared product reduced price tag(s): " + productComparisonPage.getProductComparedReducedPriceTag());
+        }
         System.out.println("\n");
     }
 

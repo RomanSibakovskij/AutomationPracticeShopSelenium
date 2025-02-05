@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 public class SingleProductCategoryDashboardPageTest extends TestMethods{
 
-    //Test 007-> navigate guest to 'Women' product category page test
+    //Test 007 -> navigate guest to 'Women' product category page test
     @Test
     @DisplayName("Guest Navigation To 'Women' Product Category Page Test")
     @Tag("Test_As_A_Guest")
@@ -29,6 +29,20 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         returnRegisteredUserToHomePage();
         //navigate to 'Women' product category page test
         navigateToWomenCategoryProductDashboardPageTest();
+    }
+
+    //add products to compare list tests
+
+    //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test
+    @Test
+    @DisplayName("Add 'Blouse' and 'Printed Chiffon Dress' Products To Compare List Test (as a guest)")
+    @Tag("Add_Products_To_Compare_List")
+    @Tag("Test_As_A_Guest")
+    void guestAddProductsToCompareListTest(){
+        //navigate to 'Women' category dashboard page test
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add 'Blouse' and 'Printed Chiffon Dress' products to compare list test
+        addBlouseAndPrintedDressToCompareListTest();
     }
 
 
