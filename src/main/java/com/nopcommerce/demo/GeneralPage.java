@@ -101,6 +101,12 @@ public class GeneralPage extends BasePage {
         actions.moveToElement(logOutNavLink).click().perform();
     }
 
+    //click 'HomePage' logo link method
+    public void clickHomePageLogoLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(headerLogoLink).click().perform();
+    }
+
     //click 'Women' category nav link method
     public void clickWomenCategoryNavLink(){
         Actions actions = new Actions(driver);
