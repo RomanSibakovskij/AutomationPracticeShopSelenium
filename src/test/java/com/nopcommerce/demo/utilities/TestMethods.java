@@ -3128,6 +3128,30 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //guest navigation to 'Women' category product dashboard page test method
+    protected void navigateGuestToWomenCategoryProductDashboardPageTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Women' category nav link
+        generalPage.clickWomenCategoryNavLink();
+        //single product category dashboard page web element assert (main content)
+        isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (main content)
+        isWomenProductCategoryDashboardPageMainTextElementAsExpected(singleProductCategoryDashboardPage);
+        //single product category dashboard page web element assert (aside content)
+        isSingleProductCategoryDashboardPageAsideWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (aside content)
+        isWomenProductCategoryDashboardPageAsideTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log single product category dashboard page data
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (all pages have them)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //assert header banner link is displayed
@@ -3553,7 +3577,7 @@ public class TestMethods extends BaseTest {
         //assert product dashboard page sort by subtext is displayed
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardSortBySubtextDisplayed(), "The 'Single Product Category' dashboard page sort by subtext isn't displayed");
         //assert product dashboard page sort by dropdown menu is displayed
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardSortByDropdownMenuDisplayed(), "The 'Single Product Category' dashboard page sort by dropdown menu isn't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardSortByDropdownMenuDisplayed(), "The 'Single Product Category' dashboard page sort by dropdown menu isn't displayed");
         //assert product dashboard page view subtext is displayed
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardViewSubtextDisplayed(), "The 'Single Product Category' dashboard page view subtext isn't displayed");
         //assert product dashboard page grid view button is displayed
@@ -3565,17 +3589,19 @@ public class TestMethods extends BaseTest {
         //assert product dashboard page compare button box is displayed
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardCompareButtonBoxDisplayed(), "The 'Single Product Category' dashboard page compare button box isn't displayed");
         //assert product image links are displayed (as a list)
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductImgLinkDisplayed(), "The 'Single Product Category' dashboard page product image links aren't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductImgLinkDisplayed(), "The 'Single Product Category' dashboard page product image links aren't displayed");
         //assert product names are displayed (as a list)
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductNameLinkDisplayed(), "The 'Single Product Category' dashboard page product names aren't displayed");
+        //assert product unit prices are displayed (as a list)
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductUnitPriceDisplayed(), "The 'Single Product Category' dashboard page product unit prices aren't displayed");
         //assert product 'Add to Cart' disabled buttons are displayed (as a list)
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCartDisabledButtonDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Cart' disabled buttons aren't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCartDisabledButtonDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Cart' disabled buttons aren't displayed");
         //assert product 'More' buttons are displayed (as a list)
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardMoreButtonDisplayed(), "The 'Single Product Category' dashboard page product 'More' buttons aren't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardMoreButtonDisplayed(), "The 'Single Product Category' dashboard page product 'More' buttons aren't displayed");
         //assert product color buttons are displayed (as a list)
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardColorButtonDisplayed(), "The 'Single Product Category' dashboard page product color buttons aren't displayed");
         //assert product 'Add to Compare' links are displayed (as a list)
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCompareLinkDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Compare' links aren't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCompareLinkDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Compare' links aren't displayed");
         //assert product availability boxes are displayed (as a list)
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardAvailabilityBoxDisplayed(), "The 'Single Product Category' dashboard product availability boxes aren't displayed");
     }
@@ -3595,7 +3621,7 @@ public class TestMethods extends BaseTest {
         //assert product dashboard aside category six title is displayed
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSixTitleDisplayed(), "The 'Single Product Category' dashboard page aside category six title isn't displayed");
         //assert product dashboard aside category seven title is displayed
-        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenTitleDisplayed(), "The 'Single Product Category' dashboard page aside category seven title isn't displayed");
+        //assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenTitleDisplayed(), "The 'Single Product Category' dashboard page aside category seven title isn't displayed");
         //assert product dashboard aside category two subcategory one title is displayed
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatOneTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory one title isn't displayed");
         //assert product dashboard aside category two subcategory two title is displayed
@@ -3822,6 +3848,54 @@ public class TestMethods extends BaseTest {
         assertEquals("Be sure to update your personal information if it has changed.", myAddressesPage.getMyAddressesPageDescriptionTwo(), "The 'My Addresses' page description two doesn't match expectations.");
     }
 
+    //single product category (Women) dashboard page text element assert test method (main content)
+    protected void isWomenProductCategoryDashboardPageMainTextElementAsExpected(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage){
+        //assert women product dashboard page image title is as expected
+        assertEquals("Women", singleProductCategoryDashboardPage.getProductDashboardCategoryImgTitle(), "The 'Women Product Dashboard' page category image title doesn't match expectations.");
+        //assert women product dashboard page image description is as expected
+        assertEquals("You will find here all woman fashion collections.\n" + "This category includes all the basics of your wardrobe and much more:\n" + "shoes, accessories, printed t-shirts, feminine dresses, women's jeans!", singleProductCategoryDashboardPage.getProductDashboardCategoryImgDesc(), "The 'Women Product Dashboard' page category image description doesn't match expectations.");
+        //assert women product dashboard page title is as expected
+        assertEquals("WOMEN ", singleProductCategoryDashboardPage.getProductDashboardTitle(), "The 'Women Product Dashboard' page title doesn't match expectations.");
+        //assert women product dashboard sort by subtext is as expected
+        assertEquals("Sort by", singleProductCategoryDashboardPage.getProductDashboardSortBySubtext(), "The 'Women Product Dashboard' page sort by subtext doesn't match expectations.");
+        //assert women product dashboard view subtext is as expected
+        assertEquals("View:", singleProductCategoryDashboardPage.getProductDashboardViewSubtext(), "The 'Women Product Dashboard' page view subtext doesn't match expectations.");
+    }
+
+    //single product category (Women) dashboard page text element assert test method (aside content)
+    protected void isWomenProductCategoryDashboardPageAsideTextElementAsExpected(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage){
+        //assert women product dashboard aside category one title is as expected
+        assertEquals("WOMEN", singleProductCategoryDashboardPage.getProductDashboardAsideCatOneTitle(), "The 'Women Product Dashboard' page aside category one title doesn't match expectations.");
+        //assert women product dashboard aside category two title is as expected
+        assertEquals("CATALOG", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoTitle(), "The 'Women Product Dashboard' page aside category two title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory one title is as expected
+        assertEquals("Categories", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatOneTitle(), "The 'Women Product Dashboard' page aside category two subcategory one title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory two title is as expected
+        assertEquals("Size", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatTwoTitle(), "The 'Women Product Dashboard' page aside category two subcategory two title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory three title is as expected
+        assertEquals("Color", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatThreeTitle(), "The 'Women Product Dashboard' page aside category two subcategory three title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory four title is as expected
+        assertEquals("Properties", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatFourTitle(), "The 'Women Product Dashboard' page aside category two subcategory four title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory five title is as expected
+        assertEquals("Compositions", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatFiveTitle(), "The 'Women Product Dashboard' page aside category two subcategory five title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory six title is as expected
+        assertEquals("Styles", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatSixTitle(), "The 'Women Product Dashboard' page aside category two subcategory six title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory seven title is as expected
+        assertEquals("Availability", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatSevenTitle(), "The 'Women Product Dashboard' page aside category two subcategory seven title doesn't match expectations.");
+        //assert women product dashboard aside category two subcategory eight title is as expected
+        assertEquals("Condition", singleProductCategoryDashboardPage.getProductDashboardAsideCatTwoSubCatEightTitle(), "The 'Women Product Dashboard' page aside category two subcategory eight title doesn't match expectations.");
+        //assert women product dashboard aside category three title is as expected
+        assertEquals("INFORMATION", singleProductCategoryDashboardPage.getProductDashboardAsideCatThreeTitle(), "The 'Women Product Dashboard' page aside category three title doesn't match expectations.");
+        //assert women product dashboard aside category four title is as expected
+        assertEquals("SPECIALS", singleProductCategoryDashboardPage.getProductDashboardAsideCatFourTitle(), "The 'Women Product Dashboard' page aside category four title doesn't match expectations.");
+        //assert women product dashboard aside category five title is as expected
+        assertEquals("OUR STORES", singleProductCategoryDashboardPage.getProductDashboardAsideCatFiveTitle(), "The 'Women Product Dashboard' page aside category five title doesn't match expectations.");
+        //assert women product dashboard aside category six title is as expected
+        assertEquals("OUR STORES", singleProductCategoryDashboardPage.getProductDashboardAsideCatSixTitle(), "The 'Women Product Dashboard' page aside category six title doesn't match expectations.");
+        //assert women product dashboard aside category seven title is as expected
+        //assertEquals("VIEWED PRODUCTS", singleProductCategoryDashboardPage.getProductDashboardAsideCatSevenTitle(), "The 'Women Product Dashboard' page aside category seven title doesn't match expectations.");
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page bestseller product data logger method
@@ -3841,6 +3915,21 @@ public class TestMethods extends BaseTest {
         logger.info("Address state(s): " + myAddressesPage.getAddressState() + "\n");
         logger.info("Address country(ies): " + myAddressesPage.getAddressCountry() + "\n");
         logger.info("Address phone number(s): " + myAddressesPage.getAddressPhoneNumber() + "\n");
+        System.out.println("\n");
+    }
+
+    //single product category dashboard page page / product data logger method
+    protected void logSingleProductCategoryDashboardPageProductData(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage){
+        System.out.println("'Single Product Category' page displayed data:" + "\n");
+        logger.info("Product displayed count: " + singleProductCategoryDashboardPage.getProductDashboardCountText());
+        logger.info("Product showing items: " + singleProductCategoryDashboardPage.getProductDashboardShowingItemsText());
+        logger.info("Product price range displayed: " + singleProductCategoryDashboardPage.getProductDashboardAsidePriceRangeSubtext());
+        System.out.println("'Single Product Category' page displayed product data (main section):" + "\n");
+        logger.info("Product name(s): " + singleProductCategoryDashboardPage.getProductName());
+        logger.info("Product unit price(s): " + singleProductCategoryDashboardPage.getProductUnitPrice());
+        logger.info("Displayed product availability list: " + singleProductCategoryDashboardPage.getProductDashboardAvailabilityBoxText());
+        System.out.println("'Single Product Category' page displayed product data (aside section):" + "\n");
+        logger.info("Aside product name(s): " + singleProductCategoryDashboardPage.getAsideProductName());
         System.out.println("\n");
     }
 

@@ -102,7 +102,10 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     //product list elements
     private List<WebElement> productImageLinkElements = driver.findElements(By.xpath("//div[@id='center_column']//img"));
     private List<WebElement> productNameLinkElements = driver.findElements(By.xpath("//ul[@class='product_list grid row']/li//h5/a"));
+    private List<WebElement> productNameElements = driver.findElements(By.xpath("//div[@id='center_column']/ul/li/div[@class='product-container']//h5"));
     private List<WebElement> productViewHoverButtonElements = driver.findElements(By.xpath("//ul[@class='product_list grid row']/li//a[@class='quick-view-mobile']"));
+    @FindBy(xpath = "//ul[@class='product_list grid row']/li//span[@class='price product-price']")
+    private List<WebElement> productUnitPriceElements;
     @FindBy(xpath = "//ul[@class='product_list grid row']/li//span[@class='button ajax_add_to_cart_button btn btn-default disabled']")
     private List<WebElement> productAddToCartDisabledButtonElements;
     private List<WebElement> productMoreButtonElements = driver.findElements(By.xpath("//ul[@class='product_list grid row']/li//a[@class='button lnk_view btn btn-default']"));
@@ -112,6 +115,72 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private List<WebElement> productDashboardAvailabilityBoxText;
 
     public SingleProductCategoryDashboardPage(WebDriver driver) {super(driver);}
+
+    //single product category dashboard page text element getters (main page content)
+    public String getProductDashboardCategoryImgTitle() {return productDashboardCategoryImgTitle.getText();}
+    public String getProductDashboardCategoryImgDesc() {return productDashboardCategoryImgDesc.getText();}
+    public String getProductDashboardTitle() {return productDashboardTitle.getText();}
+    public String getProductDashboardCountText() {return productDashboardCountText.getText();}
+    public String getProductDashboardSortBySubtext() {return productDashboardSortBySubtext.getText();}
+    public String getProductDashboardViewSubtext() {return productDashboardViewSubtext.getText();}
+    public String getProductDashboardShowingItemsText() {return productDashboardShowingItemsText.getText();}
+    //single product category dashboard page text element getters (aside page content)
+    public String getProductDashboardAsideCatOneTitle() {return productDashboardAsideCatOneTitle.getText();}
+    public String getProductDashboardAsideCatTwoTitle() {return productDashboardAsideCatTwoTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatOneTitle() {return productDashboardAsideCatTwoSubCatOneTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatTwoTitle() {return productDashboardAsideCatTwoSubCatTwoTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatThreeTitle() {return productDashboardAsideCatTwoSubCatThreeTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatFourTitle() {return productDashboardAsideCatTwoSubCatFourTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatFiveTitle() {return productDashboardAsideCatTwoSubCatFiveTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatSixTitle() {return productDashboardAsideCatTwoSubCatSixTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatSevenTitle() {return productDashboardAsideCatTwoSubCatSevenTitle.getText();}
+    public String getProductDashboardAsideCatTwoSubCatEightTitle() {return productDashboardAsideCatTwoSubCatEightTitle.getText();}
+    public String getProductDashboardAsidePriceRangeSubtext() {return productDashboardAsidePriceRangeSubtext.getText();}
+    public String getProductDashboardAsideCatThreeTitle() {return productDashboardAsideCatThreeTitle.getText();}
+    public String getProductDashboardAsideCatFourTitle() {return productDashboardAsideCatFourTitle.getText();}
+    public String getProductDashboardAsideCatFiveTitle() {return productDashboardAsideCatFiveTitle.getText();}
+    public String getProductDashboardAsideCatSixTitle() {return productDashboardAsideCatSixTitle.getText();}
+    public String getProductDashboardAsideCatSevenTitle() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1300));
+        wait.until(ExpectedConditions.visibilityOf(productDashboardAsideCatSevenTitle));
+        return productDashboardAsideCatSevenTitle.getText();
+    }
+
+    //single product category dashboard page product data element getters (main page content)
+    public List<String> getProductName() {
+        List<String> productNames = new ArrayList<>();
+        for (WebElement element : productNameElements) {
+            productNames.add(element.getText());
+        }
+        System.out.println("Number of elements found: " + productNameElements.size());
+        return productNames;
+    }
+    public List<String> getProductUnitPrice() {
+        List<String> productUnitPrices = new ArrayList<>();
+        for (WebElement element : productUnitPriceElements) {
+            String price = element.getText().trim();
+            if (!price.isEmpty()) {
+                productUnitPrices.add(price);
+            }
+        }
+        return productUnitPrices;
+    }
+    public List<String> getProductDashboardAvailabilityBoxText() {
+        List<String> productAvailabilities = new ArrayList<>();
+        for (WebElement element : productDashboardAvailabilityBoxText) {
+            productAvailabilities.add(element.getText());
+        }
+        return productAvailabilities;
+    }
+
+    //single product category dashboard page product data element getters (aside page content)
+    public List<String> getAsideProductName() {
+        List<String> asideProductNames = new ArrayList<>();
+        for (WebElement element : productDashboardAsideCatSevenProductNameLinkElements) {
+            asideProductNames.add(element.getText());
+        }
+        return asideProductNames;
+    }
 
     //single product category dashboard page web element assert methods
     //aside
@@ -339,6 +408,10 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     }
     public boolean isProductDashboardProductNameLinkDisplayed() {
         return productNameLinkElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isProductDashboardProductUnitPriceDisplayed() {
+        return productUnitPriceElements.stream()
                 .allMatch(WebElement::isDisplayed);
     }
     public boolean isProductDashboardAddToCartDisabledButtonDisplayed() {

@@ -101,11 +101,18 @@ public class GeneralPage extends BasePage {
         actions.moveToElement(logOutNavLink).click().perform();
     }
 
+    //click 'Women' category nav link method
+    public void clickWomenCategoryNavLink(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(womenNavLink).click().perform();
+    }
+
     //click 'My Personal Info' footer link method
     public void clickMyPersonalInfoFooterLink(){
         Actions actions = new Actions(driver);
         actions.moveToElement(footerMyPersonalInfoLink).click().perform();
     }
+
 
     //footer information section title getter
     public String getFooterInfoSectionTitle(){return footerInformationSectionTitle.getText();}
