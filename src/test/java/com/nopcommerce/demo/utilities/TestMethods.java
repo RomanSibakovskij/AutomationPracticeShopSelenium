@@ -3536,6 +3536,114 @@ public class TestMethods extends BaseTest {
         assertTrue(myAddressesPage.isAddressDeleteButtonDisplayed(), "The 'My Addresses' page address delete buttons aren't displayed ");
     }
 
+    //single product category dashboard page web element assert test method (for main page)
+    protected void isSingleProductCategoryDashboardPageMainWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //assert product dashboard page breadcrumb is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardBreadcrumbDisplayed(), "The 'Single Product Category' dashboard page breadcrumb isn't displayed");
+        //assert product dashboard page category image is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardCategoryImageDisplayed(), "The 'Single Product Category' dashboard page category image isn't displayed");
+        //assert product dashboard page category image title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardCategoryImgTitleDisplayed(), "The 'Single Product Category' dashboard page category image title isn't displayed");
+        //assert product dashboard page category image description is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardCategoryImgDescDisplayed(), "The 'Single Product Category' dashboard page category image description isn't displayed");
+        //assert product dashboard page title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardTitleDisplayed(), "The 'Single Product Category' dashboard page title breadcrumb isn't displayed");
+        //assert product dashboard page count text is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardCountTextDisplayed(), "The 'Single Product Category' dashboard page count text isn't displayed");
+        //assert product dashboard page sort by subtext is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardSortBySubtextDisplayed(), "The 'Single Product Category' dashboard page sort by subtext isn't displayed");
+        //assert product dashboard page sort by dropdown menu is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardSortByDropdownMenuDisplayed(), "The 'Single Product Category' dashboard page sort by dropdown menu isn't displayed");
+        //assert product dashboard page view subtext is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardViewSubtextDisplayed(), "The 'Single Product Category' dashboard page view subtext isn't displayed");
+        //assert product dashboard page grid view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardGridViewDisplayed(), "The 'Single Product Category' dashboard page grid view button isn't displayed");
+        //assert product dashboard page list view button is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardListViewDisplayed(), "The 'Single Product Category' dashboard page list viw button isn't displayed");
+        //assert product dashboard page showing items text is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardShowingItemsTextDisplayed(), "The 'Single Product Category' dashboard page showing items text isn't displayed");
+        //assert product dashboard page compare button box is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardCompareButtonBoxDisplayed(), "The 'Single Product Category' dashboard page compare button box isn't displayed");
+        //assert product image links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductImgLinkDisplayed(), "The 'Single Product Category' dashboard page product image links aren't displayed");
+        //assert product names are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardProductNameLinkDisplayed(), "The 'Single Product Category' dashboard page product names aren't displayed");
+        //assert product 'Add to Cart' disabled buttons are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCartDisabledButtonDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Cart' disabled buttons aren't displayed");
+        //assert product 'More' buttons are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardMoreButtonDisplayed(), "The 'Single Product Category' dashboard page product 'More' buttons aren't displayed");
+        //assert product color buttons are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardColorButtonDisplayed(), "The 'Single Product Category' dashboard page product color buttons aren't displayed");
+        //assert product 'Add to Compare' links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCompareLinkDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Compare' links aren't displayed");
+    }
+
+    //single product category dashboard page web element assert test method (for aside page content - it's not similar for all categories)
+    protected void isSingleProductCategoryDashboardPageAsideWebElementDisplayed(SingleProductCategoryDashboardPage singleProductCategoryDashboardPage) {
+        //assert product dashboard aside category one title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatOneTitleDisplayed(), "The 'Single Product Category' dashboard page aside category one title isn't displayed");
+        //assert product dashboard aside category two title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two title isn't displayed");
+        //assert product dashboard aside category three title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatThreeTitleDisplayed(), "The 'Single Product Category' dashboard page aside category three title isn't displayed");
+        //assert product dashboard aside category four title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFourTitleDisplayed(), "The 'Single Product Category' dashboard page aside category four title isn't displayed");
+        //assert product dashboard aside category five title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveTitleDisplayed(), "The 'Single Product Category' dashboard page aside category five title isn't displayed");
+        //assert product dashboard aside category six title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSixTitleDisplayed(), "The 'Single Product Category' dashboard page aside category six title isn't displayed");
+        //assert product dashboard aside category seven title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenTitleDisplayed(), "The 'Single Product Category' dashboard page aside category seven title isn't displayed");
+        //assert product dashboard aside category two subcategory one title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatOneTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory one title isn't displayed");
+        //assert product dashboard aside category two subcategory two title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatTwoTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory two title isn't displayed");
+        //assert product dashboard aside category two subcategory three title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatThreeTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory three title isn't displayed");
+        //assert product dashboard aside category two subcategory four title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatFourTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory four title isn't displayed");
+        //assert product dashboard aside category two subcategory five title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatFiveTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory five title isn't displayed");
+        //assert product dashboard aside category two subcategory six title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatSixTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory six title isn't displayed");
+        //assert product dashboard aside category two subcategory seven title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatSevenTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory seven title isn't displayed");
+        //assert product dashboard aside category two subcategory eight title is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatTwoSubCatEightTitleDisplayed(), "The 'Single Product Category' dashboard page aside category two subcategory eight title isn't displayed");
+        //assert product dashboard aside price range subtext is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsidePriceRangeSubtextDisplayed(), "The 'Single Product Category' dashboard page aside price range subtext isn't displayed");
+        //assert product dashboard aside price range slider down is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsidePriceRangeSliderDownDisplayed(), "The 'Single Product Category' dashboard page aside price range slider down isn't displayed");
+        //assert product dashboard aside price range slider up is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsidePriceRangeSliderUpDisplayed(), "The 'Single Product Category' dashboard page aside price range slider up isn't displayed");
+        //assert product dashboard aside category five product image link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveProductImgLinkDisplayed(), "The 'Single Product Category' dashboard page aside category five product image link isn't displayed");
+        //assert product dashboard aside category five product name link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveProductNameLinkDisplayed(), "The 'Single Product Category' dashboard page aside category five product name link isn't displayed");
+        //assert product dashboard aside category five product description is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveProductDescDisplayed(), "The 'Single Product Category' dashboard page aside category five product description isn't displayed");
+        //assert product dashboard aside category five product price box is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveProductPriceBoxDisplayed(), "The 'Single Product Category' dashboard page aside category five product price box isn't displayed");
+        //assert product dashboard aside category five button link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatFiveButtonLinkDisplayed(), "The 'Single Product Category' dashboard page aside category five button link isn't displayed");
+        //assert product dashboard aside category six image link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSixImgLinkDisplayed(), "The 'Single Product Category' dashboard page aside category six image link isn't displayed");
+        //assert product dashboard aside category six button link is displayed
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSixButtonLinkDisplayed(), "The 'Single Product Category' dashboard page aside category six button link isn't displayed");
+        //assert product dashboard aside category one subcategory links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatOneSubcategoryLinkDisplayed(), "The 'Single Product Category' dashboard page aside category one subcategory links aren't displayed");
+        //assert product dashboard aside category one subcategory checkboxes are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatOneSubcategoryCheckboxDisplayed(), "The 'Single Product Category' dashboard page aside category one subcategory checkboxes aren't displayed");
+        //assert product dashboard aside info subcategory links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideInfoSubcategoryLinkDisplayed(), "The 'Single Product Category' dashboard page aside information subcategory links aren't displayed");
+        //assert product dashboard aside category seven product image links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenProductImgLinkDisplayed(), "The 'Single Product Category' dashboard page aside category seven product image links aren't displayed");
+        //assert product dashboard aside category seven product name links are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenProductNameLinkDisplayed(), "The 'Single Product Category' dashboard page aside category seven product name links aren't displayed");
+        //assert product dashboard aside category seven product descriptions are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAsideCatSevenProductDescDisplayed(), "The 'Single Product Category' dashboard page aside category seven product descriptions aren't displayed");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (all pages have them)
