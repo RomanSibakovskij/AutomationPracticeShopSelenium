@@ -358,4 +358,9 @@ public class SingleProductCategoryDashboardPage extends BasePage {
                 .allMatch(WebElement::isDisplayed);
     }
 
+    public boolean isProductDashboardAvailabilityBoxDisplayed() {
+        return productDashboardAvailabilityBoxText.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+
 }

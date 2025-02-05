@@ -3576,6 +3576,8 @@ public class TestMethods extends BaseTest {
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardColorButtonDisplayed(), "The 'Single Product Category' dashboard page product color buttons aren't displayed");
         //assert product 'Add to Compare' links are displayed (as a list)
         assertTrue(singleProductCategoryDashboardPage.isProductDashboardAddToCompareLinkDisplayed(), "The 'Single Product Category' dashboard page product 'Add to Compare' links aren't displayed");
+        //assert product availability boxes are displayed (as a list)
+        assertTrue(singleProductCategoryDashboardPage.isProductDashboardAvailabilityBoxDisplayed(), "The 'Single Product Category' dashboard product availability boxes aren't displayed");
     }
 
     //single product category dashboard page web element assert test method (for aside page content - it's not similar for all categories)
