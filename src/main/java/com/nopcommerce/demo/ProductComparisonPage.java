@@ -51,6 +51,12 @@ public class ProductComparisonPage extends BasePage{
 
     public ProductComparisonPage(WebDriver driver) {super(driver);}
 
+    //click 'Remove' product button method
+    public void clickRemoveProductButton(int index) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productComparedRemoveButtonElements.get(index)).click().perform();
+    }
+
     //product comparison page product data getters (list elements)
     public List<String> getProductComparedName() {
         List<String> productComparedNames = new ArrayList<>();

@@ -3154,7 +3154,7 @@ public class TestMethods extends BaseTest {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //add two product to compare list test method
+    //add two product to compare list test method ('Blouse' and 'Printed Chiffon Dress')
     protected void addBlouseAndPrintedDressToCompareListTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
@@ -3183,6 +3183,17 @@ public class TestMethods extends BaseTest {
         logProductComparisonPageProductData(productComparisonPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Blouse and Dress Product Addition To Comparison Page Test Result");
+    }
+
+    //remove a single product from compare list test method ('Blouse')
+    protected void removeBlouseFromCompareListTest(){
+        ProductComparisonPage productComparisonPage = new ProductComparisonPage(driver);
+        //remove 'Blouse' from compared list
+        productComparisonPage.clickRemoveProductButton(0);
+        //log remaining product data
+        logProductComparisonPageProductData(productComparisonPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Blouse and Dress Product Removal From Comparison Page Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
