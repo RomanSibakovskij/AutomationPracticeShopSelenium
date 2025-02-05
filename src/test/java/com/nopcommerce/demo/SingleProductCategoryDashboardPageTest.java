@@ -27,7 +27,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         validUserAddressAdditionTest();
         //return to homepage test
         returnRegisteredUserToHomePage();
-        //navigate to 'Women' product category page test
+        //navigate to 'Women' product category dashboard page test
         navigateToWomenCategoryProductDashboardPageTest();
     }
 
@@ -45,5 +45,25 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addBlouseAndPrintedDressToCompareListTest();
     }
 
+    //Test 008a -> navigate registered user to 'Women' product category page test
+    @Test
+    @DisplayName("Add 'Blouse' and 'Printed Chiffon Dress' Products To Compare List Test (as a registered user)")
+    @Tag("Add_Products_To_Compare_List")
+    @Tag("Test_As_A_Registered_User")
+    void regUserAddProductsToCompareListTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' category dashboard page test
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add 'Blouse' and 'Printed Chiffon Dress' products to compare list test
+        addBlouseAndPrintedDressToCompareListTest();
+    }
 
 }
