@@ -4016,6 +4016,60 @@ public class TestMethods extends BaseTest {
         assertTrue(singleProductPage.isProductViewImageDisplayed(), "The 'Single Product' page product view images aren't displayed");
     }
 
+    //shopping cart page web element assert test method
+    protected void isShoppingCartPageWebElementDisplayed(ShoppingCartSummaryPage shoppingCartSummaryPage) {
+        //assert shopping cart page breadcrumb is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartPageBreadcrumbDisplayed(), "The shopping cart page breadcrumb isn't displayed");
+        //assert shopping cart page title is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartPageTitleDisplayed(), "The shopping cart page title isn't displayed");
+        //assert shopping cart page product count is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductCountDisplayed(), "The shopping cart page product count isn't displayed");
+        //assert shopping cart page step image breadcrumb is displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartStepImageDisplayed(), "The shopping cart page step image breadcrumb isn't displayed");
+        //assert shopping cart page product image links are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductImageLinkDisplayed(), "The shopping cart page product image links aren't displayed");
+        //assert shopping cart page product name links are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductNameLinkDisplayed(), "The shopping cart page product name links aren't displayed");
+        //assert shopping cart page product descriptions are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductDescriptionDisplayed(), "The shopping cart page product descriptions aren't displayed");
+        //assert shopping cart page product availability tags are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductAvailabilityTagDisplayed(), "The shopping cart page product availability tags aren't displayed");
+        //assert shopping cart page product unit prices are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductUnitPriceDisplayed(), "The shopping cart page product unit prices aren't displayed");
+        //assert shopping cart page product quantity decrease buttons are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductQtyDecreaseButtonDisplayed(), "The shopping cart page product quantity decrease buttons aren't displayed");
+        //assert shopping cart page product quantity input fields are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductQtyInputFieldDisplayed(), "The shopping cart page product quantity input fields aren't displayed");
+        //assert shopping cart page product quantity increase buttons are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductQtyIncreaseButtonDisplayed(), "The shopping cart page product quantity increase buttons aren't displayed");
+        //assert shopping cart page product remove buttons are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductRemoveButtonDisplayed(), "The shopping cart page product remove buttons aren't displayed");
+        //assert shopping cart page product total prices are displayed (as a list)
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProductTotalPriceDisplayed(), "The shopping cart page product total prices aren't displayed");
+        //assert shopping cart page summary total product price is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartSummaryTotalProductPriceDisplayed(), "The shopping cart page summary total product price isn't displayed");
+        //assert shopping cart page summary total shipping price is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartSummaryTotalShippingPriceDisplayed(), "The shopping cart page summary total shipping price isn't displayed");
+        //assert shopping cart page summary total price is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartSummaryTotalPriceDisplayed(), "The shopping cart page summary total price isn't displayed");
+        //assert shopping cart page back to shopping button is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartBackToShoppingButtonDisplayed(), "The shopping cart page back to shopping button isn't displayed");
+        //assert shopping cart page 'Proceed to Checkout' button is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartProceedToCheckoutButtonDisplayed(), "The shopping cart page 'Proceed to Checkout' button isn't displayed");
+    }
+
+    //shopping cart (registered user version) page additional web element assert test method
+    protected void isShoppingCartRegUserAddressesSectionWebElementDisplayed(ShoppingCartSummaryPage shoppingCartSummaryPage) {
+        //assert shopping cart page delivery address subtext is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartDeliveryAddressSubtitleDisplayed(), "The shopping cart page delivery address subtext isn't displayed");
+        //assert shopping cart page delivery address data is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartDeliveryAddressDataDisplayed(), "The shopping cart page delivery address data isn't displayed");
+        //assert shopping cart page shipping address subtitle is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartShippingAddressSubtitleDisplayed(), "The shopping cart page shipping address subtitle isn't displayed");
+        //assert shopping cart page shipping address data is displayed
+        assertTrue(shoppingCartSummaryPage.isShoppingCartShippingAddressDataDisplayed(), "The shopping cart page shipping address data isn't displayed");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (all pages have them)
@@ -4323,6 +4377,34 @@ public class TestMethods extends BaseTest {
         logger.info("Single product composition: " + singleProductPage.getProductComposition());
         logger.info("Single product styles: " + singleProductPage.getProductStyles());
         logger.info("Single product description: " + singleProductPage.getProductDescription());
+        System.out.println("\n");
+    }
+
+    //shopping cart page product data logger method
+    protected void logShoppingCartProductData(ShoppingCartSummaryPage shoppingCartSummaryPage){
+        System.out.println("Shopping cart displayed product data: " + "\n");
+        logger.info("Shopping cart product name(s): " + shoppingCartSummaryPage.getShoppingCartProductName());
+        logger.info("Shopping cart product description(s): " + shoppingCartSummaryPage.getShoppingCartProductDescription());
+        logger.info("Shopping cart product availability tag(s): " + shoppingCartSummaryPage.getShoppingCartProductAvailabilityTag());
+        logger.info("Shopping cart product unit price(s): " + shoppingCartSummaryPage.getShoppingCartProductUnitPrice());
+        logger.info("Shopping cart product quantity(ies): " + shoppingCartSummaryPage.getShoppingCartProductQuantity());
+        logger.info("Shopping cart product total price(s): " + shoppingCartSummaryPage.getShoppingCartProductTotalPrice());
+
+        System.out.println("Shopping cart summary section data: " + "\n");
+        logger.info("Shopping cart summary total product price: " + shoppingCartSummaryPage.getShoppingCartSummaryTotalProductPrice());
+        logger.info("Shopping cart summary total shipping price: " + shoppingCartSummaryPage.getShoppingCartSummaryTotalShippingPrice());
+        logger.info("Shopping cart summary total price: " + shoppingCartSummaryPage.getShoppingCartSummaryTotalPrice());
+
+        System.out.println("\n");
+    }
+
+    //shopping cart addresses logger method
+    protected void logShoppingCartAddressesData(ShoppingCartSummaryPage shoppingCartSummaryPage){
+        System.out.println("Shopping cart addresses section displayed data: " + "\n");
+        logger.info(shoppingCartSummaryPage.getShoppingCartDeliveryAddressSubtitle());
+        logger.info("Shopping cart delivery address data: " + shoppingCartSummaryPage.getDeliveryAddressData());
+        logger.info(shoppingCartSummaryPage.getShoppingCartShippingAddressSubtitle());
+        logger.info("Shopping cart shipping address data: " + shoppingCartSummaryPage.getShippingAddressData());
         System.out.println("\n");
     }
 
