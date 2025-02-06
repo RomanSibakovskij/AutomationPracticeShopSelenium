@@ -29,7 +29,7 @@ public class GeneralPage extends BasePage {
     @FindBy(xpath = "//div[@id='search_block_top']//button")
     private WebElement searchButton;
     @FindBy(xpath = "//div[@class='shopping_cart']/a")
-    private WebElement shoppingCartLinkButton;
+    private WebElement shoppingCartDropdownButton;
     //header lower nav bar
     @FindBy(xpath = "//div[@id='block_top_menu']/ul/li[1]/a")
     private WebElement womenNavLink;
@@ -119,6 +119,12 @@ public class GeneralPage extends BasePage {
         actions.moveToElement(footerMyPersonalInfoLink).click().perform();
     }
 
+    //click 'Shopping Cart' header dropdown button method
+    public void clickShoppingCartDropdownButton(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(shoppingCartDropdownButton).click().perform();
+    }
+
     //element 'wait to load' method
     public void waitElementsToLoad(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
@@ -181,8 +187,8 @@ public class GeneralPage extends BasePage {
     }
     public boolean isShoppingCartLinkButtonDisplayed() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(550));
-        wait.until(ExpectedConditions.visibilityOf(shoppingCartLinkButton));
-        return shoppingCartLinkButton.isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartDropdownButton));
+        return shoppingCartDropdownButton.isDisplayed();
     }
     public boolean isWomenNavLinkDisplayed() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(550));

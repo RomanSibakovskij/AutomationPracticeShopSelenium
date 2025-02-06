@@ -4,9 +4,7 @@ import com.nopcommerce.demo.utilities.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
-import org.openqa.selenium.support.ui.*;
 
-import java.time.Duration;
 import java.util.*;
 
 public class SingleProductPage extends BasePage{
@@ -48,6 +46,10 @@ public class SingleProductPage extends BasePage{
     private WebElement singleProductPageProductUnitPrice;
     @FindBy(xpath = "//div[@class='box-info-product']//select")
     private WebElement singleProductPageProductSizeDropdownMenu;
+    @FindBy(xpath = "//p[@id='add_to_cart']/button")
+    private WebElement singleProductPageProductAddToCartButton;
+    @FindBy(xpath = "//div[@id='layer_cart']//a")
+    private WebElement singleProductPageProductProceedToCartButton;
     @FindBy(xpath = "//div[@id='product_payment_logos']//img")
     private WebElement singleProductPagePaymentIcon;
     @FindBy(xpath = "//section[@class='page-product-box'][1]/h3")
@@ -62,13 +64,42 @@ public class SingleProductPage extends BasePage{
     private WebElement singleProductPageMoreInfoSectionTitle;
     @FindBy(xpath = "//section[@class='page-product-box'][2]//p")
     private WebElement singleProductPageProductDetailedDescription;
+    @FindBy(xpath = "//ul[@id='color_to_pick_list']/li[1]/a")
+    private WebElement singleProductPageBlouseWhiteColor;
     //list elements
-    private List<WebElement> colorButtonElements = driver.findElements(By.xpath("//ul[@id='color_to_pick_list']/li"));
+    private List<WebElement> colorButtonElements = driver.findElements(By.xpath("//ul[@id='color_to_pick_list']/li/a"));
     @FindBy(xpath = "//ul[@id='thumbs_list_frame']/li//img")
     private List<WebElement> productImageElements;
 
 
     public SingleProductPage(WebDriver driver) {super(driver);}
+
+    //click blouse 'White Color' button method
+    public void clickBlouseWhiteColorButton() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(singleProductPageBlouseWhiteColor).click().perform();
+    }
+
+    //click 'Add to Cart' button method
+    public void clickAddToCartButton() {
+        Actions actions = new Actions(driver);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", singleProductPageProductAddToCartButton);
+        actions.moveToElement(singleProductPageProductAddToCartButton).click().perform();
+    }
+
+    //click 'Proceed to Checkout' button method (simple JS click fails to add product to cart for some reason, Actions don't work here)
+    public void clickProceedToCheckoutButton() {
+        try {
+            //attempt regular Actions click first
+            Actions actions = new Actions(driver);
+            actions.moveToElement(singleProductPageProductProceedToCartButton).click().perform();
+        } catch (Exception e) {
+            //js click if Actions fails
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", singleProductPageProductProceedToCartButton);
+        }
+    }
 
     //single product page data getters
     public String getProductReference(){return singleProductPageProductReference.getText();}

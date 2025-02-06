@@ -3310,6 +3310,7 @@ public class TestMethods extends BaseTest {
     protected void addSingleBlouseToCartTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
         //general page web element assert
         isGeneralPageWebElementDisplayed(generalPage);
         //general page text element assert
@@ -3326,6 +3327,28 @@ public class TestMethods extends BaseTest {
         logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
         //click 'Blouse' product name link
         singleProductCategoryDashboardPage.clickBlouseNameLink(1);
+        //assert the user gets onto correct single product page
+        assertEquals("Blouse", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong page.");
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextAsExpected(singleProductPage);
+        //log single product page data
+        logSingleProductPageData(singleProductPage);
+        //capture screenshot of the product page
+        captureScreenshot(driver, "'Blouse' Product Page Display");
+        //click 'White' color button
+        singleProductPage.clickBlouseWhiteColorButton();
+        //capture screenshot of the available product selection
+        captureScreenshot(driver, "Available 'Blouse' Product Selected");
+        //click 'Add to Cart' button
+        singleProductPage.clickAddToCartButton();
+        //wait for elements to load
+        generalPage.waitElementsToLoad(driver);
+        //click 'Proceed to Checkout' button method
+        singleProductPage.clickProceedToCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Available 'Blouse' Product Addition To Cart Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
