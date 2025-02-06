@@ -210,6 +210,27 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByLowestReferenceOptionViewTest();
     }
 
+    //Test 007m -> product sort by 'Lowest Reference' option test (single category product dashboard page) (as a registered user)
+    @Test
+    @DisplayName("Product Sort By 'Lowest Reference' Option Test (as a registered user)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Registered_User")
+    void regUserProductSortByLowestReferenceOptionTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' product category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by 'Lowest Reference' option (as a registered user)
+        sortByLowestReferenceOptionViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
