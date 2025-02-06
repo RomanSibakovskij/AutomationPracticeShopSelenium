@@ -264,6 +264,20 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByHighestReferenceOptionViewTest();
     }
 
+    //add single 'Blouse' to cart tests
+
+    //Test 007p -> add single 'Blouse' to cart test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Add Single 'Blouse' To Cart Test (as a guest)")
+    @Tag("Add_Singular_Product_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void addSingleProductToCartTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add single 'Blouse' to cart (as a guest)
+        addSingleBlouseToCartTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)

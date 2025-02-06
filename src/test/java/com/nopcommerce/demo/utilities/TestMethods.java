@@ -3156,7 +3156,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by lowest price first test method
     protected void sortByLowestPriceFirstViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3178,7 +3177,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by highest price first test method
     protected void sortByHighestPriceFirstViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3200,7 +3198,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by name (A - Z) first test method
     protected void sortByNameAZFirstViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3222,7 +3219,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by name (Z - A) first test method
     protected void sortByNameZAFirstViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3246,7 +3242,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by 'In Stock' option first test method
     protected void sortByInStockOptionViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3268,7 +3263,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by lowest reference option first test method
     protected void sortByLowestReferenceOptionViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3290,7 +3284,6 @@ public class TestMethods extends BaseTest {
 
     //product sort by highest reference option first test method
     protected void sortByHighestReferenceOptionViewTest(){
-        GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
         //single product category dashboard page web element assert (main content)
         isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
@@ -3308,6 +3301,31 @@ public class TestMethods extends BaseTest {
         singleProductCategoryDashboardPage.selectSortByHighestReferenceOption();
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User (or Guest) Product Sort By 'Highest Reference' Option on 'Women' Product Category Dashboard Page");
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //add single 'Blouse' to cart test method
+    protected void addSingleBlouseToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //single product category dashboard page web element assert (main content)
+        isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (main content)
+        isWomenProductCategoryDashboardPageMainTextElementAsExpected(singleProductCategoryDashboardPage);
+        //single product category dashboard page web element assert (aside content)
+        //isSingleProductCategoryDashboardPageAsideWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (aside content)
+        isWomenProductCategoryDashboardPageAsideTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log single product category dashboard page data
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+        //click 'Blouse' product name link
+        singleProductCategoryDashboardPage.clickBlouseNameLink(1);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

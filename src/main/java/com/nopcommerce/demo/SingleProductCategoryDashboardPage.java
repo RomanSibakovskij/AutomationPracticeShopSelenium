@@ -209,6 +209,12 @@ public class SingleProductCategoryDashboardPage extends BasePage {
         element.click();
     }
 
+    //click 'Blouse' name link method
+    public void clickBlouseNameLink(int index) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productNameLinkElements.get(index)).click().perform();
+    }
+
     //single product category dashboard page text element getters (main page content)
     public String getProductDashboardCategoryImgTitle() {return productDashboardCategoryImgTitle.getText();}
     public String getProductDashboardCategoryImgDesc() {return productDashboardCategoryImgDesc.getText();}
