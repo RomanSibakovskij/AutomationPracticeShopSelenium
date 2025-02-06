@@ -278,6 +278,27 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         addSingleBlouseToCartTest();
     }
 
+    //Test 007q -> add single 'Blouse' to cart test (single category product dashboard page) (as a registered user)
+    @Test
+    @DisplayName("Add Single 'Blouse' To Cart Test (as a registered user)")
+    @Tag("Add_Singular_Product_To_Cart")
+    @Tag("Test_As_A_Registered_User")
+    void regUserSingleProductToCartTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' product category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add single 'Blouse' to cart (as a registered user)
+        addSingleBlouseToCartTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
