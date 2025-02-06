@@ -97,6 +97,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private WebElement productDashboardSortByNameAZOption;
     @FindBy(xpath = "//select/option[5]")
     private WebElement productDashboardSortByNameZAOption;
+    @FindBy(xpath = "//select/option[6]")
+    private WebElement productDashboardSortByInStockOption;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[1]")
     private WebElement productDashboardViewSubtext;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[2]/a")
@@ -182,6 +184,12 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     public void selectSortByNameZAOption() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByNameZAOption));
+        element.click();
+    }
+
+    public void selectSortByInStockOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByInStockOption));
         element.click();
     }
 

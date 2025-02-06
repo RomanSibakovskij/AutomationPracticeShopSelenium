@@ -165,6 +165,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByNameZAFirstViewTest();
     }
 
+    //Test 007j -> product sort by 'In Stock' option test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Product Sort By 'In Stock' Option Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByInStockOptionTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by 'In Stock' option (as a guest)
+        sortByInStockOptionViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
