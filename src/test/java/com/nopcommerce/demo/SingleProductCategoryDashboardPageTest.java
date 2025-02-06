@@ -111,6 +111,27 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByNameAZFirstViewTest();
     }
 
+    //Test 007g -> product sort by product name (A - Z) first test (single category product dashboard page) (as a registered user)
+    @Test
+    @DisplayName("Product Sort By Name (A - Z) Test (as a registered user)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Registered_User")
+    void regUserProductSortByNameAZTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' product category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by product name (A - Z) (as a registered user)
+        sortByNameAZFirstViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
