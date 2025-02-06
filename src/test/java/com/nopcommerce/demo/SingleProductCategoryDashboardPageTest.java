@@ -231,6 +231,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByLowestReferenceOptionViewTest();
     }
 
+    //Test 007n -> product sort by 'Highest Reference' option test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Product Sort By 'Highest Reference' Option Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByHighestReferenceOptionTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by 'Highest Reference' option (as a guest)
+        sortByHighestReferenceOptionViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)

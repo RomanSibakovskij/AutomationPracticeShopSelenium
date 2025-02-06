@@ -3288,6 +3288,28 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User (or Guest) Product Sort By 'Lowest Reference' Option on 'Women' Product Category Dashboard Page");
     }
 
+    //product sort by highest reference option first test method
+    protected void sortByHighestReferenceOptionViewTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //single product category dashboard page web element assert (main content)
+        isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (main content)
+        isWomenProductCategoryDashboardPageMainTextElementAsExpected(singleProductCategoryDashboardPage);
+        //single product category dashboard page web element assert (aside content)
+        //isSingleProductCategoryDashboardPageAsideWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (aside content)
+        isWomenProductCategoryDashboardPageAsideTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log single product category dashboard page data
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+        //click 'Sort By' dropdown menu
+        singleProductCategoryDashboardPage.clickSortByDropdownMenu();
+        //select 'Highest Reference' option
+        singleProductCategoryDashboardPage.selectSortByHighestReferenceOption();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User (or Guest) Product Sort By 'Highest Reference' Option on 'Women' Product Category Dashboard Page");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //add two product to compare list test method ('Blouse' and 'Printed Chiffon Dress')

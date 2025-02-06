@@ -101,6 +101,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private WebElement productDashboardSortByInStockOption;
     @FindBy(xpath = "//select/option[7]")
     private WebElement productDashboardSortByLowestReferenceOption;
+    @FindBy(xpath = "//select/option[8]")
+    private WebElement productDashboardSortByHighestReferenceOption;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[1]")
     private WebElement productDashboardViewSubtext;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[2]/a")
@@ -198,6 +200,12 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     public void selectSortByLowestReferenceOption() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByLowestReferenceOption));
+        element.click();
+    }
+
+    public void selectSortByHighestReferenceOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByHighestReferenceOption));
         element.click();
     }
 
