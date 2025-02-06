@@ -45,7 +45,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByLowestPriceFirstViewTest();
     }
 
-    //Test 007c -> product sort by lowest price first test (single category product dashboard page)
+    //Test 007c -> product sort by lowest price first test (single category product dashboard page) (as a registered user)
     @Test
     @DisplayName("Product Sort By Lowest Price Test (as a registered user)")
     @Tag("Product_Sort_By_View_Test")
@@ -75,6 +75,27 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         //navigate to 'Women' category dashboard page test (as a guest)
         navigateToWomenCategoryProductDashboardPageTest();
         //sort product by highest price first (as a guest)
+        sortByHighestPriceFirstViewTest();
+    }
+
+    //Test 007e -> product sort by highest price first test (single category product dashboard page) (as a registered user)
+    @Test
+    @DisplayName("Product Sort By Highest Price Test (as a registered user)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Registered_User")
+    void regUserProductSortByHighestPriceTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' product category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by highest price first (as a registered user)
         sortByHighestPriceFirstViewTest();
     }
 
