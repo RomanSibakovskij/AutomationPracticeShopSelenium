@@ -66,6 +66,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByLowestPriceFirstViewTest();
     }
 
+    //Test 007d -> product sort by highest price first test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Product Sort By Highest Price Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByHighestPriceTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by highest price first (as a guest)
+        sortByHighestPriceFirstViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)

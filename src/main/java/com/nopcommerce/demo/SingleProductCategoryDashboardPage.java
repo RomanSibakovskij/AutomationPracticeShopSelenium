@@ -91,6 +91,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private WebElement productDashboardSortByDropdownMenu;
     @FindBy(xpath = "//select/option[2]")
     private WebElement productDashboardSortByLowestPriceOption;
+    @FindBy(xpath = "//select/option[3]")
+    private WebElement productDashboardSortByHighestPriceOption;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[1]")
     private WebElement productDashboardViewSubtext;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[2]/a")
@@ -147,12 +149,15 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     }
 
     //select 'Sort By' option methods
-//    public void selectSortByLowestPriceOption(){productDashboardSortByLowestPriceOption.click();}
     public void selectSortByLowestPriceOption() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(
-                productDashboardSortByLowestPriceOption
-        ));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByLowestPriceOption));
+        element.click();
+    }
+
+    public void selectSortByHighestPriceOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByHighestPriceOption));
         element.click();
     }
 

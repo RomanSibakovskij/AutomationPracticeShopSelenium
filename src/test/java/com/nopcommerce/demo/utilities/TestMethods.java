@@ -3152,7 +3152,9 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User (or Guest) Navigation To 'Women' Product Category Dashboard Page");
     }
 
-    //add two product to cart from compare list test method ('Blouse' and 'Printed Chiffon Dress')
+    //display 'Sort By' tests
+
+    //product sort by lowest price first test method
     protected void sortByLowestPriceFirstViewTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
@@ -3172,6 +3174,28 @@ public class TestMethods extends BaseTest {
         singleProductCategoryDashboardPage.selectSortByLowestPriceOption();
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User (or Guest) Product Sort By Lowest Price First on 'Women' Product Category Dashboard Page");
+    }
+
+    //product sort by highest price first test method
+    protected void sortByHighestPriceFirstViewTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //single product category dashboard page web element assert (main content)
+        isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (main content)
+        isWomenProductCategoryDashboardPageMainTextElementAsExpected(singleProductCategoryDashboardPage);
+        //single product category dashboard page web element assert (aside content)
+        //isSingleProductCategoryDashboardPageAsideWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (aside content)
+        isWomenProductCategoryDashboardPageAsideTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log single product category dashboard page data
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+        //click 'Sort By' dropdown menu
+        singleProductCategoryDashboardPage.clickSortByDropdownMenu();
+        //select 'Sort By Highest Price First' option
+        singleProductCategoryDashboardPage.selectSortByHighestPriceOption();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User (or Guest) Product Sort By Highest Price First on 'Women' Product Category Dashboard Page");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
