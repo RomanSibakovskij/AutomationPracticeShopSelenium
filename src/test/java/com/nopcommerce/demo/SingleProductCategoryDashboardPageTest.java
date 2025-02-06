@@ -132,6 +132,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByNameAZFirstViewTest();
     }
 
+    //Test 007h -> product sort by product name (Z - A) test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Product Sort By Name (Z - A) Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByNameZATest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by product name (Z - A) (as a guest)
+        sortByNameZAFirstViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)

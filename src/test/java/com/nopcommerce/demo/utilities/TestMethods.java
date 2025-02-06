@@ -3220,6 +3220,30 @@ public class TestMethods extends BaseTest {
         captureScreenshot(driver, "Valid User (or Guest) Product Sort By Product Name A - Z on 'Women' Product Category Dashboard Page");
     }
 
+    //product sort by name (Z - A) first test method
+    protected void sortByNameZAFirstViewTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        SingleProductCategoryDashboardPage singleProductCategoryDashboardPage = new SingleProductCategoryDashboardPage(driver);
+        //single product category dashboard page web element assert (main content)
+        isSingleProductCategoryDashboardPageMainWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (main content)
+        isWomenProductCategoryDashboardPageMainTextElementAsExpected(singleProductCategoryDashboardPage);
+        //single product category dashboard page web element assert (aside content)
+        //isSingleProductCategoryDashboardPageAsideWebElementDisplayed(singleProductCategoryDashboardPage);
+        //single product category (Women) dashboard page text element assert (aside content)
+        isWomenProductCategoryDashboardPageAsideTextElementAsExpected(singleProductCategoryDashboardPage);
+        //log single product category dashboard page data
+        logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
+        //click 'List' view button
+        singleProductCategoryDashboardPage.clickListViewButton();
+        //click 'Sort By' dropdown menu
+        singleProductCategoryDashboardPage.clickSortByDropdownMenu();
+        //select 'Sort By Name (Z - A)' option
+        singleProductCategoryDashboardPage.selectSortByNameZAOption();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User (or Guest) Product Sort By Product Name Z - A on 'Women' Product Category Dashboard Page");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //add two product to compare list test method ('Blouse' and 'Printed Chiffon Dress')

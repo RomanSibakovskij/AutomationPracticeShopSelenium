@@ -95,6 +95,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private WebElement productDashboardSortByHighestPriceOption;
     @FindBy(xpath = "//select/option[4]")
     private WebElement productDashboardSortByNameAZOption;
+    @FindBy(xpath = "//select/option[5]")
+    private WebElement productDashboardSortByNameZAOption;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[1]")
     private WebElement productDashboardViewSubtext;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[2]/a")
@@ -150,6 +152,14 @@ public class SingleProductCategoryDashboardPage extends BasePage {
         actions.moveToElement(productDashboardSortByDropdownMenu).click().perform();
     }
 
+    //click 'List' view button method
+    public void clickListViewButton() {
+        Actions actions = new Actions(driver);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productDashboardListViewButton);
+        actions.moveToElement(productDashboardListViewButton).click().perform();
+    }
+
     //select 'Sort By' option methods
     public void selectSortByLowestPriceOption() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
@@ -166,6 +176,12 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     public void selectSortByNameAZOption() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByNameAZOption));
+        element.click();
+    }
+
+    public void selectSortByNameZAOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(productDashboardSortByNameZAOption));
         element.click();
     }
 
