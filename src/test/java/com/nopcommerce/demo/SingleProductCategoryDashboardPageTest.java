@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 public class SingleProductCategoryDashboardPageTest extends TestMethods{
 
-    //Test 007 -> navigate guest to 'Women' product category page test
+    //Test 007 -> navigate guest to 'Women' product category page test (as a guest)
     @Test
     @DisplayName("Guest Navigation To 'Women' Product Category Page Test")
     @Tag("Test_As_A_Guest")
@@ -13,7 +13,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         navigateToWomenCategoryProductDashboardPageTest();
     }
 
-    //Test 007a -> navigate registered user to 'Women' product category page test
+    //Test 007a -> navigate registered user to 'Women' product category page test (as a registered user)
     @Test
     @DisplayName("Registered User Navigation To 'Women' Product Category Page Test")
     @Tag("Test_As_A_Registered_User")
@@ -33,7 +33,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
 
     //single category page dashboard product display view tests
 
-    //Test 007b -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
+    //Test 007b -> product sort by lowest price first test (single category product dashboard page) (as a guest)
     @Test
     @DisplayName("Product Sort By Lowest Price Test (as a guest)")
     @Tag("Product_Sort_By_View_Test")
@@ -42,6 +42,27 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         //navigate to 'Women' category dashboard page test (as a guest)
         navigateToWomenCategoryProductDashboardPageTest();
         //sort product by lowest price first (as a guest)
+        sortByLowestPriceFirstViewTest();
+    }
+
+    //Test 007c -> product sort by lowest price first test (single category product dashboard page)
+    @Test
+    @DisplayName("Product Sort By Lowest Price Test (as a registered user)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Registered_User")
+    void regUserProductSortByLowestPriceTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' product category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by lowest price first (as a registered user)
         sortByLowestPriceFirstViewTest();
     }
 
