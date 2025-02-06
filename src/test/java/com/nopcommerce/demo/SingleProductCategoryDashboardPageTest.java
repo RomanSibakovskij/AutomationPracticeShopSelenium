@@ -198,6 +198,18 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByInStockOptionViewTest();
     }
 
+    //Test 007l -> product sort by 'Lowest Reference' option test (single category product dashboard page) (as a guest)
+    @Test
+    @DisplayName("Product Sort By 'Lowest Reference' Option Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByLowestReferenceOptionTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by 'Lowest Reference' option (as a guest)
+        sortByLowestReferenceOptionViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
