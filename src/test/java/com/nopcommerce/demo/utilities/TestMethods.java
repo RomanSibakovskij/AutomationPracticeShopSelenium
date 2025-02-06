@@ -3936,6 +3936,62 @@ public class TestMethods extends BaseTest {
         assertTrue(productComparisonPage.isProductComparedProductPropertiesDisplayed(), "The 'Product Comparison' page comparison product properties aren't displayed");
     }
 
+    //single product page web element assert test method
+    protected void isSingleProductPageWebElementDisplayed(SingleProductPage singleProductPage){
+        //assert single product page breadcrumb displayed
+        assertTrue(singleProductPage.isSingleProductPageBreadcrumbDisplayed(), "The 'Single Product' page breadcrumb isn't displayed");
+        //assert single product page product main image is displayed
+        assertTrue(singleProductPage.isSingleProductPageMainProductImageDisplayed(), "The 'Single Product' page product main image isn't displayed");
+        //assert single product page 'view larger image' button is displayed
+        assertTrue(singleProductPage.isSingleProductPageViewLargerImageButtonDisplayed(), "The 'Single Product' page 'View larger image' button isn't displayed");
+        //assert single product page product title is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductTitleDisplayed(), "The 'Single Product' page product title isn't displayed");
+        //assert single product page product reference subtext is  displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReferenceSubtextDisplayed(), "The 'Single Product' page product reference subtext isn't displayed");
+        //assert single product page product reference is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductReferenceDisplayed(), "The 'Single Product' page product reference isn't displayed");
+        //assert single product page product condition subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductConditionSubtextDisplayed(), "The 'Single Product' page product condition subtext isn't displayed");
+        //assert single product page product condition is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductConditionDisplayed(), "The 'Single Product' page product condition isn't displayed");
+        //assert single product page product short description is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShortDescriptionDisplayed(), "The 'Single Product' page product short description isn't displayed");
+        //assert single product page product availability box is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductAvailabilityBoxDisplayed(), "The 'Single Product' page product availability box isn't displayed");
+        //assert single product page share tweet link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShareTweetLinkDisplayed(), "The 'Single Product' page share tweet link isn't displayed");
+        //assert single product page share facebook link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShareFacebookLinkDisplayed(), "The 'Single Product' page share facebook link isn't displayed");
+        //assert single product page share google link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShareGoogleLinkDisplayed(), "The 'Single Product' page share google link isn't displayed");
+        //assert single product page share pinterest link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductSharePinterestLinkDisplayed(), "The 'Single Product' page share pinterest link isn't displayed");
+        //assert single product page send friend email link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductSendFriendEmailLinkDisplayed(), "The 'Single Product' page send friend email link isn't displayed");
+        //assert single product page print link is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductPrintLinkDisplayed(), "The 'Single Product' page print link isn't displayed");
+        //assert single product page product unit price is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductUnitPriceDisplayed(), "The 'Single Product' page product unit price isn't displayed");
+        //assert single product page payment methods icon is displayed
+        assertTrue(singleProductPage.isSingleProductPagePaymentIconDisplayed(), "The 'Single Product' page payment methods icon isn't displayed");
+        //assert single product page data sheet section title is displayed
+        assertTrue(singleProductPage.isSingleProductPageDataSheetSectionTitleDisplayed(), "The 'Single Product' page data sheet section title isn't displayed");
+        //assert single product page product composition is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductCompositionDisplayed(), "The 'Single Product' page product composition isn't displayed");
+        //assert single product page product styles is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductStylesDisplayed(), "The 'Single Product' page product styles isn't displayed");
+        //assert single product page product property(ies) is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductPropertiesDisplayed(), "The 'Single Product' page product property(ies) isn't displayed");
+        //assert single product page 'More Information' section title is displayed
+        assertTrue(singleProductPage.isSingleProductPageMoreInfoSectionTitleDisplayed(), "The 'Single Product' page 'More Information' section title' isn't displayed");
+        //assert single product page product detailed description is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductDetailedDescriptionDisplayed(), "The 'Single Product' page product detailed description isn't displayed");
+        //assert single product page product color buttons are displayed (as a list)
+        assertTrue(singleProductPage.isProductColorButtonDisplayed(), "The 'Single Product' page product color buttons aren't displayed");
+        //assert single product page product view images are displayed (as a list)
+        assertTrue(singleProductPage.isProductViewImageDisplayed(), "The 'Single Product' page product view images aren't displayed");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method (all pages have them)
@@ -4168,6 +4224,18 @@ public class TestMethods extends BaseTest {
         assertEquals("Share this comparison with your friends:", productComparisonPage.getProductComparisonBoxSubtext(), "The 'Product Comparison' page comparison box subtext doesn't match expectations.");
     }
 
+    //single product page text element test assert method
+    protected void isSingleProductPageTextAsExpected(SingleProductPage singleProductPage){
+        //assert single product page reference subtext is as expected
+        assertEquals("Reference:", singleProductPage.getProductReferenceSubtext(), "The single product page product reference subtext doesn't match expectations.");
+        //assert single product page condition subtext is as expected
+        assertEquals("Condition:", singleProductPage.getProductConditionSubtext(), "The single product page product condition subtext doesn't match expectations.");
+        //assert single product page data section title is as expected
+        assertEquals("DATA SHEET", singleProductPage.getDataSheetSectionTitle(), "The single product page data section title doesn't match expectations.");
+        //assert single product page more information section title is as expected
+        assertEquals("MORE INFO", singleProductPage.getMoreInformationSectionTitle(), "The single product page more information section title doesn't match expectations.");
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page bestseller product data logger method
@@ -4217,6 +4285,20 @@ public class TestMethods extends BaseTest {
         if(productComparisonPage.isProductComparedProductReducedPriceTagDisplayed()) {
             logger.info("Compared product reduced price tag(s): " + productComparisonPage.getProductComparedReducedPriceTag());
         }
+        System.out.println("\n");
+    }
+
+    //single product page data logger method
+    protected void logSingleProductPageData(SingleProductPage singleProductPage){
+        System.out.println("Displayed single product page data: " + "\n");
+        logger.info("Single product reference: " + singleProductPage.getProductReference());
+        logger.info("Single product condition: " + singleProductPage.getProductCondition());
+        logger.info("Single product short description: " + singleProductPage.getProductShortDescription());
+        logger.info("Single product availability: " + singleProductPage.getProductAvailabilityBoxText());
+        logger.info("Single product unit price: " + singleProductPage.getProductUnitPrice());
+        logger.info("Single product composition: " + singleProductPage.getProductComposition());
+        logger.info("Single product styles: " + singleProductPage.getProductStyles());
+        logger.info("Single product description: " + singleProductPage.getProductDescription());
         System.out.println("\n");
     }
 
