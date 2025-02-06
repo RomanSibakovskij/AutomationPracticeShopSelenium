@@ -77,4 +77,20 @@ public class ProductComparisonPageTest extends TestMethods{
         removeBlouseFromCompareListTest();
     }
 
+    //add product from comparison page to shopping cart page tests
+
+    //Test 008d -> add 'Blouse' product from compare list to shopping cart test (as a guest)
+    @Test
+    @DisplayName("Add 'Blouse' Product From Compare List To Shopping Cart Test (as a guest)")
+    @Tag("Add_Product_From_Compare_To_Shopping_Cart_List")
+    @Tag("Test_As_A_Guest")
+    void guestAddProductToCompareListTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
+        addBlouseAndPrintedDressToCompareListTest();
+        //add 'Blouse' product from compare list to shopping cart test (as a guest)
+        addBlouseFromCompareListToShoppingCartTest();
+    }
+
 }

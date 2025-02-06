@@ -4,6 +4,8 @@ import com.nopcommerce.demo.utilities.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.*;
@@ -17,6 +19,8 @@ public class ShoppingCartSummaryPage extends BasePage {
     private WebElement shoppingCartPageTitle;
     @FindBy(xpath = "//div[@id='center_column']//span[@class='heading-counter']")
     private WebElement shoppingCartProductCount;
+    @FindBy(xpath = "//table[@id='cart_summary']/tbody/tr[1]/td[5]//input[@class='cart_quantity_input form-control grey']")
+    private WebElement shoppingCartProductQtyInputField;
     //product table list element
     private List<WebElement> shoppingCartStepImageElements = driver.findElements(By.xpath("//ul[@id='order_step']/li"));
     private List<WebElement> shoppingCartProductImageLinkElements = driver.findElements(By.xpath("//table[@id='cart_summary']/tbody/tr/td[1]/a"));
@@ -60,6 +64,14 @@ public class ShoppingCartSummaryPage extends BasePage {
     private WebElement shoppingCartProceedToCheckoutButton;
 
     public ShoppingCartSummaryPage(WebDriver driver) {super(driver);}
+
+    //input product quantity into product quantity input field
+    public void inputProductQuantityIntoProductQtyInputField(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(850));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartProductQtyInputField));
+        shoppingCartProductQtyInputField.clear();
+        shoppingCartProductQtyInputField.sendKeys("3");
+    }
 
     //shopping cart product data getters
     //list elements

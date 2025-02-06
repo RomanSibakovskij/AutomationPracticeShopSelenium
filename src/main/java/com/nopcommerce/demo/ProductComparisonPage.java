@@ -28,6 +28,8 @@ public class ProductComparisonPage extends BasePage{
     private WebElement productComparisonBoxPinterestShareLink;
     @FindBy(xpath = "//div[@class='breadcrumb clearfix']")
     private WebElement productComparisonPageContinueShoppingButton;
+    @FindBy(xpath = "//div[@id='layer_cart']//a")
+    private WebElement productComparisonPageProductProceedToCartButton;
     //product comparison table list elements
     @FindBy(xpath = "//table[@id='product_comparison']/tbody/tr[1]/td/h5")
     private List<WebElement> productComparedNameElements;
@@ -55,6 +57,25 @@ public class ProductComparisonPage extends BasePage{
     public void clickRemoveProductButton(int index) {
         Actions actions = new Actions(driver);
         actions.moveToElement(productComparedRemoveButtonElements.get(index)).click().perform();
+    }
+
+    //click 'Add to Cart' product button method
+    public void clickAddToCartProductButton(int index) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(productComparedAddToCartButtonElements.get(index)).click().perform();
+    }
+
+    //click 'Proceed to Checkout' button method (simple JS click fails to add product to cart for some reason, Actions don't work here)
+    public void clickProceedToCheckoutButton() {
+        try {
+            //attempt regular Actions click first
+            Actions actions = new Actions(driver);
+            actions.moveToElement(productComparisonPageProductProceedToCartButton).click().perform();
+        } catch (Exception e) {
+            //js click if Actions fails
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", productComparisonPageProductProceedToCartButton);
+        }
     }
 
     //product comparison page product data getters (list elements)

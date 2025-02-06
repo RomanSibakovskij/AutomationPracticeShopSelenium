@@ -3326,9 +3326,9 @@ public class TestMethods extends BaseTest {
         //log single product category dashboard page data
         logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
         //click 'Blouse' product name link
-        singleProductCategoryDashboardPage.clickBlouseNameLink(1);
+        singleProductCategoryDashboardPage.clickBlouseNameLink(4);
         //assert the user gets onto correct single product page
-        assertEquals("Blouse", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong page.");
+        assertEquals("Printed Summer Dress", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong page.");
         //single product page web element assert
         isSingleProductPageWebElementDisplayed(singleProductPage);
         //single product page text element assert
@@ -3336,11 +3336,11 @@ public class TestMethods extends BaseTest {
         //log single product page data
         logSingleProductPageData(singleProductPage);
         //capture screenshot of the product page
-        captureScreenshot(driver, "'Blouse' Product Page Display");
+        captureScreenshot(driver, "'Printed Summer Dress' Product Page Display");
         //click 'White' color button
         singleProductPage.clickBlouseWhiteColorButton();
         //capture screenshot of the available product selection
-        captureScreenshot(driver, "Available 'Blouse' Product Selected");
+        captureScreenshot(driver, "Available 'Printed Summer Dress' Product Selected");
         //click 'Add to Cart' button
         singleProductPage.clickAddToCartButton();
         //wait for elements to load
@@ -3348,9 +3348,8 @@ public class TestMethods extends BaseTest {
         //click 'Proceed to Checkout' button method
         singleProductPage.clickProceedToCheckoutButton();
         //capture screenshot of the test result
-        captureScreenshot(driver, "Available 'Blouse' Product Addition To Cart Test Result");
+        captureScreenshot(driver, "Available 'Printed Summer Dress' Product Addition To Cart Test Result");
     }
-
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3383,6 +3382,28 @@ public class TestMethods extends BaseTest {
         logProductComparisonPageProductData(productComparisonPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Blouse and Dress Product Addition To Comparison Page Test Result");
+    }
+
+    //add 'Blouse' from compare list to shopping cart test method
+    protected void addBlouseFromCompareListToShoppingCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        ProductComparisonPage productComparisonPage = new ProductComparisonPage(driver);
+        //general page web element assert
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert
+        isGeneralPageTextElementAsExpected(generalPage);
+        //product comparison page web element assert
+        isProductComparisonPageWebElementDisplayed(productComparisonPage);
+        //product comparison page text element assert
+        isProductComparisonPageTextElementAsExpected(productComparisonPage);
+        //log product comparison page data
+        logProductComparisonPageProductData(productComparisonPage);
+        //click 'Add to Cart' product button
+        productComparisonPage.clickAddToCartProductButton(0);
+        //click 'Proceed to Checkout' button
+        productComparisonPage.clickProceedToCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Blouse Product Addition From Comparison Page To Shopping Cart Page Test Result");
     }
 
     //remove a single product from compare list test method ('Blouse')
