@@ -89,6 +89,8 @@ public class SingleProductCategoryDashboardPage extends BasePage {
     private WebElement productDashboardSortBySubtext;
     @FindBy(xpath = "//div[@id='center_column']//select")
     private WebElement productDashboardSortByDropdownMenu;
+    @FindBy(xpath = "//select/option[2]")
+    private WebElement productDashboardSortByLowestPriceOption;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[1]")
     private WebElement productDashboardViewSubtext;
     @FindBy(xpath = "//ul[@class='display hidden-xs']/li[2]/a")
@@ -134,6 +136,24 @@ public class SingleProductCategoryDashboardPage extends BasePage {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productDashboardCompareButtonBox);
         actions.moveToElement(productDashboardCompareButtonBox).click().perform();
+    }
+
+    //click 'Sort By' dropdown menu method
+    public void clickSortByDropdownMenu() {
+        Actions actions = new Actions(driver);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", productDashboardSortByDropdownMenu);
+        actions.moveToElement(productDashboardSortByDropdownMenu).click().perform();
+    }
+
+    //select 'Sort By' option methods
+//    public void selectSortByLowestPriceOption(){productDashboardSortByLowestPriceOption.click();}
+    public void selectSortByLowestPriceOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(
+                productDashboardSortByLowestPriceOption
+        ));
+        element.click();
     }
 
     //single product category dashboard page text element getters (main page content)

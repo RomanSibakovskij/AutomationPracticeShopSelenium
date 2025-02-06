@@ -31,6 +31,20 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         navigateToWomenCategoryProductDashboardPageTest();
     }
 
+    //single category page dashboard product display view tests
+
+    //Test 007b -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
+    @Test
+    @DisplayName("Product Sort By Lowest Price Test (as a guest)")
+    @Tag("Product_Sort_By_View_Test")
+    @Tag("Test_As_A_Guest")
+    void guestProductSortByLowestPriceTest(){
+        //navigate to 'Women' category dashboard page test (as a guest)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //sort product by lowest price first (as a guest)
+        sortByLowestPriceFirstViewTest();
+    }
+
     //add products to compare list tests
 
     //Test 008 -> add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
