@@ -77,7 +77,7 @@ public class ProductComparisonPageTest extends TestMethods{
         removeBlouseFromCompareListTest();
     }
 
-    //add product from comparison page to shopping cart page tests
+    //add product from comparison page to shopping cart page tests (products don't get added sometimes to shopping cart, therefore further tests are postponed until the issue gets fixed)
 
     //Test 008d -> add 'Blouse' product from compare list to shopping cart test (as a guest)
     @Test
@@ -88,6 +88,29 @@ public class ProductComparisonPageTest extends TestMethods{
         //navigate to 'Women' category dashboard page test (as a guest)
         navigateToWomenCategoryProductDashboardPageTest();
         //add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a guest)
+        addBlouseAndPrintedDressToCompareListTest();
+        //add 'Blouse' product from compare list to shopping cart test (as a guest)
+        addBlouseFromCompareListToShoppingCartTest();
+    }
+
+    //Test 008e -> add 'Blouse' product from compare list to shopping cart test (as a registered user)
+    @Test
+    @DisplayName("Add 'Blouse' Product From Compare List To Shopping Cart Test (as a registered user)")
+    @Tag("Add_Product_From_Compare_To_Shopping_Cart_List")
+    @Tag("Test_As_A_Registered_User")
+    void regUserAddProductFromCompareListToShoppingCartTest(){
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //valid user navigation to 'Create Account' page test
+        validNavigateToCreateAccountPageTest();
+        //valid male user account creation test
+        validMaleUserAccountCreationTest(createAccountPage);
+        //valid user address addition test
+        validUserAddressAdditionTest();
+        //return to homepage test
+        returnRegisteredUserToHomePage();
+        //navigate to 'Women' category dashboard page test (as a registered user)
+        navigateToWomenCategoryProductDashboardPageTest();
+        //add 'Blouse' and 'Printed Chiffon Dress' products to compare list test (as a registered user)
         addBlouseAndPrintedDressToCompareListTest();
         //add 'Blouse' product from compare list to shopping cart test (as a guest)
         addBlouseFromCompareListToShoppingCartTest();

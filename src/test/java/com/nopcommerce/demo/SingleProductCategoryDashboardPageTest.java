@@ -264,7 +264,7 @@ public class SingleProductCategoryDashboardPageTest extends TestMethods{
         sortByHighestReferenceOptionViewTest();
     }
 
-    //add single 'Blouse' to cart tests
+    //add single 'Blouse' to cart tests (products don't get added sometimes to shopping cart, therefore further tests are postponed until the issue gets fixed)
 
     //Test 007p -> add single 'Blouse' to cart test (single category product dashboard page) (as a guest)
     @Test
