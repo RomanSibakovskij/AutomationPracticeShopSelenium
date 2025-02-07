@@ -3326,9 +3326,9 @@ public class TestMethods extends BaseTest {
         //log single product category dashboard page data
         logSingleProductCategoryDashboardPageProductData(singleProductCategoryDashboardPage);
         //click 'Blouse' product name link
-        singleProductCategoryDashboardPage.clickBlouseNameLink(4);
+        singleProductCategoryDashboardPage.clickBlouseNameLink(1);
         //assert the user gets onto correct single product page
-        assertEquals("Printed Summer Dress", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong page.");
+        assertEquals("Blouse", singleProductPage.getSingleProductPageTitle(), "The single product page title doesn't match expectations or the user is on the wrong page.");
         //single product page web element assert
         isSingleProductPageWebElementDisplayed(singleProductPage);
         //single product page text element assert
@@ -3336,11 +3336,11 @@ public class TestMethods extends BaseTest {
         //log single product page data
         logSingleProductPageData(singleProductPage);
         //capture screenshot of the product page
-        captureScreenshot(driver, "'Printed Summer Dress' Product Page Display");
+        captureScreenshot(driver, "'Blouse' Product Page Display");
         //click 'White' color button
         singleProductPage.clickBlouseWhiteColorButton();
         //capture screenshot of the available product selection
-        captureScreenshot(driver, "Available 'Printed Summer Dress' Product Selected");
+        captureScreenshot(driver, "Available 'Blouse' Product Selected");
         //click 'Add to Cart' button
         singleProductPage.clickAddToCartButton();
         //wait for elements to load
@@ -3348,7 +3348,7 @@ public class TestMethods extends BaseTest {
         //click 'Proceed to Checkout' button method
         singleProductPage.clickProceedToCheckoutButton();
         //capture screenshot of the test result
-        captureScreenshot(driver, "Available 'Printed Summer Dress' Product Addition To Cart Test Result");
+        captureScreenshot(driver, "Available 'Blouse' Product Addition To Cart Test Result");
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
